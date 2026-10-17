@@ -1,0 +1,10 @@
+﻿pulling manifest
+pulling ac9bc7a69dab
+pulling 66b9ea09bd5b
+pulling 1e65450c3067
+pulling 832dd9e00a68
+pulling 0578f229f23a
+verifying sha256 digest
+writing manifest
+success
+qwen2.5-coder:14b digest 9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849 recorded: C:\Users\istu2\Documents\Szakdoga\artifacts\m3\model-install-qwen2.5-coder_14b.json

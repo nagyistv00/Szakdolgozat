@@ -106,6 +106,33 @@ The five proposals below were approved by the user, including the download of a 
 
 Caveat: the verification and review prompt wording encodes CWE-definition knowledge that was added after observing the first run's development false positives. Development results of this iteration are therefore optimistic; only held-out data (M4) can confirm an improvement.
 
+### Second iteration results (target machine, `artifacts/m3/check-20261017T110519Z/`)
+
+| Condition | TP | FP | TN | FN | Accuracy | Precision | Recall |
+|---|---|---|---|---|---|---|---|
+| Semgrep taint (no AI) | 5 | 1 | 11 | 1 | 0.889 | 0.833 | 0.833 |
+| Bandit ∪ Semgrep (no AI) | 5 | 5 | 7 | 1 | 0.667 | 0.500 | 0.833 |
+| Bandit ∪ Semgrep + 7B | 6 | 10 | 2 | 0 | 0.444 | 0.375 | 1.000 |
+| Semgrep + 7B | 6 | 8 | 4 | 0 | 0.556 | 0.429 | 1.000 |
+| Bandit ∪ Semgrep + 14B | 6 | 7 | 5 | 0 | 0.611 | 0.462 | 1.000 |
+| Semgrep + 14B | 6 | 4 | 8 | 0 | 0.778 | 0.600 | 1.000 |
+
+- All repeats identical. The only new true positive is the aliased eval in every model condition.
+- 14B beats 7B in every condition, follows the English-reasoning instruction (7B does not) and writes better Hungarian.
+- Self-verification by the same model barely filters: the no-verify ablation equals the verified union results for both models; it rejected 2 claims per model only in the Semgrep layer (14B correctly rejected the `int()`-constrained SQL). Confirmation bias is the likely cause; report as a negative result.
+- Remaining 14B false positives: list-argument subprocess without a shell, and dangerous-looking text that is only a string literal.
+- Request scenarios: rules, 7B and 14B all 12/12 on every field. Median latency per file: 7B ≈ 4.7 s, 14B ≈ 7.1 s.
+- Correction: the corpus code does not reveal the database driver, so `%s` versus `?` placeholders cannot be judged from the code.
+
+Recommendation (awaiting decision): 14B as default model; Semgrep taint as the "without AI" baseline with Bandit as a reference; keep verification but do not claim it improves precision; one last deterministic structural check (a model-only claim must point at a real call on that line, not at text inside a string literal); then freeze the configuration and evaluate on held-out data (M4).
+
+## Third (closing) iteration — decisions (2026-10-17)
+
+- Default model: qwen2.5-coder:14b (7B kept for comparison). Default scanner layer and "without AI" baseline: Semgrep taint rules; Bandit optional (`--with-bandit`) and reported as a reference.
+- New deterministic structural check: a model-only claim is kept only if the stated line contains a real function call according to the Python AST; otherwise it is rejected before any verification call. Scanner-backed claims are unaffected. Known limitation: a true model-only claim placed on a call-free line (for example the line that concatenates a query) is lost.
+- Self-verification stays, documented as a measured limitation rather than a precision mechanism.
+- Development tuning stops here; the configuration is frozen after the closing run and evaluated on held-out data in M4. The supervisor's examples have been requested by the user but not yet received.
+
 ## Proposals after the first run (approved)
 
 1. Deterministic language detection and a focus filter that must be supported by the request text (not file names).

@@ -183,6 +183,44 @@ Ez a napló a később összeállítandó szakdolgozat háttéranyaga. A kutatá
 - Egyéb: az ellenőrző szkript a futás előtt automatikusan commitolja a függő változásokat (üzenet: `scripts/git/pending_message.txt`), így minden futás commitolt kódon történik. Ismétlésszám 2 (az első futás 3 ismétlése azonos volt).
 - Ellenőrzés eddig: Ruff sikeres; a kérésértelmező mind a 12 helyzetet és a három korábbi hibát helyesen kezeli; az ellenőrző lépés szimulált modellel megerősít, elutasít, és a hibát láthatóvá teszi; a bővített mérőszkript a célgépről vett valódi elemzői kimenetekkel és szimulált modellel végigfutott.
 
+## 2026-10-17 – M3 második kör: célgépi eredmények
+
+- Mérföldkő: 3. Állapot: **mért fejlesztési eredmény** (18 fejlesztési minta; nem végső kiértékelés). Bizonyíték: `artifacts/m3/check-20261017T110519Z/`; minden lépés 0 kilépési kóddal.
+- Környezet: git-pillanatkép `30a5b0c` („M3 iteration 2…”); pytest 93/93; M2-reprodukció lefutott. qwen2.5-coder:14b letöltve (kb. 3 perc), digest `9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849`, 14,8B, Q4_K_M, 8 988 124 298 bájt (`artifacts/m3/model-install-qwen2.5-coder_14b.json`). A 7B digestje változatlan.
+- Fejlesztési mérés (fájl a címkézett hibacsaládra; 2 ismétlés, mindkét modellnél minden ismétlés azonos):
+
+  | Feltétel | TP | FP | TN | FN | Accuracy | Precision | Recall |
+  |---|---|---|---|---|---|---|---|
+  | Semgrep taint (AI nélkül) | 5 | 1 | 11 | 1 | 0,889 | 0,833 | 0,833 |
+  | Bandit ∪ Semgrep (AI nélkül) | 5 | 5 | 7 | 1 | 0,667 | 0,500 | 0,833 |
+  | Bandit ∪ Semgrep + 7B | 6 | 10 | 2 | 0 | 0,444 | 0,375 | 1,000 |
+  | Semgrep + 7B | 6 | 8 | 4 | 0 | 0,556 | 0,429 | 1,000 |
+  | Bandit ∪ Semgrep + 14B | 6 | 7 | 5 | 0 | 0,611 | 0,462 | 1,000 |
+  | Semgrep + 14B | 6 | 4 | 8 | 0 | 0,778 | 0,600 | 1,000 |
+
+- Megállapítások:
+  - Minden modelles feltételnél az egyetlen új valódi találat az aliasos eval (eval_alias_bad), így a recall 0,833 → 1,000. A modell mindig hoz új téves riasztásokat is. A legjobb modelles feltétel (Semgrep + 14B) accuracyben és precisionben elmarad a Semgrep egyedül futó változatától.
+  - A 14B minden feltételben jobb a 7B-nél (kevesebb téves pozitív), követi az „angol indoklás” utasítást, és a magyar magyarázatai természetesebbek. A 7B továbbra is magyarul indokolt, és egy további téves pozitívot adott (shell_direct_fixed). Az első kör 7B eredményéhez (0,5/0,4/1,0) képest a 7B nem javult.
+  - **A második, ellenőrző modellhívás alig szűrt.** Unió rétegnél az ellenőrzés nélküli abláció mindkét modellnél pontosan ugyanazt adta (7B: 7 ellenőrzés, 0 elutasítás; 14B: 3 ellenőrzés, 0 elutasítás). Csak Semgrep rétegnél utasított el 2–2 állítást, a 14B például helyesen az `int()`-tel szűrt SQL-t. A 7B ellenőrzője a saját nyomkövetésében „paraméteres lekérdezésnek” nevezte a kódot, mégis „sérülékeny” ítéletet adott. Következtetés: ugyanazon modell önellenőrzése megerősítési torzítás miatt gyenge precision-eszköz. Ez dokumentálandó negatív eredmény.
+  - A megmaradt 14B téves pozitívok: lista-argumentumú, shell nélküli subprocess (shell_direct_fixed), illetve csak karakterláncban szereplő parancs vagy SQL-szöveg (shell_text_control, sql_unexecuted_control).
+  - Kéréshelyzetek: a szabályalapú, a 7B és a 14B értelmező is 12/12 helyzetben minden mezőt helyesen adott (a determinisztikus nyelv- és szűrésellenőrzés után). Medián idő: 7B 0,43 s, 14B 0,63 s.
+  - Időigény (fájlonként, meleg modell, medián): 7B kb. 4,7 s, 14B kb. 7,1 s.
+  - Magyarázatok: a 14B szövegei érthetőbbek, de maradnak angol kifejezések („function parameter”). Helyesbítés az előző bejegyzéshez: a fejlesztési minták kódja nem árulja el az adatbázis-meghajtót, ezért a `%s` vagy `?` helyőrző a kódból nem dönthető el; ezt a magyarázat-értékelési szempontoknál figyelembe kell venni. A 7B demó szövegében továbbra is akadnak nyelvi hibák és nem odaillő könyvtárjavaslat (SQLAlchemy).
+- Javaslat (döntésre vár): alapértelmezett modell a 14B; az „AI nélküli” összehasonlítási alap a Semgrep taint-réteg, a Bandit csak referenciaként szerepeljen; az önellenőrzés maradhat, de ne állítsuk precision-javító eszköznek. Utolsó M3-változtatásként determinisztikus szerkezeti ellenőrzés: a csak modell által jelzett állítás akkor maradhat, ha a megjelölt soron valódi függvényhívás van, nem csupán karakterlánc. Ezután a fejlesztési adaton további hangolás helyett a konfigurációt rögzíteni kell, és független, előre lezárt adaton kell mérni (M4).
+- Szakdolgozati jelentőség: a fejlesztési eredmények szerint egy kis helyi modell a felismerési lefedettséget növelheti, de a pontosság rovására. Az önellenőrzés hatástalansága és a modellméret hatása mérhető, dokumentálható eredmény.
+
+## 2026-10-17 – M3 harmadik (záró) kör: döntések és szerkezeti ellenőrzés
+
+- Mérföldkő: 3. A felhasználó jóváhagyta az előző bejegyzés javaslatait. Állapot: **megvalósítva és helyben tesztelve; a záró célgépi futás még hátravan.**
+- Tesztpéldák: a felhasználó 2026-10-17-én közölte, hogy a témavezetőtől elkérte a felajánlott tesztpéldákat, de még nem kapta meg. Ezek M4 független tesztkészletének jelöltjei.
+- Döntések (fejlesztési adat alapján, indoklással):
+  - Alapértelmezett modell: **qwen2.5-coder:14b** (digest `9ec8897f…68849`). Indok: minden fejlesztési feltételben kevesebb téves pozitív, követi a nyelvi utasítást, jobb magyar szöveg. Ára kb. 1,5× időigény. A 7B összehasonlításként megmarad.
+  - Az „AI nélküli” összehasonlítási alap és a rendszer alapértelmezett elemzőrétege: **Semgrep taint-szabályok**. A Bandit a parancssorban opcionális (`--with-bandit`), a mérésben referencia. Indok: a fejlesztési mintán sokkal kevesebb téves pozitívot ad (1 vs. 5). Korlát: a szabályok a fejlesztési minták ismeretében készültek, ezért ezt M4 független adata igazolja vagy cáfolja.
+  - Az önellenőrző második modellhívás megmarad (olcsó, naplózott), de a dolgozatban nem precision-javító eszközként, hanem mért korlátként szerepel.
+- Új funkció: **determinisztikus szerkezeti ellenőrzés** a csak modell által jelzett állításokra. A megjelölt sorban az AST szerint valódi függvényhívásnak kell lennie, különben az állítás elutasul (`structural check: no function call on the stated line`), és ellenőrző modellhívás sem indul. Elemzői találathoz kötött állításokra nem vonatkozik. Cél: a csak karakterláncban szereplő „kódról” tett téves állítások kiszűrése (a második kör shell_text_control és sql_unexecuted_control téves pozitívjai). Tudatos korlát: ha egy valódi hibát a modell csak a lekérdezést összefűző (hívás nélküli) sorra jelez, és elemző nem jelez, az állítás elveszhet. Módszertani megjegyzés: a változtatás a fejlesztési téves pozitívok megfigyelése után készült, ezért a fejlesztési javulás optimista.
+- Ezzel a fejlesztési adaton történő hangolást lezárjuk; a konfigurációt a záró futás után rögzítjük, és a további mérés független adaton (M4) történik.
+- Ellenőrzés eddig: Ruff sikeres; új teszt a szerkezeti ellenőrzésre; szimulált modellel a csak szövegre tett állítás elutasul (ellenőrző hívás nélkül), az aliasos eval átmegy.
+
 ## A későbbi bejegyzések mintája
 
 Az alábbi mezőket a tényleges tevékenységhez igazítsd; ami nem alkalmazható, elhagyható.

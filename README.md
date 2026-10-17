@@ -78,7 +78,7 @@ uv run --locked python -m vuln_assistant ask "Vizsgáld meg a cases/sql_concat_b
 uv run --locked python -m vuln_assistant ask "Magyarázd el az előző elemzés első találatát." --root data/m2
 ```
 
-Add `--no-model` to run without the model. The M3 scanner profile runs the full Bandit test set and the taint rules in `rules/m3_python_taint.yml`; `--profile m2` reproduces the milestone 2 configuration. The development run (`scripts/m3_dev_eval.py`) reports accuracy, precision and recall on the development corpus only; it is not the final evaluation.
+Add `--no-model` to run without the model. Defaults: model `qwen2.5-coder:14b`, scanner layer = Semgrep taint rules (`rules/m3_python_taint.yml`); add `--with-bandit` to include the full Bandit test set as a reference; `--profile m2` reproduces the milestone 2 configuration. The development run (`scripts/m3_dev_eval.py`) reports accuracy, precision and recall on the development corpus only; it is not the final evaluation.
 
 ## Next stage
 

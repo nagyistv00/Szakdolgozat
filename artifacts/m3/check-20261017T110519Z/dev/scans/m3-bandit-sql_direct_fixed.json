@@ -1,0 +1,28 @@
+{
+  "tool": "bandit",
+  "status": "completed",
+  "target": "cases/sql_direct_fixed.py",
+  "source_sha256": "8e7d81d58dd0e1ae8280adbea30ba365672cead4f5549013c98e1091d9f5a7c2",
+  "profile": "m3",
+  "findings": [],
+  "errors": [],
+  "scanned_files": [
+    "cases/sql_direct_fixed.py"
+  ],
+  "execution": {
+    "command": [
+      "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\python.exe",
+      "-m",
+      "bandit",
+      "--ignore-nosec",
+      "-f",
+      "json",
+      "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_direct_fixed.py"
+    ],
+    "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+    "exit_code": 0,
+    "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T11:10:12Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_direct_fixed.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+    "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
+    "seconds": 0.246
+  }
+}

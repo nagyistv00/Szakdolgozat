@@ -13,6 +13,7 @@ from .analysis import (
     ModelReview,
     RejectedIssue,
     Verification,
+    call_lines,
     ground_issue,
 )
 from .contracts import FAMILY_NAMES, Finding
@@ -88,6 +89,7 @@ class ModelReviewer:
         max_lines: int = 400,
         max_chars: int = 20_000,
         verify: bool = True,
+        structural_check: bool = True,
         verify_settings: ModelSettings = VERIFY_SETTINGS,
         verify_prompt_path: Path = VERIFY_PROMPT_PATH,
     ):
@@ -95,6 +97,7 @@ class ModelReviewer:
         self.settings = settings
         self.prompt = prompt_path.read_text(encoding="utf-8")
         self.verify = verify
+        self.structural_check = structural_check
         self.verify_settings = verify_settings
         self.verify_prompt = verify_prompt_path.read_text(encoding="utf-8")
         self.prompt_sha256 = hashlib.sha256(
@@ -153,14 +156,26 @@ class ModelReviewer:
             return outcome, refs, lines
         accepted, rejected, unknown = [], [], []
         verify_evidence, calls, failures = [], 0, 0
+        executable_lines = call_lines(text) if self.structural_check else None
         for issue in review.issues:
             line, problem = ground_issue(issue, lines)
             unknown += [ref for ref in issue.scanner_refs if ref not in refs]
             if problem:
                 rejected.append(RejectedIssue(issue=issue, reason=problem))
                 continue
+            backed = self._scanner_backed(issue, line, refs, in_scope)
+            # Deterministic structural check for model-only claims: the stated line must
+            # contain a real call, not only text (e.g. a command inside a string literal).
+            if not backed and executable_lines is not None and line not in executable_lines:
+                rejected.append(
+                    RejectedIssue(
+                        issue=issue,
+                        reason="structural check: no function call on the stated line",
+                    )
+                )
+                continue
             verification = None
-            if self.verify and not self._scanner_backed(issue, line, refs, in_scope):
+            if self.verify and not backed:
                 calls += 1
                 try:
                     verification, extra = self._verify(issue, line, lines)

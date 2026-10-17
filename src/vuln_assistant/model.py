@@ -8,10 +8,12 @@ from pydantic import BaseModel, ConfigDict, ValidationError
 
 T = TypeVar("T", bound=BaseModel)
 
-DEFAULT_MODEL = "qwen2.5-coder:7b"
-# Digest recorded at milestone 2 (artifacts/m2/model-install.json).
+# Default chosen on 2026-10-17 from the M3 development runs (see research/MILESTONE_3.md).
+DEFAULT_MODEL = "qwen2.5-coder:14b"
+# Digests recorded at installation (artifacts/m2/model-install.json, artifacts/m3/model-install-*).
 KNOWN_DIGESTS = {
     "qwen2.5-coder:7b": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+    "qwen2.5-coder:14b": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
 }
 
 

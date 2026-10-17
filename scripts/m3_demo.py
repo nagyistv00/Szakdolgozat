@@ -6,6 +6,7 @@ import io
 
 from vuln_assistant.cli import main as cli_main
 from vuln_assistant.evidence import ROOT, run_directory, write_json
+from vuln_assistant.model import DEFAULT_MODEL
 
 REQUESTS = [
     "Vizsgáld meg a cases/sql_concat_bad.py fájlt biztonsági szempontból.",
@@ -19,7 +20,7 @@ REQUESTS = [
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--no-model", action="store_true")
-    parser.add_argument("--model", default="qwen2.5-coder:7b")
+    parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--out")
     args = parser.parse_args()
     out = run_directory("artifacts/m3", "demo", args.out)

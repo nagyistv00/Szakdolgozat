@@ -1,12 +1,12 @@
 # One-command milestone 3 check. Run from PowerShell in the project folder:
-#   ./scripts/m3_check.ps1              (local models; the first run also downloads the
-#                                        14B model, about 9 GB; then roughly 30-45 minutes)
+#   ./scripts/m3_check.ps1              (local models, 14B default and 7B comparison;
+#                                        roughly 30-40 minutes; first run downloads ~9 GB)
 #   ./scripts/m3_check.ps1 -SkipModel   (scanners and tests only)
 # Every step's full output is saved under artifacts/m3/check-<UTC time>/.
 param(
     [switch]$SkipModel,
     [int]$Repeats = 2,
-    [string]$Models = 'qwen2.5-coder:7b,qwen2.5-coder:14b'
+    [string]$Models = 'qwen2.5-coder:14b,qwen2.5-coder:7b'
 )
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot

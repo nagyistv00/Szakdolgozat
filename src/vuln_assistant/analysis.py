@@ -158,6 +158,21 @@ def ground_issue(issue: ModelIssue, lines: list[str]) -> tuple[int | None, str |
     return None, "quoted code was not found at or near the stated line"
 
 
+def call_lines(text: str) -> set[int] | None:
+    """Lines covered by a real function call. None when the source cannot be parsed."""
+    import ast
+
+    try:
+        tree = ast.parse(text)
+    except SyntaxError:
+        return None
+    covered: set[int] = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Call):
+            covered.update(range(node.lineno, (node.end_lineno or node.lineno) + 1))
+    return covered
+
+
 def merge(
     path: str,
     lines: list[str],

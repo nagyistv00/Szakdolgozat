@@ -98,7 +98,9 @@ def connector_for(args) -> OllamaConnector:
 
 
 def build_analyzer(workspace: SourceWorkspace, args, language: str) -> Analyzer:
-    scanners = [make_scanner(tool, workspace, args.profile) for tool in ("bandit", "semgrep")]
+    # Default layer: Semgrep taint rules (chosen 2026-10-17); Bandit is an optional reference.
+    tools = ("semgrep", "bandit") if args.with_bandit else ("semgrep",)
+    scanners = [make_scanner(tool, workspace, args.profile) for tool in tools]
     reviewer = None
     if not args.no_model:
         reviewer = ModelReviewer(connector_for(args))
@@ -162,6 +164,7 @@ def main(argv: list[str] | None = None) -> int:
         command.add_argument("--no-model", action="store_true")
         command.add_argument("--model", default=DEFAULT_MODEL)
         command.add_argument("--profile", default="m3", choices=["m2", "m3"])
+        command.add_argument("--with-bandit", action="store_true", help="add Bandit findings")
         command.add_argument("--state", default=str(DEFAULT_STATE))
         command.add_argument("--json", help="also write the full report to this path")
         if name == "analyse":

@@ -178,6 +178,22 @@ def test_unconfirmed_model_only_issue_is_rejected(tmp_path, answer):
     assert report.complete
 
 
+def test_structural_check_rejects_claims_about_plain_text(tmp_path):
+    source = b'def describe(user_text):\n    return "subprocess.run(user_text, shell=True)"\n'
+    (tmp_path / "text.py").write_bytes(source)
+    claim = issue(family="CWE-78", line=2, code="subprocess.run(user_text, shell=True)")
+    log = []
+    connector = OllamaConnector(
+        transport=httpx.MockTransport(routed(model_reply([claim]), verification(), log))
+    )
+    analyzer = Analyzer(SourceWorkspace(tmp_path), [], ModelReviewer(connector), language="en")
+    report = analyzer.analyse("text.py")
+    outcome = report.files[0].model
+    assert report.files[0].detections == [] and outcome.verification_calls == 0
+    assert outcome.rejected[0].reason.startswith("structural check")
+    assert len(log) == 1  # no verification call was made
+
+
 def test_verification_failure_is_visible(tmp_path):
     report = make(tmp_path, routed(model_reply([issue()]), None), []).analyse(
         "descriptive_bad_name.py"
