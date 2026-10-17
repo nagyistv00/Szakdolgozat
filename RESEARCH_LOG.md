@@ -86,6 +86,45 @@ Ez a napló a később összeállítandó szakdolgozat háttéranyaga. A kutatá
 - Témavezetői válasz vagy új fejlesztési engedély még nem érkezett. A régi „jövő héten” hivatkozásokat nem tekintjük új határidőnek.
 - A forráskód, modell, függőségek és eredmények helyben maradtak. Export céljából fejlesztés, modellindítás vagy új tesztfutás nem történt; a 40 teszt és 36 mintavizsgálat eredménye továbbra is a szeptember 19-i futásra vonatkozik.
 
+## 2026-10-17 – Új chat: M1–M2 kritikai felülvizsgálata
+
+- Mérföldkő: M2 utóellenőrzés, M3 előtt. Állapot: **javaslatok, nem elfogadott döntések**; a felhasználó és a témavezető dönt.
+- Módszer: a dokumentumok, a `src/`, `rules/`, `data/m2/`, `scripts/` forrásának átolvasása. Új tesztfutás nem történt: az asszisztens felhőkörnyezetéből a PyPI nem volt elérhető, a felhasználó gépén pedig nem volt parancsfuttatási lehetőség. A 40/36-os eredmények továbbra is a 09-19-i futásra vonatkoznak.
+- Megerősített, jó döntések: hibrid (determinisztikus elemző + előre betanított helyi modell) irány; `completed`/`failed` szétválasztása; nyers bizonyítékok és hash-ek megőrzése; loopback-only, sémavalidált modellkapcsolat; az eredeti találatok megőrzése a modellítélettől külön; elemző önmagában vs. elemző + AI összehasonlítási terv; címkeszivárgás és fejlesztési/végső adat elkülönítésének felismerése.
+- Gyengeségek / javaslatok:
+  1. Verziókezelés hiányzik: a projektmappában nincs `.git`, bár a dokumentáció Gitre hivatkozik. Javaslat: `git init`, első commit, privát távoli tároló vagy más mentés.
+  2. Az alapvonal szándékosan szűk (3 Bandit-teszt, 3 mintaalapú Semgrep-szabály). Az „AI javít” állítás így szalmabáb-összehasonlítás kockázatát hordozza. Javaslat: legalább egy erősebb alapvonal – teljes Bandit-tesztkészlet CWE-szűréssel, és/vagy Semgrep `mode: taint` szabályok forrás → nyelő → sanitizer (`int(...)`) leírással. A Semgrep dokumentációja szerint a taint mód CE-ben függvényen belüli; a függvények és fájlok közötti követés Pro-funkció. A kontextusfüggő negatív kontrollok egy részét (pl. `int()` utáni SQL) egy taint-szabály már determinisztikusan kezelheti; ezt mérni kell, nem feltételezni.
+  3. Az AI hozzájárulásának mérhető magja legyen a scanner-találatok **téves riasztás-szűrése / triázsa** (igaz vs. hamis pozitív, indoklással és bizonytalansággal); ez illeszkedik a témakiírás „gépi tanulási módszerek … felismerés” megfogalmazásához (vö. R05 IRIS kontextuális riasztásértékelés). A természetes nyelvű vezérlés és a magyarázat másodlagos, külön mért cél.
+  4. Modell: qwen2.5-coder:7b (2024 végi kiadás) a kapcsolati próbára megfelelő, de a triázs-kísérlethez érdemes 2–3 helyi modellt összevetni, pl. Qwen2.5-Coder 14B és Qwen3 14B (Q4 kb. 9 GB, 12 GB VRAM-on futhat). A Qwen3-Coder 30B-A3B kb. 19 GB, csak részleges CPU-kiszervezéssel. Forrás: bestllmfor.com, 12 GB VRAM-ajánló (2026-09-29-i frissítés, hozzáférés 2026-10-17); ez nem minőségi rangsor, helyben mérni kell.
+  5. Modellbeállítások M3-hoz: a `num_ctx 4096` / `num_predict 256` / `keep_alive 0` a kézfogáshoz jó, triázshoz kevés (forráskontextus + indoklás), sorozatfuttatásnál pedig a betöltés (kb. 18 s) minden hívásnál ismétlődne. A sémában az indoklás mező álljon az ítélet előtt.
+  6. Végső tesztadat: független, valós eredetű Python-minták kellenek. Jelölt: VUDENC (Wartschinski és mtsai., Python, GitHub-javítócommitok, többek közt 406 SQL-injekciós és 106 parancsinjekciós commit; automatikus, zajos címkék). Forrás: https://arxiv.org/abs/2201.08441, hozzáférés 2026-10-17. További jelöltek (ellenőrizendők, még nem olvasottak): CVEfixes, SecurityEval, OWASP PyGoat. A licencet és a címkeminőséget ellenőrizni kell (vö. R04 PrimeVul).
+  7. Az egyfájlos, fájlonként külön folyamatot indító elemzés valós projektekre lassú, és elveszíti a fájlok közötti kontextust. M3-ban könyvtárszintű futtatás és találatleképezés javasolt.
+  8. A scikit-learn telepítve van, de nincs használva. Megtartása akkor indokolt, ha a kiértékelési metrikákhoz vagy egy esetleg előírt kis tanított triázs-alapvonalhoz kell (ha a témavezető ML-tanítást vár, ez a legolcsóbb tartalékterv).
+- Ütemezési kockázat: a témavezetői válasz 09-26 óta nincs rögzítve; a scope-ot leginkább befolyásoló kérdés az, hogy elfogadható-e az előre betanított modell saját tanítás nélkül.
+- Források: https://docs.semgrep.dev/writing-rules/data-flow/taint-mode/overview.md ; https://arxiv.org/abs/2201.08441 ; https://bestllmfor.com/best/vram-12gb/ – mind 2026-10-17-i hozzáférés.
+
+## 2026-10-17 – Témavezetői válaszok és következményeik
+
+- Mérföldkő: M2 lezárása, M3 előkészítése. M3/M4 indítására külön felhasználói engedély még nem érkezett.
+- Forrás: a felhasználó 2026-10-17-i üzenete, amelyben közölte Girászi Tamás témavezető válaszait. Az egyeztetés dátuma és formája nincs megadva, írásos dokumentum nem áll rendelkezésre. A kérdéseket a felhasználó fogalmazta meg (a 09-26-i javaslatlista alapján).
+- A felhasználó által közölt válaszok, szó szerint:
+  1. Saját modell tanítása: „Teljesen megfelel, nem írtunk elő olyat, hogy saját modellt kell tanítani.”
+  2. Új felismerési módszer: „Szerintem nem szükséges, ilyen követelményt sem fogalmaztunk meg.”
+  3. Python + három hibacsalád: „Persze, de szükség esetén én is tudok biztosítani olyan példákat, amelyeken tesztelni lehet a rendszert.”
+  4. Az AI scope-ja: „Elsősorban a hibák felismerése és azok magyarázata a fontos. Ha prioritási sorrendet kell felállítani, akkor az a következő: hibák felismerése > magyarázat adása > nyelvi vezérlés > téves detektálások felismerése.”
+  5. Összehasonlítás és mérés: „Ez egy kulcsfontosságú pont. A pontosság (accuracy), a precision és a recall metrikák elegendőek lesznek az értékeléshez.” (A kérdés: elemző vs. ugyanaz az elemző + AI.)
+  6. Tesztadat: „A saját példaprojekt teljesen elegendő lehet. Egy teljes, például webalkalmazás-projekt bemutatása nem is feltétlenül szükséges. Elég egy kisebb kódrészlet vagy funkcionális egység, amelyen keresztül demonstrálható, hogy a rendszer felismeri a hibát, és megfelelő magyarázatot ad rá.”
+- Megerősített keret (témavezetői válasz): előre betanított modell saját tanítás nélkül; a hozzájárulás a tervezés, megvalósítás és kiértékelés meglévő eszközökkel; Python és CWE-95/78/89 mint célterület; az összehasonlítás elemző vs. elemző + AI; kötelező mérőszám: accuracy, precision, recall; saját, kisebb példák elegendők.
+- Tervezési következtetések (javaslat, nem jóváhagyott döntés):
+  - **Felülírja az előző bejegyzés 3. javaslatát.** Ott a téves riasztások szűrését javasoltam az AI mérhető magjának; a témavezetői prioritás szerint ez a legutolsó. Az AI-nak a **felismeréshez** kell közvetlenül hozzájárulnia: a modell maga is vizsgálja a kódegységet a három hibacsaládra, és találatai az elemző találataival egyesítve, forrásmegjelöléssel kerülnek a jelentésbe. Mérhető várakozás (hipotézis): elsősorban a recall nőhet (pl. az alias-eval típusú esetek), a precision romolhat – ezt mérni kell.
+  - A magyarázat a második cél. Mérőszámot a témavezető nem adott; javasolt egyszerű, előre rögzített ellenőrzőlista (helyes CWE, helyes sor, a bemenet útja, javítási irány), amelyet a felhasználó kézzel pontoz, nem a modell.
+  - A természetes nyelvű vezérlés harmadik: minimális parancssoros, magyar/angol kérésértelmezés a 12 előkészített kéréshelyzet mint elfogadási teszt alapján.
+  - A téves riasztások külön felismerése nem önálló fejlesztési cél; a precision mérőszám ettől függetlenül megmutatja a hamis pozitívok hatását.
+  - Mérés: accuracy, precision, recall, a konfúziós mátrix darabszámaival (TP/FP/TN/FN) és nevezőkkel. Az accuracy érzékeny az osztályarányra, ezért a tesztkészlet legyen kiegyensúlyozott (sérülékeny / javított / kontroll). Az időigény olcsón naplózható kiegészítő adat; formális használhatósági vizsgálatot a témavezető nem kért.
+  - Tesztadat: a `data/m2/` 18 mintája fejlesztési adat marad (címkeszivárgás, a fejlesztést befolyásolta). Új, előre címkézett, semleges fájlnevű, a rendszer futtatása előtt lezárt tesztkészlet szükséges. A legerősebb független forrás a témavezető által felajánlott példák lennének – javasolt elkérni. Külső adatkészlet (pl. VUDENC) a válasz alapján nem szükséges, legfeljebb opcionális.
+  - Mivel a felismerés a fő cél, a modellválasztás súlya nő: javasolt a jelenlegi 7B és egy 14B helyi modell összevetése, ismételt futtatással (stabilitás).
+- Nyitott: M3 engedélyezése; elkérjük-e a témavezető példáit; a végső tesztkészlet mérete; a magyarázat pontozásának végleges módja.
+
 ## A későbbi bejegyzések mintája
 
 Az alábbi mezőket a tényleges tevékenységhez igazítsd; ami nem alkalmazható, elhagyható.

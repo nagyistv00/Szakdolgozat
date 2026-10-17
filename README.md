@@ -2,7 +2,7 @@
 
 Author: Nagy István. Supervisor: Girászi Tamás.
 
-Current stage: milestone 2 completed provisionally. Direction: static source analysis with a pretrained model, no model training. Python is the working target language. Scanner/model connectors and development material exist; the end-user assistant and thesis manuscript do not yet exist. Supervisor confirmation is pending.
+Current stage: milestone 2 completed provisionally. Direction: static source analysis with a pretrained model, no model training. Python is the working target language. Scanner/model connectors and development material exist; the end-user assistant and thesis manuscript do not yet exist. Supervisor feedback, as reported by the user on 2026-10-17, accepts the pretrained-model approach without training, Python with the three weakness families, and the scanner vs. scanner + AI comparison using accuracy, precision and recall; see `RESEARCH_LOG.md`.
 
 ## Project records
 
@@ -65,4 +65,4 @@ The real-model diagnostic only acknowledges scanner evidence through a strict sc
 
 ## Next stage
 
-Discuss the provisional scope with the supervisor. Milestone 3 will implement the natural-language workflow and evidence-backed explanations. Milestone 4 will evaluate the system on new, separately reviewed data. All current examples are development data. The thesis document will be assembled only after all four milestones.
+Milestone 3 (pending the user's authorisation) will implement the natural-language workflow and evidence-backed explanations. Milestone 4 will evaluate the system on new, separately reviewed data. All current examples are development data. The thesis document will be assembled only after all four milestones.

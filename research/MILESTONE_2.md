@@ -142,3 +142,15 @@ The design reduces rework; it does not make every scope change free. Confirm the
 - [ ] Supervisor confirmation — pending the user's meeting, not represented as already obtained.
 
 Next: milestone 3 implementation after scope confirmation or further user instruction. The thesis manuscript remains deferred until after all four milestones.
+
+## Addendum 2026-10-17 — supervisor feedback
+
+The checklist above is preserved as recorded at M2 completion. On 2026-10-17 the user reported the supervisor's answers (verbatim Hungarian text in `RESEARCH_LOG.md`; meeting date and format not stated):
+
+- Training an own model is not required; a pretrained model is acceptable. A new detection method is not required.
+- Python with CWE-89, CWE-78 and CWE-95 is an acceptable initial scope. The supervisor offered to provide test examples if needed.
+- AI priorities: **detection > explanation > natural-language control > false-positive recognition.** This changes the emphasis of this document's assessment layer: the model should contribute to detection directly, not only re-assess scanner findings.
+- The scanner vs. same scanner + AI comparison is key. Accuracy, precision and recall are sufficient evaluation metrics.
+- Small own code units are sufficient test material; a full web-application project is not required.
+
+Design consequences remain proposals until M3 is authorised by the user; see the 2026-10-17 log entries.

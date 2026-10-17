@@ -2,7 +2,7 @@
 
 ## A munka aktuális állapota
 
-- Másik chat számára készült összefoglaló: `CHAT_HANDOFF.txt` (2026-10-17). Ugyanebben a projektmappában kell folytatni; ZIP nem készült. Az átadás önmagában nem engedélyezi M3/M4 megkezdését. A témavezető válaszait a beszélgetésben még nem közölte a felhasználó.
+- Másik chat számára készült összefoglaló: `CHAT_HANDOFF.txt` (2026-10-17). Ugyanebben a projektmappában kell folytatni; ZIP nem készült. Az átadás önmagában nem engedélyezi M3/M4 megkezdését. A témavezető válaszait a felhasználó 2026-10-17-én közölte; lásd lent a „Témavezetői visszajelzés” szakaszt és a `RESEARCH_LOG.md` azonos dátumú bejegyzését.
 
 - A felhasználó megadta a formai követelményeket, a témakiírást, a tervezett dolgozatcímet, a szerző és a témavezető nevét, valamint a négyhavi munkatervet.
 - Az első mérföldkő alapozó munkája elkészült. A felhasználó engedélyezte a második mérföldkő elkészítését a következő heti témavezetői egyeztetés előtt: rendszerterv, komponensek és kapcsolataik előkészítése, dokumentációk, tesztadatok, műveleti minták és tesztesetek rendszerezése.
@@ -13,12 +13,25 @@
 - Az első mérföldkő kutatási összegzése: `research/MILESTONE_1.md`; forrásjegyzék és olvasási mélység: `research/SOURCES.md`; reprodukálás: `README.md`; futási bizonyítékok: `artifacts/m1/`.
 - A telepítési minták nem kutatási benchmarkok. A sikeres környezetellenőrzést ne állítsd be a sérülékenység-felismerési pontosság vagy AI-működés igazolásaként.
 - Az első mérföldkő zárásakor AI-modell még nem volt telepítve, tanítva vagy futtatva; a későbbi változásokat a kutatási naplóban és a mérföldkő-leírásban kell követni.
-- A témavezető még nem erősítette meg az irányt. A következő heti egyeztetésig az elemzőt, a modellkapcsolatot és a tesztadatokat cserélhető részekként készítsd elő; a visszajelzést később vezessük át. A modell tanításának elhagyása a felhasználó aktuális döntése, nem igazolt témavezetői elvárás.
+- (Történeti, 2026-09-19:) A témavezető akkor még nem erősítette meg az irányt; az elemző, a modellkapcsolat és a tesztadatok ezért készültek cserélhető részekként.
+- 2026-10-17: a témavezető a felhasználó közlése szerint megerősítette az irányt; részletek a „Témavezetői visszajelzés” szakaszban.
 - M2 elkészült az ideiglenes scope szerint. Aktuális terv és eredmények: `research/MILESTONE_2.md`; témavezetői egyeztető: `research/SUPERVISOR_BRIEF.md`. A saját modell tanítását ne indítsd el.
 - Előre betanított helyi modell: Ollama 0.34.2 + qwen2.5-coder:7b, a pontos digest és konfiguráció a M2-jegyzőkönyvben. A modell és az elemző tényleges adatkapcsolata ellenőrizve; a természetes nyelvű teljes munkafolyamat és érdemi AI-értékelés még M3-feladat.
 - M2-adatok: `data/m2/` alatt 18 saját, ideiglenesen címkézett fejlesztési kódminta és 12 előkészített kéréshelyzet. Az emberi címkefelülvizsgálat még hátravan. Ezeket tilos független, korábban nem látott végső tesztkészletként bemutatni.
 - A M2 kapcsolódó tesztjei és a korábbi M1-próbák együtt 40 sikeres ellenőrzést adtak; 36 mintavizsgálat lefutott. Ez nem bizonyítja, hogy az AI javítja a detektálást. A modellpróba csak találati azonosítók és eszköznév visszaigazolása volt.
 - A képzési szint, a szak pontos megnevezése, a tanszék, a témavezető beosztása és a benyújtás éve még nincs megadva. Ne találj ki adatokat.
+
+## Témavezetői visszajelzés – a felhasználó 2026-10-17-i közlése szerint
+
+A szó szerinti válaszok a `RESEARCH_LOG.md` 2026-10-17-i bejegyzésében. Az egyeztetés dátuma és formája nincs megadva; írásos dokumentum nincs.
+
+- Saját modell tanítása nem követelmény; az előre betanított modell megfelel.
+- Új felismerési módszer fejlesztése nem követelmény; a tervezés, megvalósítás és kiértékelés meglévő eszközökkel elegendő.
+- Python-forráskód és a három hibacsalád (CWE-89, CWE-78, CWE-95) elfogadott célterület. A témavezető szükség esetén tesztpéldákat is tud adni.
+- Az AI prioritási sorrendje: hibák felismerése > magyarázat adása > nyelvi vezérlés > téves detektálások felismerése.
+- Az elemző vs. ugyanaz az elemző + AI összehasonlítás kulcsfontosságú; a kiértékeléshez az accuracy, precision és recall elegendő.
+- Saját, kisebb kódrészletek vagy funkcionális egységek elegendők; teljes (pl. webalkalmazás-) projekt nem szükséges. A demonstráció célja: a rendszer felismeri a hibát és megfelelő magyarázatot ad.
+- Ebből nem következik automatikusan M3/M4 engedélyezése; azt a felhasználó adja meg.
 
 ## Munkamenet és folyamatos jegyzetelés
 
