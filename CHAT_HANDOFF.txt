@@ -1,0 +1,124 @@
+SZAKDOLGOZAT – ÁTADÁS MÁSIK CHATNEK
+Összeállítás: 2026-10-17, Europe/Budapest.
+Projekt: C:\Users\istu2\Documents\Szakdoga
+
+Ez a korábbi beszélgetés és a projektállapot összefoglalója, nem szó szerinti beszélgetésexport. A másik chat ugyanebben a mappában dolgozik; ZIP, másolás vagy újratelepítés nem szükséges. A teljes forráskód, tesztanyag, modell, környezet és kutatási bizonyíték helyben maradt.
+
+1. ELSŐKÉNT OLVASANDÓ
+
+- AGENTS.md: munkautasítások, formai követelmények, személyi és témaadatok.
+- RESEARCH_LOG.md: időrendi döntések, eredmények, hibák és korlátok.
+- README.md: helyi működtetés és reprodukálás.
+- research/MILESTONE_2.md: aktuális rendszerterv és a ténylegesen elkészült részek.
+- research/SUPERVISOR_BRIEF.md: magyar témavezetői egyeztető.
+- research/SOURCES.md: pontos szakirodalmi/technikai hivatkozások és feldolgozási mélység.
+- research/MILESTONE_1.md: történeti M1-pillanatkép. Az abban nyitottként jelzett döntések egy részét M2 felülírta.
+
+Az alábbi útvonalak a projekt gyökeréhez képest értendők. Ez az átadás nem jogosít fel automatikusan a következő mérföldkő elkezdésére; a felhasználó új utasítását kövesd.
+
+2. CÉL ÉS ELFOGADOTT MUNKAMENET
+
+Szerző: Nagy István. Témavezető: Girászi Tamás.
+Témakiírás: Gépi tanulási módszerek alkalmazása automatikus sérülékenységfelderítésben.
+Tervezett dolgozatcím: AI-alapú segédeszköz fejlesztése kibervédelmi sérülékenység-felderítés támogatására.
+
+A felhasználóval magyarul kommunikálunk. A szakdolgozat későbbi szövegét angolul készítjük, azt a felhasználó fordítja magyarra. Előbb mind a négy kutatási/fejlesztési mérföldkő, csak utána a dolgozat összeállítása. A kutatási napló és a műszaki jegyzetek nem dolgozatfejezetek. A fontos döntéseket, forrásokat, eredményeket és sikertelen próbákat külön kérés nélkül folyamatosan naplózni kell.
+
+A felhasználó korábban a fordítást az AI közreműködésének felismerhetetlenségével indokolta. Erre nem tettünk ígéretet; ellenőrzött forrásokra, valós munkára és az alkalmazandó egyetemi előírásokra alapozunk. Eredményt, forrást és témavezetői jóváhagyást nem szabad kitalálni.
+
+3. AKTUÁLIS IRÁNY ÉS ENGEDÉLYEZÉS
+
+Felhasználói döntés: elsőként statikus forráskód-elemzés, előre betanított modell használatával. Saját modell tanítását jelenleg nem kérte, azt ne indítsd el. Helyi Python-alapú megoldás, fizetős szolgáltatás nélkül.
+
+A Python mint vizsgált célnyelv módosítható asszisztensi munkafeltételezés. Három kezdeti hibacsalád: CWE-95 (eval injection), CWE-78 (OS command injection), CWE-89 (SQL injection). A megvalósítás nyelve és az elemzett kód nyelve elválasztható.
+
+M1 és M2 elkészült a feljegyzett, ideiglenes scope szerint. M3 és M4 elindítására a beszélgetésben még nem érkezett engedély. A mostani kérés kizárólag a másik chat számára történő átadás.
+
+A felhasználó 2026-09-26-án jelezte, hogy a témavezetővel fog beszélni, és kérdéslistát kért. A válaszait vagy a témavezető döntéseit ebben a beszélgetésben 2026-10-17-ig nem közölte. A korábbi fájlok „jövő héten” megfogalmazásai történeti kontextust jelentenek, nem új határidőt. A találkozó megtörténtét, eredményét és az irány jóváhagyását ne feltételezd.
+
+4. MI KÉSZÜLT EL TÉNYLEGESEN?
+
+M1: kezdeti szakirodalmi és technológiai áttekintés, hazai kutatási forrással is; elkülönített Python-környezet; pontos függőségek; Bandit/Semgrep telepítési próbák. Nem teljes körű szisztematikus irodalomkutatás; a forrásjegyzék jelzi, mely cikkekből csak az absztraktot és melyekből teljes szövegrészeket olvastunk.
+
+M2:
+- src/vuln_assistant/contracts.py: szigorú találat-, jelentés- és kapcsolati visszaigazolás-formátum, elemzőprotokoll.
+- src/vuln_assistant/workspace.py: relatív Python-fájl kezelése kijelölt könyvtáron belül, típus- és méretkorláttal.
+- src/vuln_assistant/scanners.py: Bandit/Semgrep kapcsolatok, szintaktikai ellenőrzés, nyers kimenetek megőrzése, explicit hibák.
+- src/vuln_assistant/model.py: helyi, strukturált és ellenőrzött Ollama-modellkapcsolat.
+- src/vuln_assistant/diagnostic.py: az elemző és a modell adatkapcsolatának ellenőrzése.
+- rules/: helyi elemzési szabályok. M2-ben három Bandit-ellenőrzés és három saját Semgrep-szabály, nem a teljes szabálykészletek.
+- prompts/connection_ack.txt: kizárólag kapcsolati próba, nem sérülékenység-értékelő prompt.
+- data/m2/: 18 saját fejlesztési kódminta, manifest hash-ekkel és ideiglenes címkékkel; 12 magyar/angol felhasználói kéréshelyzet.
+- tests/: automatizált környezet- és kapcsolati tesztek.
+- scripts/: futtató telepítése, szerver indítása/leállítása, modell letöltése és M2-diagnosztika.
+
+Nincs kész természetes nyelvű kérésértelmező, teljes felhasználói munkafolyamat, érdemi AI-találatértékelés, magyarázógenerálás vagy felhasználói felület. Ezek M3-feladatok. A végső, független kiértékelés M4-feladat. Dolgozatfejezetek még nincsenek.
+
+5. MIT IGAZOLNAK AZ EDDIGI MÉRÉSEK?
+
+A legutóbbi rögzített teszteredmény 2026-09-19-i: 40 sikeres automatizált teszt, benne a hat M1-telepítési próba. Az export során nem futtattuk újra a teszteket; ne állítsd ezeket friss októberi eredménynek.
+
+M2-ben 36 elemzés lefutott (18 minta, két elemző). Ez sikeres feldolgozást jelent, nem minden hiba felismerését. A valódi helyi modell egy Bandit-találat azonosítóját és az eszköz nevét igazolta vissza. Ez a kapcsolatot bizonyítja, nem az AI biztonsági következtetéseinek helyességét vagy hozzáadott értékét.
+
+A 18 minta asszisztens által létrehozott, ideiglenesen címkézett fejlesztési adat: 6 sérülékenynek besorolt példa, 6 páros javítás, 6 kontextusfüggő negatív kontroll. Emberi címkeellenőrzés még hátravan. Ezek nem tekinthetők független, korábban nem látott végső tesztadatnak. A leíró fájlnevek a későbbi modellmérésben címkeszivárgást okozhatnának; a végső vizsgálatban semleges nevek és elkülönített címkék szükségesek.
+
+Fontos bizonyítékok:
+- artifacts/m2/20260919T111932119119Z/: 36 jelentés, modellkérés/-válasz, modellmetaadatok, környezeti és bemeneti hash-ek, pytest.xml.
+- artifacts/m2/handoff.json: az M2 lezárásakor rögzített fájlhash-ek és eredmények.
+- artifacts/m2/investigations/: sikertelen első tesztfutás és megőrzött hibavizsgálatok.
+- artifacts/m2/model-install.json és runtime-install.json: modell- és futtatóazonosság, eredet, konfiguráció.
+- artifacts/m1/: korábbi telepítési és környezeti bizonyítékok.
+
+Tanulságok: a tesztelt Semgrep egy hibás szintaxisú bemenetet üres sikeres eredményként kezelt; ezért külön Python 3.11 szintaktikai ellenőrzés került az adapter elé. A szerverleállítás időbélyeg-összehasonlítása PowerShell alatt javítva lett. A korábbi változatok és eredmények megőrizve, a részletek a naplóban.
+
+6. HELYI KÖRNYEZET ÉS ÚJRAHASZNÁLAT
+
+Windows, PowerShell, uv, projektlokális .venv, CPython 3.11.13. A környezet és a letöltések a projektben már léteznek; ne telepíts mindent újra csak az új chat miatt. A korábbi hardverleltár RTX 4070-et és körülbelül 32 GiB RAM-ot rögzít.
+
+Modell: qwen2.5-coder:7b, Q4_K_M, 7.6B.
+Digest: dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364
+Futtató: .tools/ollama/0.34.2/ollama.exe
+Modelladatok: models/ollama/
+Végpont indításkor: http://127.0.0.1:11435, cloud funkciók letiltva.
+A szerver az M2 átadásakor le lett állítva. A jelenlegi futási állapotot szükség esetén ellenőrizd, ne feltételezd a régi állapotot.
+
+Indítás és kapcsolati próba, csak ha a következő feladat igényli:
+  ./scripts/model_server.ps1 -Action Start
+  uv run --locked python scripts/m2_diagnostic.py --with-model
+  ./scripts/model_server.ps1 -Action Stop
+
+Tesztek:
+  uv run --locked ruff check src tests scripts
+  uv run --locked pytest -q --junitxml=artifacts/m2/latest-pytest.xml
+
+A latest-pytest.xml felülírható legfrissebb összesítő; az időbélyeges bizonyítékokat őrizd meg. A modellfájlok, .tools, .venv és helyi cache-ek nem forráskódok, de ebben a mappában az új chat számára is hozzáférhetők. Az átadás nem menti el külön a teljes könyvtárat, és nem biztonsági másolat.
+
+7. A TÉMAVEZETŐNEK ELŐKÉSZÍTETT KÉRDÉSEK
+
+2026-09-26-án a felhasználónak az alábbi témákat javasoltuk. Válasz még nincs rögzítve:
+- Megfelel-e a témakiírásnak az előre betanított modell saját tanítás nélkül?
+- Megfelelő önálló hozzájárulás-e a tervezés, integráció és összehasonlító kiértékelés, vagy új felismerési módszert vár?
+- Elég-e Python és a három hibacsalád; kell-e teljes projekt, több fájl közötti elemzés vagy más nyelv?
+- Mi az AI fő célja: új hibák, téves riasztások értékelése, magyarázat, természetes nyelvű vezérlés?
+- Megfelel-e az elemző önmagában / ugyanaz az elemző AI-val összehasonlítás; milyen mérőszámok kellenek?
+- Milyen eredetű és mennyiségű tesztadat, milyen címkeellenőrzés szükséges?
+- Maradhat-e a cím; milyen beadandó anyagok, bemutató és hivatkozási stílus szükséges? Az AI használatára és feltüntetésére milyen egyetemi szabály vonatkozik?
+
+M3-ra vonatkozó további kérdések:
+- Elegendő-e parancssoros felület, vagy grafikus/webes kell?
+- Magyar, angol vagy kétnyelvű kérések és válaszok szükségesek?
+- Elég-e jelezni/magyarázni a hibát, vagy javítási javaslat is kell? Automatikus kódmódosítás külön scope lenne.
+- Előre meghatározott elemzési folyamat vagy önálló eszközválasztás az elvárás?
+
+M4-re vonatkozó további kérdések:
+- Elfogadható-e a hasznosabb magyarázat/használhatóság eredményként akkor is, ha a detektálás pontossága nem javul?
+- Kell-e szakértői vagy felhasználói értékelés, és kik lesznek a résztvevők?
+- Elég-e egy modell vagy több modell összehasonlítása szükséges?
+- Van-e minimum teszteset-, projekt- vagy ismétlésszám?
+- Pontosan milyen forráskódot, telepítési útmutatót, reprodukálható mérést és demonstrációt kell átadni?
+
+8. FOLYTATÁS
+
+Először ismerd meg a fenti fájlokat. A felhasználó új kérésének megfelelően folytass; ha a fejlesztés folytatását kéri, a már megkapott témavezetői visszajelzést vezesd át, illetve a még hiányzó, scope-ot érdemben befolyásoló válaszokat tisztázd. Ne kérd újra a már rögzített adatokat. Ne kezdd újra M1-et/M2-t, és ne írd át visszamenőleg a mérési eredményeket. Új döntéshez új naplóbejegyzés tartozzon.
+
+A képzési szint, szak, tanszék, témavezetői beosztás és benyújtási év még nincs megadva. A formai előírások teljes részlete az AGENTS.md-ben szerepel; az angol dolgozat terjedelmét majd a felhasználó magyar fordítása után is ellenőrizni kell.

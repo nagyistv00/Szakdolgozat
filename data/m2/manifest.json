@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "purpose": "Development and connector-test corpus; not an independent final benchmark",
+  "created": "2026-09-19",
+  "provenance": "Original assistant-authored synthetic snippets; no third-party code copied",
+  "label_review": "Provisional source-inspection labels; independent human review pending",
+  "execution_policy": "Static inspection only; do not import or execute samples",
+  "split": "development",
+  "cases": [
+    {
+      "id": "eval_direct_bad",
+      "group": "eval_direct",
+      "cwe": "CWE-95",
+      "expected_vulnerable": true,
+      "path": "cases/eval_direct_bad.py",
+      "rationale": "Function input reaches built-in eval without validation.",
+      "sha256": "8bc8f1aaeb8c2c1632a93a39c66df2d8e0a3fd118ecd0be14e6b6af747fabea3"
+    },
+    {
+      "id": "eval_direct_fixed",
+      "group": "eval_direct",
+      "cwe": "CWE-95",
+      "expected_vulnerable": false,
+      "path": "cases/eval_direct_fixed.py",
+      "rationale": "ast.literal_eval does not evaluate general Python code; resource exhaustion is outside this label.",
+      "sha256": "2105af5d7647595d891a26be1479177c18cb6686ac2e529df1fb18caccab2dc8"
+    },
+    {
+      "id": "eval_alias_bad",
+      "group": "eval_alias",
+      "cwe": "CWE-95",
+      "expected_vulnerable": true,
+      "path": "cases/eval_alias_bad.py",
+      "rationale": "A local alias does not remove the untrusted input flow to eval.",
+      "sha256": "07ef4fe68179c786f91983fa0118ab8b14b8ffadc9a0469a424e69ff7be41193"
+    },
+    {
+      "id": "eval_alias_fixed",
+      "group": "eval_alias",
+      "cwe": "CWE-95",
+      "expected_vulnerable": false,
+      "path": "cases/eval_alias_fixed.py",
+      "rationale": "Only integer conversion is allowed, not Python code evaluation.",
+      "sha256": "cb26243268cc9f2d5f9d1f646b09d1821395808a031685471ce355f0fcbce1d1"
+    },
+    {
+      "id": "eval_constant_control",
+      "group": "eval_constant",
+      "cwe": "CWE-95",
+      "expected_vulnerable": false,
+      "path": "cases/eval_constant_control.py",
+      "rationale": "The evaluated expression is a fixed literal with no external input; eval remains an undesirable construct.",
+      "sha256": "51fe500e9cb55c5381204b73b3350c2a59644a483d77a5564f5535f3d1728269"
+    },
+    {
+      "id": "eval_shadow_control",
+      "group": "eval_shadow",
+      "cwe": "CWE-95",
+      "expected_vulnerable": false,
+      "path": "cases/eval_shadow_control.py",
+      "rationale": "The local function named eval only returns its argument; it is not built-in eval.",
+      "sha256": "5c69edb54f7423139d9571261899b7bf586f936ee189621409bfdea6a6687d41"
+    },
+    {
+      "id": "shell_direct_bad",
+      "group": "shell_direct",
+      "cwe": "CWE-78",
+      "expected_vulnerable": true,
+      "path": "cases/shell_direct_bad.py",
+      "rationale": "Untrusted input is inserted into a shell command.",
+      "sha256": "c6f45fa2632f20e90826010075d9f87bc53ffb011eacbec7d6cfc5a5d70a0dfd"
+    },
+    {
+      "id": "shell_direct_fixed",
+      "group": "shell_direct",
+      "cwe": "CWE-78",
+      "expected_vulnerable": false,
+      "path": "cases/shell_direct_fixed.py",
+      "rationale": "The input is passed as data to a fixed Python program through an argument list, without a shell.",
+      "sha256": "1ab25de09b05a417a99e6d08ca1f318ef780bdef962728c1f5bbf808f626413b"
+    },
+    {
+      "id": "shell_alias_bad",
+      "group": "shell_alias",
+      "cwe": "CWE-78",
+      "expected_vulnerable": true,
+      "path": "cases/shell_alias_bad.py",
+      "rationale": "An aliased process launcher still interprets the untrusted command string through a shell.",
+      "sha256": "bb80a4711ca0f83712a1becedeea6022c5657a606b4c7bcecc38de0d31c66869"
+    },
+    {
+      "id": "shell_alias_fixed",
+      "group": "shell_alias",
+      "cwe": "CWE-78",
+      "expected_vulnerable": false,
+      "path": "cases/shell_alias_fixed.py",
+      "rationale": "Printing the input uses no command interpreter.",
+      "sha256": "6df8afa0c32c306d293c7564ccb966318bab35293ec7e5fed2a87f67e2bde285"
+    },
+    {
+      "id": "shell_constant_control",
+      "group": "shell_constant",
+      "cwe": "CWE-78",
+      "expected_vulnerable": false,
+      "path": "cases/shell_constant_control.py",
+      "rationale": "A fixed shell command has no attacker-controlled input in this fixture; other deployment risks are excluded.",
+      "sha256": "bc7beff944971f93a747bccdb7c530ba7ec6c0a8ed6f8872a13b0faf439b836d"
+    },
+    {
+      "id": "shell_text_control",
+      "group": "shell_text",
+      "cwe": "CWE-78",
+      "expected_vulnerable": false,
+      "path": "cases/shell_text_control.py",
+      "rationale": "The shell call is mentioned in a string, not executed.",
+      "sha256": "b92bd30fba2188ae405a8ac5df8fa82971493a396f2f7b8eae44b74ec81f800b"
+    },
+    {
+      "id": "sql_direct_bad",
+      "group": "sql_direct",
+      "cwe": "CWE-89",
+      "expected_vulnerable": true,
+      "path": "cases/sql_direct_bad.py",
+      "rationale": "Untrusted input becomes part of SQL syntax; assume a sqlite3-compatible cursor.",
+      "sha256": "3ab984cc5e4e903bb08e4bfbe5b1c85b60918fcd3398dfaa9228e7ccea5aaf5c"
+    },
+    {
+      "id": "sql_direct_fixed",
+      "group": "sql_direct",
+      "cwe": "CWE-89",
+      "expected_vulnerable": false,
+      "path": "cases/sql_direct_fixed.py",
+      "rationale": "A sqlite3 parameter binding treats user_text as a value.",
+      "sha256": "8e7d81d58dd0e1ae8280adbea30ba365672cead4f5549013c98e1091d9f5a7c2"
+    },
+    {
+      "id": "sql_concat_bad",
+      "group": "sql_concat",
+      "cwe": "CWE-89",
+      "expected_vulnerable": true,
+      "path": "cases/sql_concat_bad.py",
+      "rationale": "Concatenated untrusted input is stored in a query variable before execution.",
+      "sha256": "3a05e9b9e99a3e8e9beb14f6d9ba50e23cc57d3c72813eca5e852a7930a2a61e"
+    },
+    {
+      "id": "sql_concat_fixed",
+      "group": "sql_concat",
+      "cwe": "CWE-89",
+      "expected_vulnerable": false,
+      "path": "cases/sql_concat_fixed.py",
+      "rationale": "The query uses a fixed placeholder and supplies the value separately.",
+      "sha256": "a18aec3eaf894c236edb8668ddf376c31762917529d2aa78d55b3b807d3740d8"
+    },
+    {
+      "id": "sql_integer_control",
+      "group": "sql_integer",
+      "cwe": "CWE-89",
+      "expected_vulnerable": false,
+      "path": "cases/sql_integer_control.py",
+      "rationale": "int conversion restricts the interpolated value to an integer; assume built-in int and a standard DBAPI cursor.",
+      "sha256": "e09e3f7272a91852c52eceafc9d4f1bacf8d4f199be23c1c3182c734ea97d321"
+    },
+    {
+      "id": "sql_unexecuted_control",
+      "group": "sql_unexecuted",
+      "cwe": "CWE-89",
+      "expected_vulnerable": false,
+      "path": "cases/sql_unexecuted_control.py",
+      "rationale": "A formatted string is returned as text; this fixture does not submit it to any database.",
+      "sha256": "b801a2f1685627c2042b6bbfcadeb90a5553ac315b7f11000004156a062c6de7"
+    }
+  ]
+}

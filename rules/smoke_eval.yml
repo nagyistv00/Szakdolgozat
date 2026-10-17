@@ -1,0 +1,6 @@
+rules:
+  - id: smoke-python-eval
+    languages: [python]
+    severity: WARNING
+    message: Direct eval call found in an installation-check fixture.
+    pattern: eval(...)

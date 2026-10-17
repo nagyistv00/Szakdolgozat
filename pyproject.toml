@@ -1,0 +1,30 @@
+[project]
+name = "thesis-vulnerability-assistant"
+version = "0.0.2"
+description = "Milestone 2 replaceable scanner and model connectors with research fixtures"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "bandit>=1.8,<2",
+    "httpx>=0.28,<1",
+    "pydantic>=2,<3",
+    "scikit-learn>=1.6,<2",
+    "semgrep>=1.100,<2",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
+
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vuln_assistant"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-exclude = ["tests/fixtures", "data", ".tools", ".runtime", "models"]
