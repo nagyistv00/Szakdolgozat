@@ -4,12 +4,15 @@ NOT a final evaluation: these cases, rules and prompts influenced development, s
 numbers are optimistic development observations. The final, held-out evaluation is M4.
 
 Conditions (case level, unit = one file w.r.t. its labelled family):
-  m2:*                    milestone 2 scanner configuration, for reference
-  m3:bandit / m3:semgrep  milestone 3 baseline scanners alone
-  m3:scanners             union of both baseline scanners (the system without AI)
-  m3:scanners+model#rN    the same scanners plus the model reviewer (repeat N)
-  model-accepted#rN       diagnostic only: grounded model issues alone (the model saw
-                          the scanner hints, so this is not an independent model-only run)
+  m2:*                       milestone 2 scanner configuration, for reference
+  m3:bandit / m3:semgrep     milestone 3 scanners alone
+  m3:scanners                union of both scanners
+  <layer>+<model>#rN         scanner layer ("union" or "semgrep") plus the model reviewer
+                             with verification of model-only claims (repeat N); the model
+                             receives hints only from the scanners of that layer
+  <layer>+<model>-noverify   ablation: same, without the verification call (one run)
+  model-accepted:<...>       diagnostic only: accepted model issues alone (the model saw the
+                             scanner hints, so this is not an independent model-only run)
 """
 
 import argparse
@@ -63,9 +66,11 @@ def sklearn_check(cases, predictions: dict[str, bool], ours: dict) -> bool:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    parser.add_argument("--repeats", type=int, default=3)
+    parser.add_argument("--repeats", type=int, default=2)
     parser.add_argument("--no-model", action="store_true")
-    parser.add_argument("--model", default=DEFAULT_MODEL)
+    parser.add_argument("--models", default=DEFAULT_MODEL, help="comma-separated Ollama tags")
+    parser.add_argument("--layers", default="union,semgrep")
+    parser.add_argument("--no-ablation", action="store_true")
     parser.add_argument("--lang", default="hu", choices=["hu", "en"])
     parser.add_argument("--out")
     args = parser.parse_args()
@@ -119,68 +124,123 @@ def main():
                 c["id"]: scanner_prediction(profile, tools, c) for c in cases
             }
 
-    model_stats = {"requested": not args.no_model}
-    explanation_rows = []
+    layer_tools = {"union": ("bandit", "semgrep"), "semgrep": ("semgrep",)}
+    layer_condition = {"union": "m3:scanners", "semgrep": "m3:semgrep"}
+    layers = [layer.strip() for layer in args.layers.split(",") if layer.strip()]
+    models = [model.strip() for model in args.models.split(",") if model.strip()]
+    model_stats = {"requested": not args.no_model, "models": {}}
+    explanation_rows = {}
+
+    def run_model(reviewer, model, layer, label, keep_files):
+        tools = layer_tools[layer]
+        combined, accepted_only = {}, {}
+        stats = {"failed": 0, "skipped": 0, "accepted": 0, "rejected_ungrounded": 0,
+                 "rejected_by_verification": 0, "verification_calls": 0,
+                 "verification_failures": 0, "line_corrected": 0, "dismissed": 0,
+                 "unknown_refs": 0, "seconds": []}  # fmt: skip
+        rows = []
+        for case in cases:
+            scans = [reports[("m3", tool, case["id"])] for tool in tools]
+            findings = [f for scan in scans for f in scan.findings]
+            source = workspace.resolve(case["path"]).read_bytes()
+            outcome, refs, lines = reviewer.review(source, findings, args.lang)
+            detections = merge(case["path"], lines, scans, outcome, refs)
+            combined[case["id"]] = any(d.family == case["cwe"] for d in detections)
+            accepted_only[case["id"]] = any(a.issue.family == case["cwe"] for a in outcome.accepted)
+            if outcome.status in ("failed", "skipped"):
+                stats[outcome.status] += 1
+            stats["accepted"] += len(outcome.accepted)
+            for item in outcome.rejected:
+                key = (
+                    "rejected_by_verification"
+                    if item.reason.startswith("not confirmed")
+                    else (
+                        "verification_failures"
+                        if item.reason.startswith("verification failed")
+                        else "rejected_ungrounded"
+                    )
+                )
+                if key != "verification_failures":
+                    stats[key] += 1
+            stats["verification_calls"] += outcome.verification_calls
+            stats["verification_failures"] += outcome.verification_failures
+            stats["line_corrected"] += sum(a.line_corrected for a in outcome.accepted)
+            stats["dismissed"] += len(outcome.dismissed)
+            stats["unknown_refs"] += len(outcome.unknown_refs)
+            if outcome.seconds is not None:
+                stats["seconds"].append(outcome.seconds)
+            safe = model.replace(":", "_").replace("/", "_")
+            write_json(
+                out / "model" / safe / f"{label}-{case['id']}.json",
+                {
+                    "outcome": outcome.model_dump(),
+                    "detections": [d.model_dump() for d in detections],
+                },
+            )
+            if keep_files:
+                rows.append((case, detections, outcome))
+        seconds = stats.pop("seconds")
+        if seconds:
+            stats["seconds_median"] = round(statistics.median(seconds), 3)
+            stats["seconds_max"] = round(max(seconds), 3)
+            stats["seconds_total"] = round(sum(seconds), 3)
+        print(f"{model} {label}: {stats}", flush=True)
+        return combined, accepted_only, stats, rows
+
     if not args.no_model:
-        connector = OllamaConnector(model=args.model)
-        reviewer = ModelReviewer(connector)
-        model_stats["metadata"] = reviewer.identify(KNOWN_DIGESTS.get(args.model))
-        model_stats["repeats"] = []
-        try:
-            for repeat in range(1, args.repeats + 1):
-                combined, accepted_only = {}, {}
-                stats = {"failed": 0, "skipped": 0, "accepted": 0, "rejected": 0,
-                         "line_corrected": 0, "dismissed": 0, "unknown_refs": 0, "seconds": []}  # fmt: skip
-                for case in cases:
-                    scans = [reports[("m3", tool, case["id"])] for tool in ("bandit", "semgrep")]
-                    findings = [f for scan in scans for f in scan.findings]
-                    source = workspace.resolve(case["path"]).read_bytes()
-                    outcome, refs, lines = reviewer.review(source, findings, args.lang)
-                    detections = merge(case["path"], lines, scans, outcome, refs)
-                    combined[case["id"]] = any(d.family == case["cwe"] for d in detections)
-                    accepted_only[case["id"]] = any(
-                        a.issue.family == case["cwe"] for a in outcome.accepted
+        for model in models:
+            connector = OllamaConnector(model=model)
+            reviewer = ModelReviewer(connector)
+            entry = {"metadata": reviewer.identify(KNOWN_DIGESTS.get(model)), "runs": {}}
+            model_stats["models"][model] = entry
+            try:
+                for layer in layers:
+                    runs = []
+                    for repeat in range(1, args.repeats + 1):
+                        label = f"{layer}#r{repeat}"
+                        combined, accepted_only, stats, rows = run_model(
+                            reviewer, model, layer, label, repeat == 1 and layer == "union"
+                        )
+                        conditions[f"{layer}+{model}#r{repeat}"] = combined
+                        conditions[f"model-accepted:{layer}+{model}#r{repeat}"] = accepted_only
+                        entry["runs"][label] = stats
+                        runs.append(combined)
+                        if rows:
+                            explanation_rows[model] = rows
+                    entry[f"unstable_cases:{layer}"] = sorted(
+                        c["id"] for c in cases if len({run[c["id"]] for run in runs}) > 1
                     )
-                    if outcome.status in ("failed", "skipped"):
-                        stats[outcome.status] += 1
-                    stats["accepted"] += len(outcome.accepted)
-                    stats["rejected"] += len(outcome.rejected)
-                    stats["line_corrected"] += sum(a.line_corrected for a in outcome.accepted)
-                    stats["dismissed"] += len(outcome.dismissed)
-                    stats["unknown_refs"] += len(outcome.unknown_refs)
-                    if outcome.seconds is not None:
-                        stats["seconds"].append(outcome.seconds)
-                    write_json(
-                        out / "model" / f"r{repeat}-{case['id']}.json",
-                        {
-                            "outcome": outcome.model_dump(),
-                            "detections": [d.model_dump() for d in detections],
-                        },
+                if not args.no_ablation and "union" in layers:
+                    reviewer.verify = False
+                    combined, _, stats, _ = run_model(
+                        reviewer, model, "union", "union-noverify", False
                     )
-                    if repeat == 1:
-                        explanation_rows.append((case, detections, outcome))
-                conditions[f"m3:scanners+model#r{repeat}"] = combined
-                conditions[f"model-accepted#r{repeat}"] = accepted_only
-                seconds = stats.pop("seconds")
-                if seconds:
-                    stats["seconds_median"] = round(statistics.median(seconds), 3)
-                    stats["seconds_max"] = round(max(seconds), 3)
-                    stats["seconds_total"] = round(sum(seconds), 3)
-                model_stats["repeats"].append(stats)
-                print(f"Model repeat {repeat}/{args.repeats} done: {stats}", flush=True)
-        finally:
-            connector.unload()
-        runs = [conditions[f"m3:scanners+model#r{r}"] for r in range(1, args.repeats + 1)]
-        model_stats["unstable_cases"] = sorted(
-            c["id"] for c in cases if len({run[c["id"]] for run in runs}) > 1
-        )
+                    conditions[f"union+{model}-noverify"] = combined
+                    entry["runs"]["union-noverify"] = stats
+                    reviewer.verify = True
+            finally:
+                connector.unload()
+
+    changes = {}
+    for name, predictions in conditions.items():
+        layer = name.split("+", 1)[0]
+        if "+" not in name or name.startswith("model-accepted") or layer not in layer_condition:
+            continue
+        base = conditions[layer_condition[layer]]
+        changes[name] = {
+            "new_true_positives": [c["id"] for c in cases if c["expected_vulnerable"] and predictions[c["id"]] and not base[c["id"]]],
+            "new_false_positives": [c["id"] for c in cases if not c["expected_vulnerable"] and predictions[c["id"]] and not base[c["id"]]],
+        }  # fmt: skip
 
     results = {}
     for name, predictions in conditions.items():
         result = metrics_for(cases, predictions)
         result["sklearn_agrees"] = sklearn_check(cases, predictions, result["overall"])
         results[name] = result
-    write_json(out / "metrics.json", {"conditions": results, "model": model_stats})
+    write_json(
+        out / "metrics.json",
+        {"conditions": results, "changes_vs_scanner_layer": changes, "model": model_stats},
+    )
 
     with (out / "predictions.csv").open("w", newline="", encoding="utf-8") as handle:
         writer = csv.writer(handle)
@@ -214,14 +274,14 @@ def main():
     )
     (out / "summary.md").write_text(summary + "\n", encoding="utf-8")
 
-    if explanation_rows:
+    for model, rows in explanation_rows.items():
         sheet = [
-            "# Explanation review sheet (repeat 1)",
+            f"# Explanation review sheet — {model}, union layer, repeat 1",
             "",
             "Score each model explanation manually; do not use the model to grade itself.",
             "",
         ]
-        for case, detections, outcome in explanation_rows:
+        for case, detections, outcome in rows:
             sheet.append(
                 f"## {case['id']} (label: {case['cwe']}, vulnerable={case['expected_vulnerable']})"
             )
@@ -242,10 +302,11 @@ def main():
                 sheet.append(f"- Dismissed {item.ref}: {item.reason}")
             for item in outcome.rejected:
                 sheet.append(
-                    f"- Rejected (ungrounded) {item.issue.family} line {item.issue.line}: {item.reason}"
+                    f"- Rejected {item.issue.family} line {item.issue.line}: {item.reason}"
                 )
             sheet.append("")
-        (out / "explanations.md").write_text("\n".join(sheet), encoding="utf-8")
+        safe = model.replace(":", "_").replace("/", "_")
+        (out / f"explanations-{safe}.md").write_text("\n".join(sheet), encoding="utf-8")
 
     print(summary, flush=True)
 

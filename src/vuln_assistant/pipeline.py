@@ -46,6 +46,11 @@ class Analyzer:
             outcome, refs, lines = self.reviewer.review(source, findings, self.language)
             if outcome.status != "completed":
                 problems.append(f"{relative}: model review {outcome.status}: {outcome.reason}")
+            if outcome.verification_failures:
+                problems.append(
+                    f"{relative}: {outcome.verification_failures} model claim(s) could not be "
+                    "verified and were not reported"
+                )
         detections = merge(relative, lines, scans, outcome, refs)
         analysis = FileAnalysis(
             path=relative,

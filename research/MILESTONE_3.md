@@ -72,8 +72,47 @@ flowchart TD
 
 ## Verification status
 
-- Implemented in the assistant's workspace. Lint passed (Ruff 0.16.8). Pure-logic parts (grounding, merge, rendering, metrics, rule interpreter on the 12 scenarios, pipeline with a simulated model) were exercised with Python 3.13 + Pydantic 2.13.5 in the assistant's cloud workspace.
-- **Not yet run on the target machine** (Windows, Python 3.11.13, real Bandit/Semgrep/Ollama): the cloud workspace could not install Bandit/Semgrep (package index blocked), and the assistant cannot type into a terminal on the user's computer. The one-command check `scripts/m3_check.ps1` produces all evidence under `artifacts/m3/check-<UTC>/`.
+- Implemented and lint-checked in the assistant's workspace on 2026-10-17; pure logic exercised with a simulated model.
+- **Verified on the target machine** on 2026-10-17 (`artifacts/m3/check-20261017T104137Z/`, all steps exit code 0): Ruff passed; pytest 88/88; the M2 diagnostic reproduced all 36 statuses and finding counts of 2026-09-19 exactly; model digest checked at run time.
+- First attempt (`check-20261017T102331Z`) hung: the model-server step captured output through a pipe that the background `ollama.exe` inherited. Fixed by starting/stopping the server outside the pipe.
+
+## Development results (development corpus — not a final evaluation)
+
+Unit: file with respect to its labelled family; 6 vulnerable, 12 non-vulnerable cases. Model: qwen2.5-coder:7b Q4_K_M, temperature 0, seed 0, num_ctx 8192; Hungarian explanation language; 3 repeats.
+
+| Condition | TP | FP | TN | FN | Accuracy | Precision | Recall |
+|---|---|---|---|---|---|---|---|
+| Bandit, full set | 5 | 5 | 7 | 1 | 0.667 | 0.500 | 0.833 |
+| Semgrep taint rules | 5 | 1 | 11 | 1 | 0.889 | 0.833 | 0.833 |
+| Bandit ∪ Semgrep (system without AI) | 5 | 5 | 7 | 1 | 0.667 | 0.500 | 0.833 |
+| Bandit ∪ Semgrep + model (3 identical repeats) | 6 | 9 | 3 | 0 | 0.500 | 0.400 | 1.000 |
+
+- The model added one true detection (aliased eval, missed by both scanners) and four false positives the scanners did not raise: `ast.literal_eval`, a command that only appears in a string, and two bound-parameter SQL queries. Its reasoning in those cases is factually wrong (it describes bound parameters as concatenation).
+- Repeats were identical; no model failures; no ungrounded claims (the grounding check never fired); no dismissals. Median 3.85 s per file warm, 41.2 s for the cold first call.
+- Request interpretation on the 12 development scenarios: rules 12/12; model 12/12 actions, 9/12 all fields (language wrong twice, family filter taken from a file name once).
+- End-to-end demo (`demo/transcript.txt`) works. Hungarian explanations are understandable but uneven (untranslated "untrusted data", `%s` placeholder suggested for sqlite).
+
+Interpretation: with the current small model and union policy, the AI raises recall but lowers precision and accuracy on development data. Taint-mode Semgrep is the strongest single component here, but its rules were written with knowledge of this corpus, so M4 must confirm this on held-out data.
+
+## Second development iteration (implemented 2026-10-17, target run pending)
+
+The five proposals below were approved by the user, including the download of a larger local model.
+
+- Request interpretation: language always detected deterministically; a proposed family filter is kept only if the request words (excluding paths) support it.
+- Review call: analysis and reasoning in English; input source, explanation and fix in the user's language; fixes must keep the code's library/API conventions.
+- Verification: each model-only claim (not attached to a scanner finding) gets a second, focused call (trace → attacker_controlled → reaches_dangerous_operation → neutralised → verdict). It becomes a detection only when every answer is consistent with "vulnerable". The original reasoning is withheld from the verifier. Verification failures make the report incomplete.
+- Models: qwen2.5-coder:7b and qwen2.5-coder:14b under identical settings; context size fitted per call (4096/8192/16384) so the 14B model fits in 12 GB VRAM.
+- Conditions: scanner layer "union" (Bandit ∪ Semgrep) and "semgrep" (Semgrep taint only), each with the model receiving only that layer's findings as hints; ablation without verification; 2 repeats.
+
+Caveat: the verification and review prompt wording encodes CWE-definition knowledge that was added after observing the first run's development false positives. Development results of this iteration are therefore optimistic; only held-out data (M4) can confirm an improvement.
+
+## Proposals after the first run (approved)
+
+1. Deterministic language detection and a focus filter that must be supported by the request text (not file names).
+2. Reasoning fields in English; only explanation and fix in the user's language.
+3. Two-step "propose → verify" for model-only issues (hypothesis validation, cf. R07); scanner-confirmed issues stay.
+4. Compare a larger local model (e.g. qwen2.5-coder:14b, about 9 GB download) under identical settings.
+5. Fix the scanner layer of the "system without AI" before M4 with a documented rationale (Semgrep taint alone vs. union with Bandit) and report both.
 
 ## Evaluation plan carried to M4 (proposal)
 

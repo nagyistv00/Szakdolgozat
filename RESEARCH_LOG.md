@@ -143,6 +143,46 @@ Ez a napló a később összeállítandó szakdolgozat háttéranyaga. A kutatá
 - Szakdolgozati jelentőség: a mérési egység (fájl a címkézett hibacsaládra), a feltételek (elemzők vs. elemzők + modell) és a forráshoz kötés mint hallucináció-korlát a módszertani fejezet alapja lehet.
 - Következő lépés: a felhasználó lefuttatja az ellenőrző szkriptet; az eredmények új naplóbejegyzésbe kerülnek.
 
+## 2026-10-17 – M3 első futás a célgépen (fejlesztési eredmények)
+
+- Mérföldkő: 3. Állapot: **mért fejlesztési eredmény** a 18 fejlesztési mintán – nem végső, független kiértékelés (a minták, a szabályok és a promptok a fejlesztést befolyásolták).
+- Futtatás: a felhasználó indította a `scripts/m3_check.ps1`-et (Windows, CPython 3.11.13, Bandit 1.9.4, Semgrep 1.177.0, Ollama 0.34.2, qwen2.5-coder:7b; a digest futáskor ellenőrizve: `dae161e2…f4364`). Beállítások: num_ctx 8192, num_predict 2048, temperature 0, seed 0, keep_alive 10m, magyar magyarázatnyelv, 3 ismétlés.
+- Első kísérlet (`artifacts/m3/check-20261017T102331Z/`): git, Ruff, pytest és M2-reprodukció sikeres, utána elakadt. Ok: a modellszerver-indító lépés kimenetét csővel gyűjtöttük, a háttérben induló `ollama.exe` örökölte a csőleírót, ezért a lépés sosem ért véget (a szerver 12:25:03-kor rendben elindult). Javítás: a szerver indítása/leállítása cső nélkül (commit „m3_check: start/stop model server outside the output pipe”). A felhasználónak az ablakot be kellett zárnia, mert a Ctrl+C nem hatott.
+- Második, teljes futás: `artifacts/m3/check-20261017T104137Z/` – minden lépés 0 kilépési kóddal.
+  - Git: tároló létrehozva (M1–M2 kiindulás → témavezetői dokumentumok → M3 → bizonyítékfájlok commitja).
+  - Ruff sikeres; **pytest 88/88** (37,6 s), kihagyás nélkül; a taint-szabályok tervezett viselkedését a valódi Semgrep igazolta.
+  - **M2-reprodukció:** mind a 36 elemzés állapota és találatszáma azonos a 2026-09-19-ivel (`artifacts/m2/20261017T102414455218Z/`).
+- Fejlesztési mérés (`dev/metrics.json`, `dev/predictions.csv`; egység: fájl a címkézett hibacsaládra; 6 sérülékeny, 12 nem sérülékeny; scikit-learn keresztellenőrzés minden feltételre egyezett):
+
+  | Feltétel | TP | FP | TN | FN | Accuracy | Precision | Recall |
+  |---|---|---|---|---|---|---|---|
+  | m3: Bandit (teljes) | 5 | 5 | 7 | 1 | 0,667 | 0,500 | 0,833 |
+  | m3: Semgrep taint | 5 | 1 | 11 | 1 | 0,889 | 0,833 | 0,833 |
+  | m3: Bandit ∪ Semgrep | 5 | 5 | 7 | 1 | 0,667 | 0,500 | 0,833 |
+  | m3: Bandit ∪ Semgrep + modell (×3, azonos) | 6 | 9 | 3 | 0 | 0,500 | 0,400 | 1,000 |
+
+  - A modell hozzáadott egy valódi találatot (aliasos eval, amit mindkét elemző kihagyott), és 4 új téves riasztást: `ast.literal_eval` (eval_direct_fixed), csak szövegben szereplő parancs (shell_text_control), kötött paraméteres SQL-lekérdezés (sql_direct_fixed, sql_concat_fixed). A többi 5 téves riasztást már a Bandit is jelezte. Összegezve: recall 0,833 → 1,000, precision 0,500 → 0,400, accuracy 0,667 → 0,500.
+  - A 3 ismétlés azonos előrejelzést adott (0 instabil eset), 0 modellhiba, 0 forráshoz nem köthető állítás (a forráshoz kötés-ellenőrzés egyszer sem lépett működésbe), 0 elvetett elemzői találat. Időigény: medián 3,85 s/fájl, az első (hideg) hívás 41,2 s.
+  - Megfigyelés: a téves pozitívoknál a modell indoklása tartalmilag hibás (például a paraméteres lekérdezést „közvetlen beillesztésnek” nevezi). Az elemzés és indoklás magyarul készült, mert a magyarázatnyelvet a teljes válaszra alkalmaztuk; hipotézis, hogy angol nyelvű indoklással a 7B modell pontosabb (nem mért).
+  - A Semgrep taint-szabályok a fejlesztési mintán messze a legjobb elemzők, de a CWE-szemantika alapján, a fejlesztési minták ismeretében készültek – az előny végső igazolása M4-feladat.
+- Kéréshelyzetek (`requests/results.json`): szabályalapú értelmező 12/12 (a helyzetek ismeretében írva); modellalapú értelmező 12/12 művelet, 9/12 minden mező. Hibák: kétszer hibás/hiányzó nyelv (alapértékként „hu” került be, illetve magyar kérésre „en”), egyszer a fájlnévből (`sql_integer_control`) vett hibacsalád-szűrés, bár a prompt ezt tiltotta. Meleg modellnél 0,4–0,7 s/kérés.
+- Bemutató (`demo/transcript.txt`): a teljes természetes nyelvű folyamat működik (elemzés → „magyarázd el az előző találatot” → mappa szűréssel → törlési kérés elutasítása). A magyar szövegek érthetők, de nyersek („untrusted data” fordítatlanul), és vannak tartalmi hibák: sqlite-hoz `%s` helyőrzőt javasol `?` helyett, illetve konstans parancsnál nem releváns javítást ad.
+- Szakdolgozati jelentőség: ez a fejlesztési mérés már most is azt mutatja, hogy a témavezetői prioritás (felismerés, azaz recall) és a precision között a jelenlegi kis modellnél kompromisszum van. Ez dokumentálandó eredmény, nem elrejtendő.
+- Javasolt következő fejlesztési kör (döntésre vár): determinisztikus nyelv- és szűrésellenőrzés a kérésértelmezőben; angol nyelvű indoklás, csak a magyarázat a felhasználó nyelvén; kétlépéses „javaslat → ellenőrzés” a csak modell által jelzett találatokra (vö. R07 VulAgent); nagyobb helyi modell összevetése (pl. qwen2.5-coder:14b, kb. 9 GB letöltés, a felhasználó engedélyével); az elemzőréteg (Semgrep-taint vs. unió) M4 előtti rögzítése indoklással.
+
+## 2026-10-17 – M3 második fejlesztési kör (megvalósítva, futtatásra vár)
+
+- Mérföldkő: 3. A felhasználó jóváhagyta az előző bejegyzés öt javaslatát, beleértve a nagyobb helyi modell letöltését. Állapot: **megvalósítva, helyben tesztelve szimulált modellel; a célgépi futás még hátravan.**
+- Változtatások és indokuk:
+  1. Kérésértelmezés: a nyelvet mindig determinisztikusan, a kérés szövegéből állapítjuk meg; a modell által javasolt hibacsalád-szűrést csak akkor fogadjuk el, ha a kérés szavai (a fájlnevek nélkül) alátámasztják. Ok: az első futás három mezőhibája. Bővített kulcsszavak: adatbázis, lekérdezés, operációs rendszer, kódbefecskendezés.
+  2. Az áttekintő hívás az elemzést és az indoklást angolul írja, csak a bemenetforrás, a magyarázat és a javítás készül a felhasználó nyelvén. Hipotézis: a 7B modell angolul pontosabban érvel (mérendő). A prompt kéri, hogy a javítás az adott könyvtár API-ját kövesse (pl. az adatbázis-meghajtó helyőrzőjét).
+  3. Kétlépéses ellenőrzés: a csak modell által jelzett (elemzői találathoz nem kötődő) állítást egy második, fókuszált hívás vizsgálja (nyomkövetés → attacker_controlled → reaches_dangerous_operation → neutralised → verdict). Csak akkor lesz belőle találat, ha a döntés és minden válasz összhangban van. Az eredeti indoklást az ellenőrző nem kapja meg (horgonyhatás elkerülése). Az ellenőrzés hibája láthatóvá teszi a jelentés hiányosságát. Szakirodalmi motiváció: hipotézis–validáció (R07 VulAgent), forrásállítás és saját megvalósítás elkülönítve.
+  4. Modell-összevetés: qwen2.5-coder:7b és qwen2.5-coder:14b azonos beállításokkal. A kontextusméret hívásonként a legkisebbre igazodik (4096/8192/16384), hogy a 14B modell elférjen a 12 GB VRAM-ban. A letöltőszkript paraméterezve, a már telepített modellt nem tölti le újra; az azonosítót `artifacts/m3/model-install-*.json` rögzíti.
+  5. Elemzőréteg: a mérés mindkét változatot futtatja (Bandit ∪ Semgrep, illetve csak Semgrep), mindegyiket a saját találataival tippként adva a modellnek. Ablációként a verifikáció nélküli változat is fut. A végleges „AI nélküli” alap kiválasztása ennek a futásnak az eredménye alapján, M4 előtt történik.
+- Fontos módszertani megjegyzés: a 2. és 3. pont promptszövegei (például „a kötött paraméter nem része az SQL-szövegnek”, „a literálként értelmezett érték nem fut le”) CWE-definíciós tudást írnak le, de az első futás fejlesztési téves pozitívjai után kerültek be. Ezért a második kör fejlesztési eredményei optimisták; a javulás csak független, előre lezárt adaton (M4) igazolható.
+- Egyéb: az ellenőrző szkript a futás előtt automatikusan commitolja a függő változásokat (üzenet: `scripts/git/pending_message.txt`), így minden futás commitolt kódon történik. Ismétlésszám 2 (az első futás 3 ismétlése azonos volt).
+- Ellenőrzés eddig: Ruff sikeres; a kérésértelmező mind a 12 helyzetet és a három korábbi hibát helyesen kezeli; az ellenőrző lépés szimulált modellel megerősít, elutasít, és a hibát láthatóvá teszi; a bővített mérőszkript a célgépről vett valódi elemzői kimenetekkel és szimulált modellel végigfutott.
+
 ## A későbbi bejegyzések mintája
 
 Az alábbi mezőket a tényleges tevékenységhez igazítsd; ami nem alkalmazható, elhagyható.

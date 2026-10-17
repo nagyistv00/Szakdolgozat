@@ -2,7 +2,7 @@
 
 Author: Nagy István. Supervisor: Girászi Tamás.
 
-Current stage: milestone 3 implemented (2026-10-17); verification on the target machine pending — see `research/MILESTONE_3.md`. Milestone 2 completed provisionally. Direction: static source analysis with a pretrained model, no model training. Python is the working target language. A command-line assistant (scanners + local model, HU/EN requests) exists; the thesis manuscript does not. Supervisor feedback, as reported by the user on 2026-10-17, accepts the pretrained-model approach without training, Python with the three weakness families, and the scanner vs. scanner + AI comparison using accuracy, precision and recall; see `RESEARCH_LOG.md`.
+Current stage: milestone 3 implemented and verified on the target machine (2026-10-17); development results and the proposed next iteration are in `research/MILESTONE_3.md`. Milestone 2 completed provisionally. Direction: static source analysis with a pretrained model, no model training. Python is the working target language. A command-line assistant (scanners + local model, HU/EN requests) exists; the thesis manuscript does not. Supervisor feedback, as reported by the user on 2026-10-17, accepts the pretrained-model approach without training, Python with the three weakness families, and the scanner vs. scanner + AI comparison using accuracy, precision and recall; see `RESEARCH_LOG.md`.
 
 ## Project records
 

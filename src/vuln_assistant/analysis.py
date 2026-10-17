@@ -40,15 +40,38 @@ class ModelReview(StrictRecord):
     dismissed: list[DismissedFinding]
 
 
+class Verification(StrictRecord):
+    """Second, focused check of a model-only claim. Questions come before the verdict."""
+
+    trace: str
+    attacker_controlled: bool
+    reaches_dangerous_operation: bool
+    neutralised: bool
+    verdict: Literal["vulnerable", "not_vulnerable"]
+    reason: str
+
+    def confirms(self) -> bool:
+        """Confirmed only when the verdict and every answer agree."""
+        return (
+            self.verdict == "vulnerable"
+            and self.attacker_controlled
+            and self.reaches_dangerous_operation
+            and not self.neutralised
+        )
+
+
 class AcceptedIssue(StrictRecord):
     issue: ModelIssue
     line: int
     line_corrected: bool
+    # None: backed by a scanner finding, so no verification call was needed.
+    verification: Verification | None = None
 
 
 class RejectedIssue(StrictRecord):
     issue: ModelIssue
     reason: str
+    verification: Verification | None = None
 
 
 class ModelOutcome(StrictRecord):
@@ -62,6 +85,8 @@ class ModelOutcome(StrictRecord):
     rejected: list[RejectedIssue] = Field(default_factory=list)
     dismissed: list[DismissedFinding] = Field(default_factory=list)
     unknown_refs: list[str] = Field(default_factory=list)
+    verification_calls: int = 0
+    verification_failures: int = 0
     ref_map: dict[str, str] = Field(default_factory=dict)
     seconds: float | None = None
     evidence: dict = Field(default_factory=dict)

@@ -1,8 +1,13 @@
 # One-command milestone 3 check. Run from PowerShell in the project folder:
-#   ./scripts/m3_check.ps1              (with the local model; about 15-25 minutes)
+#   ./scripts/m3_check.ps1              (local models; the first run also downloads the
+#                                        14B model, about 9 GB; then roughly 30-45 minutes)
 #   ./scripts/m3_check.ps1 -SkipModel   (scanners and tests only)
 # Every step's full output is saved under artifacts/m3/check-<UTC time>/.
-param([switch]$SkipModel, [int]$Repeats = 3)
+param(
+    [switch]$SkipModel,
+    [int]$Repeats = 2,
+    [string]$Models = 'qwen2.5-coder:7b,qwen2.5-coder:14b'
+)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 Set-Location -LiteralPath $root
@@ -36,7 +41,22 @@ function Invoke-Step([string]$Name, [scriptblock]$Block) {
     Write-Host "=== $Name finished with exit code $code"
 }
 
-$startedServer = $false
+# The model server helper starts a long-running ollama.exe. It must not run inside
+# Invoke-Step: the child would inherit the output pipe and the step would never end.
+function Invoke-ModelServer([string]$Action) {
+    $name = "model_server_$($Action.ToLowerInvariant())"
+    Write-Host "=== $name"
+    $log = Join-Path $out "$name.log"
+    try {
+        & (Join-Path $root 'scripts/model_server.ps1') -Action $Action | Out-File -LiteralPath $log -Encoding utf8
+        $results[$name] = [ordered]@{ exit_code = 0 }
+    } catch {
+        "$_" | Out-File -LiteralPath $log -Encoding utf8 -Append
+        $results[$name] = [ordered]@{ exit_code = -1 }
+    }
+    Get-Content -LiteralPath $log | ForEach-Object { Write-Host $_ }
+}
+
 try {
     Invoke-Step 'git' { & powershell -NoProfile -ExecutionPolicy Bypass -File scripts/init_git.ps1 }
     Invoke-Step 'ruff' { & uv run --locked ruff check src tests scripts }
@@ -47,17 +67,23 @@ try {
         $modelArgs = @('--no-model')
     } else {
         $listener = Get-NetTCPConnection -LocalPort 11435 -State Listen -ErrorAction SilentlyContinue
-        if (-not $listener) {
-            Invoke-Step 'model_server_start' { & powershell -NoProfile -ExecutionPolicy Bypass -File scripts/model_server.ps1 -Action Start }
-            $startedServer = $results['model_server_start'].exit_code -eq 0
+        if (-not $listener) { Invoke-ModelServer 'Start' }
+        foreach ($model in ($Models -split ',')) {
+            $tag = $model.Trim()
+            $safe = $tag -replace '[:/]', '_'
+            Invoke-Step "model_pull_$safe" { & uv run --locked python scripts/pull_model.py --model $tag }
         }
+        $modelArgs = @('--models', $Models)
     }
+    $demoArgs = if ($SkipModel) { @('--no-model') } else { @('--model', ($Models -split ',')[0].Trim()) }
     Invoke-Step 'dev_eval' { & uv run --locked python scripts/m3_dev_eval.py --repeats $Repeats --out "$out/dev" @modelArgs }
     Invoke-Step 'requests_eval' { & uv run --locked python scripts/m3_requests_eval.py --out "$out/requests" @modelArgs }
-    Invoke-Step 'demo' { & uv run --locked python scripts/m3_demo.py --out "$out/demo" @modelArgs }
+    Invoke-Step 'demo' { & uv run --locked python scripts/m3_demo.py --out "$out/demo" @demoArgs }
 } finally {
-    if ($startedServer) {
-        Invoke-Step 'model_server_stop' { & powershell -NoProfile -ExecutionPolicy Bypass -File scripts/model_server.ps1 -Action Stop }
+    # Stops only the project-owned server recorded in .runtime (identity is verified),
+    # including one left running by an interrupted earlier check.
+    if (-not $SkipModel -and (Test-Path -LiteralPath (Join-Path $root '.runtime/ollama-process.json'))) {
+        Invoke-ModelServer 'Stop'
     }
     $results | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $out 'status.json') -Encoding utf8
     [Console]::OutputEncoding = $previousEncoding

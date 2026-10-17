@@ -1,0 +1,33 @@
+﻿{
+    "git":  {
+                "exit_code":  0,
+                "seconds":  0.2
+            },
+    "ruff":  {
+                 "exit_code":  0,
+                 "seconds":  0.1
+             },
+    "pytest":  {
+                   "exit_code":  0,
+                   "seconds":  37.6
+               },
+    "m2_reproduction":  {
+                            "exit_code":  0,
+                            "seconds":  39.9
+                        },
+    "dev_eval":  {
+                     "exit_code":  0,
+                     "seconds":  335.7
+                 },
+    "requests_eval":  {
+                          "exit_code":  0,
+                          "seconds":  8.9
+                      },
+    "demo":  {
+                 "exit_code":  0,
+                 "seconds":  147.5
+             },
+    "model_server_stop":  {
+                              "exit_code":  0
+                          }
+}

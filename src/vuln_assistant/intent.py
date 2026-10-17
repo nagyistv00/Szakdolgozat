@@ -94,9 +94,16 @@ ORDINALS = {
 }  # fmt: skip
 NUMBERED = re.compile(r"(\d+)\.?\s*(?:találat|finding)|(?:finding|találat)\s*#?(\d+)", _I)
 FOCUS = [
-    ("CWE-89", re.compile(r"\bsql\b", _I)),
-    ("CWE-78", re.compile(r"parancs|\bcommand|\bshell\b|os\.system", _I)),
-    ("CWE-95", re.compile(r"\beval\b|\bexec\b|kódkiértékel|code (?:injection|evaluation)", _I)),
+    ("CWE-89", re.compile(r"\bsql\b|adatbázis|\bdatabase|lekérdez", _I)),
+    ("CWE-78", re.compile(r"parancs|\bcommand|\bshell\b|os\.system|operációs rendszer", _I)),
+    (
+        "CWE-95",
+        re.compile(
+            r"\beval\b|\bexec\b|kódkiértékel|kódbefecskendez|code (?:injection|evaluation)"
+            r"|dynamic code",
+            _I,
+        ),
+    ),
 ]
 HUNGARIAN = re.compile(
     r"[áéíóöőúüű]|\b(?:vizsgál\w*|elemez\w*|magyaráz\w*|nézd|fájl\w*|kód\w*|mappá?\w*)\b", _I
@@ -151,12 +158,22 @@ def guard(text: str) -> tuple[str, str] | None:
     return None
 
 
-def detect_focus(text: str) -> str | None:
-    without_paths = text
+def _without_paths(text: str) -> str:
     for candidate in path_candidates(text):
-        without_paths = without_paths.replace(candidate, " ")
-    found = [family for family, pattern in FOCUS if pattern.search(without_paths)]
+        text = text.replace(candidate, " ")
+    return text
+
+
+def detect_focus(text: str) -> str | None:
+    found = [family for family, pattern in FOCUS if pattern.search(_without_paths(text))]
     return found[0] if len(found) == 1 else None
+
+
+def focus_supported(text: str, family: str | None) -> bool:
+    """A family filter must be stated in the request words, never inferred from file names."""
+    if family is None:
+        return True
+    return any(f == family and p.search(_without_paths(text)) for f, p in FOCUS)
 
 
 def finding_index(text: str) -> int:
@@ -200,8 +217,12 @@ def _normalise_path(text: str) -> str:
 def resolve_request(
     text: str, intent: Intent, workspace: SourceWorkspace, interpreter: str
 ) -> ResolvedRequest:
-    """Apply the shared guards and check the target against the workspace."""
-    language = intent.language
+    """Apply the shared guards and check the target against the workspace.
+
+    Language is always detected deterministically from the request text; a proposed
+    family filter is kept only if the request words support it.
+    """
+    language = detect_language(text)
     base = {"language": language, "interpreter": interpreter}
     blocked = guard(text)
     if blocked:
@@ -234,7 +255,7 @@ def resolve_request(
         action="analyse",
         target=target.replace("\\", "/"),
         files=files,
-        focus=intent.focus,
+        focus=intent.focus if focus_supported(text, intent.focus) else None,
         reason="validated workspace target",
         **base,
     )

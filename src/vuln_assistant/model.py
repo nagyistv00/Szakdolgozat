@@ -37,6 +37,7 @@ class ModelSettings(BaseModel):
 
 HANDSHAKE_SETTINGS = ModelSettings()
 ANALYSIS_SETTINGS = ModelSettings(num_ctx=8192, num_predict=2048, keep_alive="10m")
+VERIFY_SETTINGS = ModelSettings(num_ctx=8192, num_predict=768, keep_alive="10m")
 INTENT_SETTINGS = ModelSettings(num_ctx=2048, num_predict=256, keep_alive="10m")
 
 

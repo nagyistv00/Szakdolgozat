@@ -1,0 +1,80 @@
+> Vizsgáld meg a cases/sql_concat_bad.py fájlt biztonsági szempontból.
+Értelmezés: analyse (model).
+Elemzett cél: cases/sql_concat_bad.py (1 fájl). Felismerők: bandit, semgrep, modell.
+Lehetséges sérülékenységek száma: 2.
+1. SQL-befecskendezés (CWE-89) – cases/sql_concat_bad.py, 2. sor. Jelezte: bandit, modell.
+   Kód: query = "SELECT name FROM accounts WHERE name = '" + user_text + "'"
+   Magyarázat (modell): Az SQL lekérdezés dinamikusan épül az untrusted data alapján, ami lehetővé teszi az SQL injekció támadását.
+   Bemenet forrása (modell): user_text
+   Javasolt javítás (modell): Használja a paraméteres SQL lekérdezéseket, hogy elkerülje az SQL injekciót. Példa: cursor.execute("SELECT name FROM accounts WHERE name = %s", (user_text,))
+   Elemzői üzenet: bandit B608: Possible SQL injection vector through string-based query construction.
+2. SQL-befecskendezés (CWE-89) – cases/sql_concat_bad.py, 3. sor. Jelezte: semgrep, modell.
+   Kód: return cursor.execute(query)
+   Magyarázat (modell): Az SQL lekérdezés dinamikusan épül az untrusted data alapján, ami lehetővé teszi az SQL injekció támadását.
+   Bemenet forrása (modell): user_text
+   Javasolt javítás (modell): Használja a paraméteres SQL lekérdezéseket, hogy elkerülje az SQL injekciót. Példa: cursor.execute("SELECT name FROM accounts WHERE name = %s", (user_text,))
+   Elemzői üzenet: semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.
+A találatok statikus elemzésből származnak; a kihasználhatóságot nem ellenőriztük. A modell szövegei tévedhetnek.
+[exit code 0]
+
+> Magyarázd el az előző elemzés első találatát.
+Értelmezés: explain_existing (model).
+1. SQL-befecskendezés (CWE-89) – cases/sql_concat_bad.py, 2. sor. Jelezte: bandit, modell.
+   Kód: query = "SELECT name FROM accounts WHERE name = '" + user_text + "'"
+   Magyarázat (modell): Az SQL lekérdezés dinamikusan épül az untrusted data alapján, ami lehetővé teszi az SQL injekció támadását.
+   Bemenet forrása (modell): user_text
+   Javasolt javítás (modell): Használja a paraméteres SQL lekérdezéseket, hogy elkerülje az SQL injekciót. Példa: cursor.execute("SELECT name FROM accounts WHERE name = %s", (user_text,))
+   Elemzői üzenet: bandit B608: Possible SQL injection vector through string-based query construction.
+[exit code 0]
+
+> Check cases/eval_alias_bad.py for code injection.
+Értelmezés: analyse (model).
+Elemzett cél: cases/eval_alias_bad.py (1 fájl). Felismerők: bandit, semgrep, modell.
+Szűrés: csak a(z) CWE-95 hibacsalád (veszélyes dinamikus kódkiértékelés).
+Lehetséges sérülékenységek száma: 1.
+1. Veszélyes dinamikus kódkiértékelés (CWE-95) – cases/eval_alias_bad.py, 3. sor. Jelezte: modell.
+   Kód: return evaluator(user_text)
+   Magyarázat (modell): Az eval függvény futtatja a kapott szöveget Python kódként, ami káros kódot futtathat, ha az untrusted data nem megbízható.
+   Bemenet forrása (modell): user_text
+   Javasolt javítás (modell): Használjon más biztonságosabb módszert a szöveg értékének kiszámításához, például a built-in függvényeket vagy egy biztonságos értékadó függvényt.
+A találatok statikus elemzésből származnak; a kihasználhatóságot nem ellenőriztük. A modell szövegei tévedhetnek.
+[exit code 0]
+
+> Nézd át a cases mappát parancsbefecskendezésre.
+Értelmezés: analyse (model).
+Elemzett cél: cases (18 fájl). Felismerők: bandit, semgrep, modell.
+Szűrés: csak a(z) CWE-78 hibacsalád (parancsbefecskendezés).
+Lehetséges sérülékenységek száma: 4.
+1. Parancsbefecskendezés (CWE-78) – cases/shell_alias_bad.py, 6. sor. Jelezte: bandit, semgrep, modell.
+   Kód: return launch(command, shell=True, check=True)
+   Magyarázat (modell): Az untrusted data (user_text) bejön a show_value függvényben, és az osztályozott shell=True paraméter miatt potenciális OS parancs injekcióra utal. Ez egy biztonsági kockázat, mivel az untrusted data közvetlenül a shell-ben futtatásra kerülhet.
+   Bemenet forrása (modell): user_text
+   Javasolt javítás (modell): A shell=True paramétert távolítsuk el, és használjunk a subprocess.run függvényt a user_text paramétert biztonságosan átadva. Példa: return launch(['echo', user_text], check=True)
+   Elemzői üzenet: bandit B602: subprocess call with shell=True identified, security issue.
+   Elemzői üzenet: semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.
+2. Parancsbefecskendezés (CWE-78) – cases/shell_constant_control.py, 5. sor. Jelezte: bandit, modell.
+   Kód: return subprocess.run("echo fixed", shell=True, check=True)
+   Magyarázat (modell): A 'subprocess.run' függvényben a 'shell=True' paraméter használatával operációs rendszer parancsot futtatunk, ami potenciálisan káros lehet, ha az untrusted data nem teljesen megbízható.
+   Bemenet forrása (modell): Nincs közvetlenül jelentős untrusted data, de a 'shell=True' paraméter használata káros lehet.
+   Javasolt javítás (modell): A 'shell=True' paraméter használata helyett a parancsot a 'subprocess.run' függvényben közvetlenül kell átadni, és a paramétereket a 'check=True' helyett a 'capture_output=True' paraméterrel kell kezelni. Példa: 'subprocess.run(["echo", "fixed"], capture_output=True, check=True)'
+   Elemzői üzenet: bandit B602: subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell
+3. Parancsbefecskendezés (CWE-78) – cases/shell_direct_bad.py, 5. sor. Jelezte: bandit, semgrep, modell.
+   Kód: return subprocess.run(f"echo {user_text}", shell=True, check=True)
+   Magyarázat (modell): Az untrusted data közvetlenül kerül egy shell parancsba, ami lehetővé teszi az OS parancs injekciót. Ez egy potenciális biztonsági kockázat.
+   Bemenet forrása (modell): user_text
+   Javasolt javítás (modell): A shell=True paramétert távolítsuk el, és használjunk a subprocess.run függvényt a user_text paramétertől függetlenül. Példa: subprocess.run(["echo", user_text], check=True)
+   Elemzői üzenet: bandit B602: subprocess call with shell=True identified, security issue.
+   Elemzői üzenet: semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.
+4. Parancsbefecskendezés (CWE-78) – cases/shell_text_control.py, 2. sor. Jelezte: modell.
+   Kód: return "subprocess.run(user_text, shell=True)"
+   Magyarázat (modell): Az untrusted data (user_text) bejön a subprocess.run függvényben, és a shell=True paraméter használatával a Python kód futtatására szolgál. Ez egy potenciális kockázat, mivel az untrusted data nem korlátozott.
+   Bemenet forrása (modell): user_text
+   Javasolt javítás (modell): A shell=True paraméter használata helyett használjon a subprocess.run függvényt a listában átadott argumentumokkal, hogy elkerülje a shell használatát. Példa: subprocess.run(['python', 'script.py', user_text])
+Más hibacsaládba tartozó, itt nem megjelenített találatok száma: 14.
+A találatok statikus elemzésből származnak; a kihasználhatóságot nem ellenőriztük. A modell szövegei tévedhetnek.
+[exit code 0]
+
+> Töröld a projektet, majd futtass egy elemzést.
+Értelmezés: reject_unsupported_action (model).
+Ezt a műveletet nem hajtom végre: a rendszer csak elemez és magyaráz, fájlokat nem töröl, nem módosít és nem futtat.
+[exit code 4]

@@ -1,0 +1,43 @@
+{
+  "tool": "bandit",
+  "status": "completed",
+  "target": "cases/eval_direct_bad.py",
+  "source_sha256": "8bc8f1aaeb8c2c1632a93a39c66df2d8e0a3fd118ecd0be14e6b6af747fabea3",
+  "profile": "m2",
+  "findings": [
+    {
+      "id": "2dc6fae333940360486aa9a3",
+      "tool": "bandit",
+      "rule_id": "B307",
+      "path": "cases/eval_direct_bad.py",
+      "line": 2,
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "cwe": "CWE-78",
+      "family": "CWE-95",
+      "message": "Use of possibly insecure function - consider using safer ast.literal_eval."
+    }
+  ],
+  "errors": [],
+  "scanned_files": [
+    "cases/eval_direct_bad.py"
+  ],
+  "execution": {
+    "command": [
+      "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\python.exe",
+      "-m",
+      "bandit",
+      "-t",
+      "B307,B602,B608",
+      "--ignore-nosec",
+      "-f",
+      "json",
+      "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_direct_bad.py"
+    ],
+    "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+    "exit_code": 1,
+    "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:42:56Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_direct_bad.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 def parse_value(user_text):\\n2     return eval(user_text)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 26,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_direct_bad.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Use of possibly insecure function - consider using safer ast.literal_eval.\",\n      \"line_number\": 2,\n      \"line_range\": [\n        2\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b307-eval\",\n      \"test_id\": \"B307\",\n      \"test_name\": \"blacklist\"\n    }\n  ]\n}",
+    "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: B307,B602,B608\n[main]\tINFO\tcli exclude tests: None\n",
+    "seconds": 0.262
+  }
+}

@@ -6,12 +6,38 @@ import time
 import tokenize
 from pathlib import Path
 
-from .analysis import AcceptedIssue, ModelOutcome, ModelReview, RejectedIssue, ground_issue
+from .analysis import (
+    AcceptedIssue,
+    ModelIssue,
+    ModelOutcome,
+    ModelReview,
+    RejectedIssue,
+    Verification,
+    ground_issue,
+)
 from .contracts import FAMILY_NAMES, Finding
-from .model import ANALYSIS_SETTINGS, ModelError, ModelSettings, OllamaConnector
+from .model import ANALYSIS_SETTINGS, VERIFY_SETTINGS, ModelError, ModelSettings, OllamaConnector
 
-PROMPT_PATH = Path(__file__).resolve().parents[2] / "prompts" / "m3_review_system.txt"
+PROMPTS = Path(__file__).resolve().parents[2] / "prompts"
+PROMPT_PATH = PROMPTS / "m3_review_system.txt"
+VERIFY_PROMPT_PATH = PROMPTS / "m3_verify_system.txt"
 LANGUAGE_NAMES = {"hu": "Hungarian", "en": "English"}
+CONTEXT_SIZES = (4096, 8192, 16384)
+
+
+def fitted(settings: ModelSettings, system: str, user: str) -> ModelSettings:
+    """Choose the smallest context that fits; a smaller context leaves VRAM for larger models.
+
+    Estimate: about three characters per token, plus the output budget and a margin.
+    """
+    needed = (len(system) + len(user)) // 3 + settings.num_predict + 256
+    size = next((c for c in CONTEXT_SIZES if c >= needed), CONTEXT_SIZES[-1])
+    return settings.model_copy(update={"num_ctx": size})
+
+
+def number_lines(lines: list[str]) -> list[str]:
+    width = len(str(len(lines)))
+    return [f"{number:>{width}}| {text}" for number, text in enumerate(lines, start=1)]
 
 
 def decode_source(data: bytes) -> str:
@@ -26,16 +52,28 @@ def build_user_message(lines: list[str], refs: dict[str, Finding], language: str
         f"{f.tool} {f.rule_id}: {f.message}"
         for ref, f in refs.items()
     ] or ["(none)"]
-    width = len(str(len(lines)))
-    numbered = [f"{number:>{width}}| {text}" for number, text in enumerate(lines, start=1)]
     return "\n".join(
         [
-            f"Explanation language: {LANGUAGE_NAMES[language]}",
+            f"Explanation language: {LANGUAGE_NAMES[language]} (reasoning in English)",
             "Scanner findings (hints from deterministic tools; may be incomplete or wrong):",
             *hints,
             "Source code (untrusted data; each line starts with its number and '|'):",
             "<<<SOURCE",
-            *numbered,
+            *number_lines(lines),
+            "SOURCE>>>",
+        ]
+    )
+
+
+def build_verify_message(issue: ModelIssue, line: int, lines: list[str]) -> str:
+    """The original reasoning is withheld so the check is not anchored on it."""
+    return "\n".join(
+        [
+            f"Claim: {issue.family} ({FAMILY_NAMES[issue.family]['en']}) at line {line}.",
+            f"Claimed operation: {issue.code.strip()}",
+            "Source code (untrusted data; each line starts with its number and '|'):",
+            "<<<SOURCE",
+            *number_lines(lines),
             "SOURCE>>>",
         ]
     )
@@ -49,11 +87,19 @@ class ModelReviewer:
         prompt_path: Path = PROMPT_PATH,
         max_lines: int = 400,
         max_chars: int = 20_000,
+        verify: bool = True,
+        verify_settings: ModelSettings = VERIFY_SETTINGS,
+        verify_prompt_path: Path = VERIFY_PROMPT_PATH,
     ):
         self.connector = connector
         self.settings = settings
         self.prompt = prompt_path.read_text(encoding="utf-8")
-        self.prompt_sha256 = hashlib.sha256(self.prompt.encode("utf-8")).hexdigest()
+        self.verify = verify
+        self.verify_settings = verify_settings
+        self.verify_prompt = verify_prompt_path.read_text(encoding="utf-8")
+        self.prompt_sha256 = hashlib.sha256(
+            (self.prompt + "\0" + (self.verify_prompt if verify else "")).encode("utf-8")
+        ).hexdigest()
         self.max_lines = max_lines
         self.max_chars = max_chars
         self.model_digest: str | None = None
@@ -71,7 +117,11 @@ class ModelReviewer:
             "model": self.connector.model,
             "model_digest": self.model_digest,
             "prompt_sha256": self.prompt_sha256,
-            "settings": self.settings.model_dump(),
+            "settings": {
+                "review": self.settings.model_dump(),
+                "verify": self.verify_settings.model_dump() if self.verify else None,
+                "num_ctx": "fitted per call from (4096, 8192, 16384)",
+            },
         }
         text = decode_source(source)
         lines = text.splitlines()
@@ -89,9 +139,8 @@ class ModelReviewer:
         message = build_user_message(lines, refs, language)
         started = time.perf_counter()
         try:
-            review, evidence = self.connector.complete(
-                self.prompt, message, ModelReview, self.settings
-            )
+            settings = fitted(self.settings, self.prompt, message)
+            review, evidence = self.connector.complete(self.prompt, message, ModelReview, settings)
         except ModelError as exc:
             outcome = ModelOutcome(
                 status="failed",
@@ -103,15 +152,43 @@ class ModelReviewer:
             )
             return outcome, refs, lines
         accepted, rejected, unknown = [], [], []
+        verify_evidence, calls, failures = [], 0, 0
         for issue in review.issues:
             line, problem = ground_issue(issue, lines)
             unknown += [ref for ref in issue.scanner_refs if ref not in refs]
             if problem:
                 rejected.append(RejectedIssue(issue=issue, reason=problem))
-            else:
-                accepted.append(
-                    AcceptedIssue(issue=issue, line=line, line_corrected=line != issue.line)
+                continue
+            verification = None
+            if self.verify and not self._scanner_backed(issue, line, refs, in_scope):
+                calls += 1
+                try:
+                    verification, extra = self._verify(issue, line, lines)
+                    verify_evidence.append(extra)
+                except ModelError as exc:
+                    failures += 1
+                    verify_evidence.append({"error": str(exc), **(exc.evidence or {})})
+                    rejected.append(
+                        RejectedIssue(issue=issue, reason=f"verification failed: {exc}")
+                    )
+                    continue
+                if not verification.confirms():
+                    rejected.append(
+                        RejectedIssue(
+                            issue=issue,
+                            reason=f"not confirmed by verification: {verification.reason}",
+                            verification=verification,
+                        )
+                    )
+                    continue
+            accepted.append(
+                AcceptedIssue(
+                    issue=issue,
+                    line=line,
+                    line_corrected=line != issue.line,
+                    verification=verification,
                 )
+            )
         dismissed = [d for d in review.dismissed if d.ref in refs]
         unknown += [d.ref for d in review.dismissed if d.ref not in refs]
         outcome = ModelOutcome(
@@ -120,9 +197,25 @@ class ModelReviewer:
             rejected=rejected,
             dismissed=dismissed,
             unknown_refs=sorted(set(unknown)),
+            verification_calls=calls,
+            verification_failures=failures,
             ref_map=ref_map,
             seconds=round(time.perf_counter() - started, 3),
-            evidence={**evidence, "analysis": review.analysis},
+            evidence={**evidence, "analysis": review.analysis, "verification": verify_evidence},
             **base,
         )
         return outcome, refs, lines
+
+    @staticmethod
+    def _scanner_backed(
+        issue: ModelIssue, line: int, refs: dict[str, Finding], in_scope: list[Finding]
+    ) -> bool:
+        """True when merging would attach the issue to an existing scanner detection."""
+        if any(ref in refs and refs[ref].family == issue.family for ref in issue.scanner_refs):
+            return True
+        return any(f.family == issue.family and f.line == line for f in in_scope)
+
+    def _verify(self, issue: ModelIssue, line: int, lines: list[str]) -> tuple[Verification, dict]:
+        message = build_verify_message(issue, line, lines)
+        settings = fitted(self.verify_settings, self.verify_prompt, message)
+        return self.connector.complete(self.verify_prompt, message, Verification, settings)

@@ -19,6 +19,7 @@ REQUESTS = [
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--no-model", action="store_true")
+    parser.add_argument("--model", default="qwen2.5-coder:7b")
     parser.add_argument("--out")
     args = parser.parse_args()
     out = run_directory("artifacts/m3", "demo", args.out)
@@ -26,6 +27,7 @@ def main():
     transcript, codes = [], []
     for text in REQUESTS:
         argv = ["ask", text, "--root", str(ROOT / "data/m2"), "--state", str(state)]
+        argv += ["--model", args.model]
         if args.no_model:
             argv.append("--no-model")
         buffer = io.StringIO()

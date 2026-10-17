@@ -7,7 +7,7 @@ import httpx
 import pytest
 
 from vuln_assistant.cli import main
-from vuln_assistant.intent import ModelInterpreter, RuleInterpreter, resolve_request
+from vuln_assistant.intent import Intent, ModelInterpreter, RuleInterpreter, resolve_request
 from vuln_assistant.metrics import evaluate
 from vuln_assistant.model import OllamaConnector
 from vuln_assistant.workspace import SourceWorkspace
@@ -74,6 +74,20 @@ def test_guards_and_workspace_checks_override_model(text, proposed, expected):
     intent = interpreter.interpret(text)
     request = resolve_request(text, intent, SourceWorkspace(CORPUS), "model")
     assert request.action == expected
+
+
+def test_language_and_focus_are_not_taken_from_the_model():
+    """Observed in the first target run: wrong language, and a filter taken from a file name."""
+    text = "Check cases/sql_integer_control.py, and show the source line behind each warning."
+    proposed = Intent(
+        action="analyse", target="cases/sql_integer_control.py", focus="CWE-89", language="hu"
+    )
+    request = resolve_request(text, proposed, SourceWorkspace(CORPUS), "model")
+    assert request.language == "en" and request.focus is None
+    text = "Nézd meg a cases/sql_direct_bad.py fájlt adatbázis-lekérdezések szempontjából."
+    proposed = Intent(action="analyse", target="cases/sql_direct_bad.py", focus="CWE-89")
+    request = resolve_request(text, proposed, SourceWorkspace(CORPUS), "model")
+    assert request.language == "hu" and request.focus == "CWE-89"
 
 
 def test_model_interpreter_falls_back_to_rules_on_failure():

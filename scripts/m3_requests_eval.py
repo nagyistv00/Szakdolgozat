@@ -17,7 +17,7 @@ from vuln_assistant.workspace import SourceWorkspace
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--no-model", action="store_true")
-    parser.add_argument("--model", default=DEFAULT_MODEL)
+    parser.add_argument("--models", default=DEFAULT_MODEL, help="comma-separated Ollama tags")
     parser.add_argument("--out")
     args = parser.parse_args()
     out = run_directory("artifacts/m3", "requests", args.out)
@@ -30,7 +30,10 @@ def main():
     workspace = SourceWorkspace(corpus)
     interpreters = [RuleInterpreter()]
     if not args.no_model:
-        interpreters.append(ModelInterpreter(OllamaConnector(model=args.model)))
+        for model in [m.strip() for m in args.models.split(",") if m.strip()]:
+            interpreter = ModelInterpreter(OllamaConnector(model=model))
+            interpreter.name = f"model:{model}"
+            interpreters.append(interpreter)
     results, summary = [], {}
     for interpreter in interpreters:
         passed = action_correct = failures = 0
