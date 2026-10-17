@@ -1,0 +1,31 @@
+{
+  "captured_at": "2026-09-19T13:04:39.1559452+02:00",
+  "python": {
+    "version": "3.11.13 (main, Jun 12 2025, 12:41:34) [MSC v.1943 64 bit (AMD64)]",
+    "executable": "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "packages": {
+      "bandit": "1.9.4",
+      "semgrep": "1.177.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.13.5",
+      "scikit-learn": "1.9.1",
+      "pytest": "9.1.1",
+      "ruff": "0.16.8"
+    }
+  },
+  "operating_system": "Microsoft Windows 11 Pro",
+  "os_build": "26200",
+  "memory_bytes": 34163777536,
+  "gpu_nvidia_smi": "NVIDIA GeForce RTX 4070, 12282 MiB, 616.92",
+  "uv": "uv 0.10.11 (006b56b12 2026-03-16)",
+  "git": "git version 2.52.0.windows.1",
+  "setup_observations": [
+    "WSL launcher reported WSL not installed",
+    "Docker and Ollama not found on PATH",
+    "uv used file-copy fallback successfully",
+    "Semgrep help printed a formatting warning; tested scan error arrays were empty"
+  ],
+  "model_inference_tested": false,
+  "model_training_performed": false
+}

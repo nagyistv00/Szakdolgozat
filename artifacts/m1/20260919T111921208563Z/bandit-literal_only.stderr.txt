@@ -1,0 +1,4 @@
+[main]	INFO	profile include tests: None
+[main]	INFO	profile exclude tests: None
+[main]	INFO	cli include tests: B307
+[main]	INFO	cli exclude tests: None

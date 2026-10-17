@@ -1,0 +1,18 @@
+{
+  "command": [
+    "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\python.exe",
+    "-m",
+    "bandit",
+    "-t",
+    "B307",
+    "-f",
+    "json",
+    "tests/fixtures/text_only.py"
+  ],
+  "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga",
+  "exit_code": 0,
+  "seconds": 0.265,
+  "expected_findings": 0,
+  "check_passed": true,
+  "actual_findings": 0
+}
