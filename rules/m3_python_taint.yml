@@ -1,0 +1,132 @@
+# Milestone 3 baseline rules (Semgrep Community Edition, taint mode).
+#
+# Written from the CWE definitions and the documented Semgrep taint semantics, not tuned
+# to individual development cases. Community Edition taint analysis is intra-procedural:
+# data is followed inside one function, not across functions or files.
+#
+# Sources: function parameters (the caller is assumed untrusted, as in the corpus
+# convention), input(), sys.argv and the process environment.
+# Sanitizers: numeric conversion; shlex.quote for shell commands; ast.literal_eval for eval.
+# Rule IDs must not contain dots (see scanners.normalise_semgrep_rule).
+
+rules:
+  - id: m3-python-eval-injection
+    mode: taint
+    languages: [python]
+    severity: ERROR
+    message: Untrusted input reaches eval/exec and may be executed as Python code.
+    metadata:
+      cwe: CWE-95
+    pattern-sources:
+      - patterns:
+          - pattern-inside: |
+              def $FUNC(..., $PARAM, ...):
+                ...
+          - pattern: $PARAM
+          - pattern-not: self
+          - pattern-not: cls
+      - patterns:
+          - pattern-inside: |
+              def $FUNC(..., $PARAM: $TYPE, ...):
+                ...
+          - pattern: $PARAM
+      - patterns:
+          - pattern-inside: |
+              def $FUNC(..., $PARAM=$DEFAULT, ...):
+                ...
+          - pattern: $PARAM
+      - pattern: input(...)
+      - pattern: sys.argv
+      - pattern: os.environ
+      - pattern: os.getenv(...)
+    pattern-sanitizers:
+      - pattern: int(...)
+      - pattern: float(...)
+      - pattern: ast.literal_eval(...)
+    pattern-sinks:
+      - patterns:
+          - pattern-either:
+              - pattern: eval($CODE, ...)
+              - pattern: exec($CODE, ...)
+          - focus-metavariable: $CODE
+
+  - id: m3-python-command-injection
+    mode: taint
+    languages: [python]
+    severity: ERROR
+    message: Untrusted input reaches a shell command and may inject additional commands.
+    metadata:
+      cwe: CWE-78
+    pattern-sources:
+      - patterns:
+          - pattern-inside: |
+              def $FUNC(..., $PARAM, ...):
+                ...
+          - pattern: $PARAM
+          - pattern-not: self
+          - pattern-not: cls
+      - patterns:
+          - pattern-inside: |
+              def $FUNC(..., $PARAM: $TYPE, ...):
+                ...
+          - pattern: $PARAM
+      - patterns:
+          - pattern-inside: |
+              def $FUNC(..., $PARAM=$DEFAULT, ...):
+                ...
+          - pattern: $PARAM
+      - pattern: input(...)
+      - pattern: sys.argv
+      - pattern: os.environ
+      - pattern: os.getenv(...)
+    pattern-sanitizers:
+      - pattern: shlex.quote(...)
+      - pattern: int(...)
+      - pattern: float(...)
+    pattern-sinks:
+      - patterns:
+          - pattern-either:
+              - pattern: subprocess.$FN($CMD, ..., shell=True, ...)
+              - pattern: os.system($CMD)
+              - pattern: os.popen($CMD, ...)
+          - focus-metavariable: $CMD
+
+  - id: m3-python-sql-injection
+    mode: taint
+    languages: [python]
+    severity: ERROR
+    message: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.
+    metadata:
+      cwe: CWE-89
+    pattern-sources:
+      - patterns:
+          - pattern-inside: |
+              def $FUNC(..., $PARAM, ...):
+                ...
+          - pattern: $PARAM
+          - pattern-not: self
+          - pattern-not: cls
+      - patterns:
+          - pattern-inside: |
+              def $FUNC(..., $PARAM: $TYPE, ...):
+                ...
+          - pattern: $PARAM
+      - patterns:
+          - pattern-inside: |
+              def $FUNC(..., $PARAM=$DEFAULT, ...):
+                ...
+          - pattern: $PARAM
+      - pattern: input(...)
+      - pattern: sys.argv
+      - pattern: os.environ
+      - pattern: os.getenv(...)
+    pattern-sanitizers:
+      - pattern: int(...)
+      - pattern: float(...)
+    pattern-sinks:
+      - patterns:
+          - pattern-either:
+              - pattern: $CURSOR.execute($QUERY, ...)
+              - pattern: $CURSOR.executemany($QUERY, ...)
+              - pattern: $CURSOR.executescript($QUERY)
+          - focus-metavariable: $QUERY

@@ -2,7 +2,7 @@
 
 Author: Nagy István. Supervisor: Girászi Tamás.
 
-Current stage: milestone 2 completed provisionally. Direction: static source analysis with a pretrained model, no model training. Python is the working target language. Scanner/model connectors and development material exist; the end-user assistant and thesis manuscript do not yet exist. Supervisor feedback, as reported by the user on 2026-10-17, accepts the pretrained-model approach without training, Python with the three weakness families, and the scanner vs. scanner + AI comparison using accuracy, precision and recall; see `RESEARCH_LOG.md`.
+Current stage: milestone 3 implemented (2026-10-17); verification on the target machine pending — see `research/MILESTONE_3.md`. Milestone 2 completed provisionally. Direction: static source analysis with a pretrained model, no model training. Python is the working target language. A command-line assistant (scanners + local model, HU/EN requests) exists; the thesis manuscript does not. Supervisor feedback, as reported by the user on 2026-10-17, accepts the pretrained-model approach without training, Python with the three weakness families, and the scanner vs. scanner + AI comparison using accuracy, precision and recall; see `RESEARCH_LOG.md`.
 
 ## Project records
 
@@ -12,6 +12,7 @@ Current stage: milestone 2 completed provisionally. Direction: static source ana
 - [Source register](research/SOURCES.md): precise references, reading depth and source-specific notes.
 - [Milestone 2 design and results](research/MILESTONE_2.md): component boundaries, verified connections and remaining work.
 - [Supervisor discussion brief](research/SUPERVISOR_BRIEF.md): concise Hungarian meeting preparation.
+- [Milestone 3 design and status](research/MILESTONE_3.md): code review, detection/explanation/NL architecture, verification status.
 
 ## Reproduce the Windows environment
 
@@ -63,6 +64,22 @@ The download script verifies the release archive hash before extraction. If a do
 
 The real-model diagnostic only acknowledges scanner evidence through a strict schema. It does not yet interpret a user's request, judge vulnerability correctness or produce an end-user explanation. API responses, model identity and timing are preserved with the run. The model is unloaded after the call; Stop terminates only the recorded project server after checking its identity.
 
+## Milestone 3 assistant
+
+```powershell
+# One-command check: git initialisation, lint, tests, M2 reproduction, development run,
+# request scenarios and an end-to-end demo. Evidence: artifacts/m3/check-<UTC>/
+./scripts/m3_check.ps1            # starts/stops the local model server itself
+./scripts/m3_check.ps1 -SkipModel # scanners only
+
+# Direct use (workspace root is always explicit):
+uv run --locked python -m vuln_assistant analyse cases/sql_concat_bad.py --root data/m2
+uv run --locked python -m vuln_assistant ask "Vizsgáld meg a cases/sql_concat_bad.py fájlt." --root data/m2
+uv run --locked python -m vuln_assistant ask "Magyarázd el az előző elemzés első találatát." --root data/m2
+```
+
+Add `--no-model` to run without the model. The M3 scanner profile runs the full Bandit test set and the taint rules in `rules/m3_python_taint.yml`; `--profile m2` reproduces the milestone 2 configuration. The development run (`scripts/m3_dev_eval.py`) reports accuracy, precision and recall on the development corpus only; it is not the final evaluation.
+
 ## Next stage
 
-Milestone 3 (pending the user's authorisation) will implement the natural-language workflow and evidence-backed explanations. Milestone 4 will evaluate the system on new, separately reviewed data. All current examples are development data. The thesis document will be assembled only after all four milestones.
+Milestone 3 is implemented; its results on the target machine will be recorded in `research/MILESTONE_3.md`. Milestone 4 will evaluate the system on new, separately reviewed data. All current examples are development data. The thesis document will be assembled only after all four milestones.

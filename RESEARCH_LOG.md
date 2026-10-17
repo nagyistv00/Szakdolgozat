@@ -125,6 +125,24 @@ Ez a napló a később összeállítandó szakdolgozat háttéranyaga. A kutatá
   - Mivel a felismerés a fő cél, a modellválasztás súlya nő: javasolt a jelenlegi 7B és egy 14B helyi modell összevetése, ismételt futtatással (stabilitás).
 - Nyitott: M3 engedélyezése; elkérjük-e a témavezető példáit; a végső tesztkészlet mérete; a magyarázat pontozásának végleges módja.
 
+## 2026-10-17 – M3 engedélyezése, kódfelülvizsgálat és megvalósítás
+
+- Mérföldkő: 3. A felhasználó engedélyezte M3-at, előtte a meglévő kód felülvizsgálatát kérte. M4 nem engedélyezett.
+- Állapot: **megvalósítva, a célgépen még nem ellenőrizve.** Részletek: `research/MILESTONE_3.md`.
+- Kódfelülvizsgálat – ellenőrizhető hibák a rögzített M2-bizonyítékban:
+  - A Bandit az eval-hívásra (B307) CWE-78-at jelent (`artifacts/m2/20260919T111932119119Z/bandit-eval_direct_bad.json`); hibacsaládonkénti méréshez saját, szabályazonosító-alapú hozzárendelés kell. Javítva: `Finding.family`.
+  - A Semgrep-szabályazonosító az abszolút útvonalat és a Windows-felhasználónevet tartalmazta; a találatazonosító gépfüggő volt. Javítva: normalizálás. Következmény: az új futások Semgrep-azonosítói eltérnek az M2-ben rögzítettektől, a találatszám és a szabály nem.
+  - A modellhívás 33,17 s-ából 18,17 s betöltés volt, a modell 29/29 rétege GPU-n futott (`runtime-gpu-excerpt.txt`); a hívásonkénti kiürítés okozta a hidegindítást. Javítva: hívástípusonkénti, rögzített beállítások.
+  - További tervezési hiányok: szűk Bandit-tesztkör, mintaalapú Semgrep-szabályok, csak egyfájlos cél, egybefésült elemzőkód, nincs verziókezelés. Mindegyikre megoldás készült (lásd MILESTONE_3 táblázat).
+- Megvalósított M3-elemek: teljes Bandit + saját CWE-leképezés; Semgrep taint-szabályok (`rules/m3_python_taint.yml`); modellalapú felismerés és magyarázat fájlonként egy hívásban; forráshoz kötés-ellenőrzés (a modellnek pontos kódrészletet kell idéznie a megadott sorból); unió-alapú összefésülés (a modell nem törölhet elemzői találatot); fix szövegezésű magyar/angol összefoglaló; szabályalapú és modellalapú kérésértelmező közös, determinisztikus védőkorlátokkal; parancssori felület (`python -m vuln_assistant analyse|ask`), előző jelentés megőrzése a „magyarázd el az előző találatot” kérésekhez; esetszintű accuracy/precision/recall számítás darabszámokkal, scikit-learn keresztellenőrzéssel.
+- Mérlegelt alternatívák: (1) a modell csak téves riasztás-szűrő – elvetve, a témavezetői prioritásban utolsó; (2) külön magyarázóhívás találatonként – elvetve a késleltetés miatt; (3) a modell elvetheti az elemzői találatot – nem alapértelmezés, legfeljebb M4-es összehasonlító változat.
+- Tudatos korlátok: a jelen összefésülési szabály mellett az AI a recallt növelheti, a precisiont nem; a forráshoz kötés nem ellenőrzi a hibacsalád helyességét; a modell nem kapja meg a fájlnevet (címkeszivárgás elkerülése); a promptinjekció ellen a határolás, séma, forráshoz kötés és unió csak korlátozó, nem teljes védelem.
+- Címkeszivárgás és illesztés: a szabályalapú értelmező a 12 fejlesztési kéréshelyzet ismeretében készült, ezeken 12/12 a fejlesztői próbán – ez nem független eredmény. A felülvizsgálati promptból kivettem egy, a fejlesztési kontrollesethez túl közel álló mondatot (beépített név felülírása).
+- Ellenőrzés eddig: Ruff sikeres; a tiszta logikai részek és a teljes folyamat szimulált modellel lefutott az asszisztens felhőkörnyezetében (Python 3.13, Pydantic 2.13.5). Valódi Bandit/Semgrep/Ollama-futás nem történt: a felhőkörnyezetben a csomagtároló tiltott, külső forráskód futtatását a rendszer letiltotta, a felhasználó terminálja pedig csak olvasható/kattintható jogosultságú. Ezért készült a `scripts/m3_check.ps1` egyparancsos ellenőrzés.
+- Verziókezelés: git-előzmény rekonstruálva (M1–M2 kiinduló pillanatkép → témavezetői visszajelzés dokumentumai → M3), `scripts/init_git.ps1` hozza létre a tárolót a gépen.
+- Szakdolgozati jelentőség: a mérési egység (fájl a címkézett hibacsaládra), a feltételek (elemzők vs. elemzők + modell) és a forráshoz kötés mint hallucináció-korlát a módszertani fejezet alapja lehet.
+- Következő lépés: a felhasználó lefuttatja az ellenőrző szkriptet; az eredmények új naplóbejegyzésbe kerülnek.
+
 ## A későbbi bejegyzések mintája
 
 Az alábbi mezőket a tényleges tevékenységhez igazítsd; ami nem alkalmazható, elhagyható.

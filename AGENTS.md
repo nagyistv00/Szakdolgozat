@@ -6,7 +6,8 @@
 
 - A felhasználó megadta a formai követelményeket, a témakiírást, a tervezett dolgozatcímet, a szerző és a témavezető nevét, valamint a négyhavi munkatervet.
 - Az első mérföldkő alapozó munkája elkészült. A felhasználó engedélyezte a második mérföldkő elkészítését a következő heti témavezetői egyeztetés előtt: rendszerterv, komponensek és kapcsolataik előkészítése, dokumentációk, tesztadatok, műveleti minták és tesztesetek rendszerezése.
-- A második mérföldkő keretében önállóan haladj. A harmadik–negyedik mérföldkő teljes felhasználói működését és kiértékelését még ne tekintsd engedélyezett feladatnak.
+- A második mérföldkő keretében önállóan haladj. (Történeti.)
+- 2026-10-17: a felhasználó engedélyezte M3 megkezdését, előtte a meglévő kód felülvizsgálatát kérte. M3 állapota: `research/MILESTONE_3.md`. M4 (végső kiértékelés) még nem engedélyezett.
 - A szakdolgozat fejezeteinek megírása továbbra is csak a négy mérföldkő elvégzése után kezdődhet.
 - A felhasználó elfogadta a helyben futó Python-alapú előkészítést, fizetős szolgáltatás nélkül; nincs megadott korábbi kód vagy technológiai megkötés.
 - A felhasználó a forráskód-elemzést választotta első iránynak, és jelenleg nem kíván saját modellt tanítani. Előre betanított modell alkalmazásával haladjunk. A Python célnyelv módosítható munkafeltételezés; külön célnyelvet a felhasználó nem kötött ki.

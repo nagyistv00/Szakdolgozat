@@ -4,6 +4,15 @@ from typing import Literal, Protocol
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# The three weakness families confirmed as the project scope (supervisor, 2026-10-17).
+Family = Literal["CWE-95", "CWE-78", "CWE-89"]
+FAMILIES: tuple[str, ...] = ("CWE-95", "CWE-78", "CWE-89")
+FAMILY_NAMES = {
+    "CWE-95": {"en": "eval injection", "hu": "veszélyes dinamikus kódkiértékelés"},
+    "CWE-78": {"en": "OS command injection", "hu": "parancsbefecskendezés"},
+    "CWE-89": {"en": "SQL injection", "hu": "SQL-befecskendezés"},
+}
+
 
 class StrictRecord(BaseModel):
     model_config = ConfigDict(extra="forbid", strict=True)
@@ -17,7 +26,10 @@ class Finding(StrictRecord):
     line: int = Field(ge=1)
     severity: str
     confidence: str | None = None
+    # CWE exactly as reported by the tool; Bandit, for example, reports CWE-78 for eval (B307).
     cwe: str | None = None
+    # Project family assigned by our own rule map; None means outside the evaluated scope.
+    family: Family | None = None
     message: str
 
 
@@ -26,6 +38,7 @@ class ScanReport(StrictRecord):
     status: Literal["completed", "failed"]
     target: str
     source_sha256: str
+    profile: str | None = None
     findings: list[Finding] = Field(default_factory=list)
     errors: list[str] = Field(default_factory=list)
     scanned_files: list[str] = Field(default_factory=list)
@@ -40,4 +53,6 @@ class ConnectionAck(StrictRecord):
 
 
 class Scanner(Protocol):
+    tool: str
+
     def scan(self, relative_path: str) -> ScanReport: ...

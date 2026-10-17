@@ -1,1 +1,1 @@
-"""Milestone 2 contracts and connectors, not a finished security assistant."""
+"""Local AI-assisted static vulnerability analysis for Python (thesis prototype, M3)."""
