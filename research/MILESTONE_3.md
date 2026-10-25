@@ -1,6 +1,6 @@
 # Milestone 3 — detection, explanation and natural-language control
 
-Started: 2026-10-17 (authorised by the user after the supervisor feedback). This is an engineering record, not thesis prose. Status lines distinguish **implemented**, **verified on the target machine** and **measured**.
+Started and closed: 2026-10-17 (authorised by the user after the supervisor feedback). This is an engineering record, not thesis prose. Status lines distinguish **implemented**, **verified on the target machine** and **measured**.
 
 ## Inputs to this milestone
 
@@ -125,6 +125,27 @@ Caveat: the verification and review prompt wording encodes CWE-definition knowle
 - Correction: the corpus code does not reveal the database driver, so `%s` versus `?` placeholders cannot be judged from the code.
 
 Recommendation (awaiting decision): 14B as default model; Semgrep taint as the "without AI" baseline with Bandit as a reference; keep verification but do not claim it improves precision; one last deterministic structural check (a model-only claim must point at a real call on that line, not at text inside a string literal); then freeze the configuration and evaluate on held-out data (M4).
+
+## Milestone 3 closure (2026-10-17)
+
+Closing run: `artifacts/m3/check-20261017T113935Z/` (snapshot `a40b1d4`), all steps exit code 0, pytest 94/94.
+
+| Condition | TP | FP | TN | FN | Accuracy | Precision | Recall |
+|---|---|---|---|---|---|---|---|
+| Semgrep taint (no AI, frozen baseline) | 5 | 1 | 11 | 1 | 0.889 | 0.833 | 0.833 |
+| **Semgrep + 14B (frozen system)** | 6 | 2 | 10 | 0 | **0.889** | 0.750 | **1.000** |
+| Bandit ∪ Semgrep + 14B | 6 | 6 | 6 | 0 | 0.667 | 0.500 | 1.000 |
+| Semgrep + 7B | 6 | 6 | 6 | 0 | 0.667 | 0.500 | 1.000 |
+| Bandit ∪ Semgrep + 7B | 6 | 9 | 3 | 0 | 0.500 | 0.400 | 1.000 |
+
+- The structural check removed the two string-literal false positives seen in iteration 2. Remaining frozen-system false positive: list-argument subprocess without a shell. New true positive versus the baseline: aliased eval.
+- Self-verification still has no measurable effect in the union layer (ablation identical).
+- Request scenarios: rules, 14B and 7B all 12/12 on every field.
+- Demo works end to end. Explanations are understandable but imperfect (awkward Hungarian, untranslated phrases, an unnecessary `shlex.quote` inside a list argument) — material for the manual explanation rubric.
+
+**Frozen configuration for M4:** qwen2.5-coder:14b (digest `9ec8897f…68849`), Semgrep taint rules, structural check and self-verification on, temperature 0, seed 0, Hungarian explanations. Comparison: the same without the model; references: Bandit and the 7B model.
+
+**Open before M4 (needs user authorisation):** supervisor examples (requested, not received); 10–15 new user-written requests independent of the rules; human label review of the development corpus; manual scoring of explanations.
 
 ## Third (closing) iteration — decisions (2026-10-17)
 

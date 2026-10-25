@@ -1,0 +1,12 @@
+SECURITY LAB V2
+
+Automated: 20 unittest tests passed.
+HTTP: all ten home screens, ten specific routes, core business flows.
+SQL: JOIN/aggregation injection, saved coupon second-order injection, boolean-based count oracle, ORDER BY expression injection, and safe controls.
+XSS: profile/moderator attribute dataflow, wiki draft/publish, CSV import/publish, inline JSON context, nested srcdoc document, webhook ANSI log, SMTP message body.
+State: purchases and stock changes, rollback, date conflict, dependency cycle, sessions and logout.
+CLI smoke: app.py started HTTP, SQLite, SMTP and metrics together; received a real local SMTP message; exited cleanly on SIGINT.
+
+Limitations: no browser engine available. JavaScript execution and visual browser QA were not performed. XSS tests check HTTP output, escaping and persisted dataflow.
+
+Presentation update: the same 20 tests passed after copy, layout, labels and form changes. Browser visual QA was not performed.

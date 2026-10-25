@@ -1,0 +1,45 @@
+﻿Evidence: C:\Users\istu2\Documents\Szakdoga\artifacts\m3\check-20261017T113935Z\dev
+Scanned development corpus with the m2 profile
+Scanned development corpus with the m3 profile
+qwen2.5-coder:14b union#r1: {'failed': 0, 'skipped': 0, 'accepted': 11, 'rejected_ungrounded': 1, 'rejected_by_verification': 0, 'verification_calls': 2, 'verification_failures': 0, 'line_corrected': 1, 'dismissed': 1, 'unknown_refs': 0, 'seconds_median': 7.129, 'seconds_max': 11.264, 'seconds_total': 107.983}
+qwen2.5-coder:14b union#r2: {'failed': 0, 'skipped': 0, 'accepted': 11, 'rejected_ungrounded': 1, 'rejected_by_verification': 0, 'verification_calls': 2, 'verification_failures': 0, 'line_corrected': 1, 'dismissed': 1, 'unknown_refs': 0, 'seconds_median': 6.539, 'seconds_max': 10.708, 'seconds_total': 100.213}
+qwen2.5-coder:14b semgrep#r1: {'failed': 0, 'skipped': 0, 'accepted': 8, 'rejected_ungrounded': 2, 'rejected_by_verification': 2, 'verification_calls': 4, 'verification_failures': 0, 'line_corrected': 1, 'dismissed': 0, 'unknown_refs': 0, 'seconds_median': 6.604, 'seconds_max': 11.929, 'seconds_total': 106.023}
+qwen2.5-coder:14b semgrep#r2: {'failed': 0, 'skipped': 0, 'accepted': 8, 'rejected_ungrounded': 2, 'rejected_by_verification': 2, 'verification_calls': 4, 'verification_failures': 0, 'line_corrected': 1, 'dismissed': 0, 'unknown_refs': 0, 'seconds_median': 6.377, 'seconds_max': 11.763, 'seconds_total': 104.145}
+qwen2.5-coder:14b union-noverify: {'failed': 0, 'skipped': 0, 'accepted': 11, 'rejected_ungrounded': 1, 'rejected_by_verification': 0, 'verification_calls': 0, 'verification_failures': 0, 'line_corrected': 1, 'dismissed': 1, 'unknown_refs': 0, 'seconds_median': 6.673, 'seconds_max': 8.273, 'seconds_total': 95.283}
+qwen2.5-coder:7b union#r1: {'failed': 0, 'skipped': 0, 'accepted': 16, 'rejected_ungrounded': 1, 'rejected_by_verification': 0, 'verification_calls': 6, 'verification_failures': 0, 'line_corrected': 0, 'dismissed': 0, 'unknown_refs': 0, 'seconds_median': 4.586, 'seconds_max': 8.971, 'seconds_total': 85.239}
+qwen2.5-coder:7b union#r2: {'failed': 0, 'skipped': 0, 'accepted': 16, 'rejected_ungrounded': 1, 'rejected_by_verification': 0, 'verification_calls': 6, 'verification_failures': 0, 'line_corrected': 0, 'dismissed': 0, 'unknown_refs': 0, 'seconds_median': 4.241, 'seconds_max': 6.448, 'seconds_total': 77.791}
+qwen2.5-coder:7b semgrep#r1: {'failed': 0, 'skipped': 0, 'accepted': 12, 'rejected_ungrounded': 3, 'rejected_by_verification': 2, 'verification_calls': 9, 'verification_failures': 0, 'line_corrected': 1, 'dismissed': 0, 'unknown_refs': 0, 'seconds_median': 4.838, 'seconds_max': 7.47, 'seconds_total': 84.777}
+qwen2.5-coder:7b semgrep#r2: {'failed': 0, 'skipped': 0, 'accepted': 12, 'rejected_ungrounded': 3, 'rejected_by_verification': 2, 'verification_calls': 9, 'verification_failures': 0, 'line_corrected': 1, 'dismissed': 0, 'unknown_refs': 0, 'seconds_median': 4.873, 'seconds_max': 7.339, 'seconds_total': 85.295}
+qwen2.5-coder:7b union-noverify: {'failed': 0, 'skipped': 0, 'accepted': 16, 'rejected_ungrounded': 1, 'rejected_by_verification': 0, 'verification_calls': 0, 'verification_failures': 0, 'line_corrected': 0, 'dismissed': 0, 'unknown_refs': 0, 'seconds_median': 4.035, 'seconds_max': 5.115, 'seconds_total': 71.258}
+# M3 development run (development corpus — not a final evaluation)
+
+Cases: 18 (6 vulnerable, 12 non-vulnerable). Unit: file w.r.t. its labelled family.
+
+| Condition | TP | FP | TN | FN | Accuracy | Precision | Recall |
+|---|---|---|---|---|---|---|---|
+| m2:bandit | 5 | 5 | 7 | 1 | 0.6667 | 0.5 | 0.8333 |
+| m2:semgrep | 4 | 4 | 8 | 2 | 0.6667 | 0.5 | 0.6667 |
+| m2:scanners | 5 | 5 | 7 | 1 | 0.6667 | 0.5 | 0.8333 |
+| m3:bandit | 5 | 5 | 7 | 1 | 0.6667 | 0.5 | 0.8333 |
+| m3:semgrep | 5 | 1 | 11 | 1 | 0.8889 | 0.8333 | 0.8333 |
+| m3:scanners | 5 | 5 | 7 | 1 | 0.6667 | 0.5 | 0.8333 |
+| union+qwen2.5-coder:14b#r1 | 6 | 6 | 6 | 0 | 0.6667 | 0.5 | 1.0 |
+| model-accepted:union+qwen2.5-coder:14b#r1 | 6 | 5 | 7 | 0 | 0.7222 | 0.5455 | 1.0 |
+| union+qwen2.5-coder:14b#r2 | 6 | 6 | 6 | 0 | 0.6667 | 0.5 | 1.0 |
+| model-accepted:union+qwen2.5-coder:14b#r2 | 6 | 5 | 7 | 0 | 0.7222 | 0.5455 | 1.0 |
+| semgrep+qwen2.5-coder:14b#r1 | 6 | 2 | 10 | 0 | 0.8889 | 0.75 | 1.0 |
+| model-accepted:semgrep+qwen2.5-coder:14b#r1 | 6 | 2 | 10 | 0 | 0.8889 | 0.75 | 1.0 |
+| semgrep+qwen2.5-coder:14b#r2 | 6 | 2 | 10 | 0 | 0.8889 | 0.75 | 1.0 |
+| model-accepted:semgrep+qwen2.5-coder:14b#r2 | 6 | 2 | 10 | 0 | 0.8889 | 0.75 | 1.0 |
+| union+qwen2.5-coder:14b-noverify | 6 | 6 | 6 | 0 | 0.6667 | 0.5 | 1.0 |
+| union+qwen2.5-coder:7b#r1 | 6 | 9 | 3 | 0 | 0.5 | 0.4 | 1.0 |
+| model-accepted:union+qwen2.5-coder:7b#r1 | 6 | 9 | 3 | 0 | 0.5 | 0.4 | 1.0 |
+| union+qwen2.5-coder:7b#r2 | 6 | 9 | 3 | 0 | 0.5 | 0.4 | 1.0 |
+| model-accepted:union+qwen2.5-coder:7b#r2 | 6 | 9 | 3 | 0 | 0.5 | 0.4 | 1.0 |
+| semgrep+qwen2.5-coder:7b#r1 | 6 | 6 | 6 | 0 | 0.6667 | 0.5 | 1.0 |
+| model-accepted:semgrep+qwen2.5-coder:7b#r1 | 5 | 6 | 6 | 1 | 0.6111 | 0.4545 | 0.8333 |
+| semgrep+qwen2.5-coder:7b#r2 | 6 | 6 | 6 | 0 | 0.6667 | 0.5 | 1.0 |
+| model-accepted:semgrep+qwen2.5-coder:7b#r2 | 5 | 6 | 6 | 1 | 0.6111 | 0.4545 | 0.8333 |
+| union+qwen2.5-coder:7b-noverify | 6 | 9 | 3 | 0 | 0.5 | 0.4 | 1.0 |
+
+Model statistics: see metrics.json.

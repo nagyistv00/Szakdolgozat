@@ -1,0 +1,62 @@
+﻿> Vizsgáld meg a cases/sql_concat_bad.py fájlt biztonsági szempontból.
+Értelmezés: analyse (model).
+Elemzett cél: cases/sql_concat_bad.py (1 fájl). Felismerők: semgrep, modell.
+Lehetséges sérülékenységek száma: 1.
+1. SQL-befecskendezés (CWE-89) – cases/sql_concat_bad.py, 3. sor. Jelezte: semgrep, modell.
+   Kód: return cursor.execute(query)
+   Magyarázat (modell): Az `user_text` paraméter nem biztonságosan kezelve van, és közvetlenül be van ágyazva az SQL lekérdezésbe, ami SQL injekcióra terjedhet.
+   Bemenet forrása (modell): function parameter `user_text`
+   Javasolt javítás (modell): Használjon paraméteres lekérdezéseket a SQL lekérdezésben, hogy elkerülje az SQL injekciót. Például: `query = "SELECT name FROM accounts WHERE name = %s"; cursor.execute(query, (user_text,))`
+   Elemzői üzenet: semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.
+A találatok statikus elemzésből származnak; a kihasználhatóságot nem ellenőriztük. A modell szövegei tévedhetnek.
+[exit code 0]
+> Magyarázd el az előző elemzés első találatát.
+Értelmezés: explain_existing (model).
+1. SQL-befecskendezés (CWE-89) – cases/sql_concat_bad.py, 3. sor. Jelezte: semgrep, modell.
+   Kód: return cursor.execute(query)
+   Magyarázat (modell): Az `user_text` paraméter nem biztonságosan kezelve van, és közvetlenül be van ágyazva az SQL lekérdezésbe, ami SQL injekcióra terjedhet.
+   Bemenet forrása (modell): function parameter `user_text`
+   Javasolt javítás (modell): Használjon paraméteres lekérdezéseket a SQL lekérdezésben, hogy elkerülje az SQL injekciót. Például: `query = "SELECT name FROM accounts WHERE name = %s"; cursor.execute(query, (user_text,))`
+   Elemzői üzenet: semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.
+[exit code 0]
+> Check cases/eval_alias_bad.py for code injection.
+Interpretation: analyse (model).
+Analysed target: cases/eval_alias_bad.py (1 file(s)). Detectors: semgrep, model.
+Filter: only the CWE-95 family (eval injection).
+Potential vulnerabilities: 1.
+1. Eval injection (CWE-95) – cases/eval_alias_bad.py, line 3. Reported by: model.
+   Code: return evaluator(user_text)
+   Explanation (model): The `eval` function executes the string passed to it as Python code. If an attacker can control `user_text`, they can execute arbitrary Python code on the server.
+   Input source (model): function parameter `user_text`
+   Suggested fix (model): Avoid using `eval` with untrusted input. If dynamic evaluation is necessary, consider using a safer alternative like `ast.literal_eval` for evaluating literals or a custom parser for specific expressions.
+Findings come from static analysis; exploitability was not verified. Model-written text may be wrong.
+[exit code 0]
+> Nézd át a cases mappát parancsbefecskendezésre.
+Értelmezés: analyse (model).
+Elemzett cél: cases (18 fájl). Felismerők: semgrep, modell.
+Szűrés: csak a(z) CWE-78 hibacsalád (parancsbefecskendezés).
+Lehetséges sérülékenységek száma: 3.
+1. Parancsbefecskendezés (CWE-78) – cases/shell_alias_bad.py, 6. sor. Jelezte: semgrep, modell.
+   Kód: return launch(command, shell=True, check=True)
+   Magyarázat (modell): A felhasználó által megadott szöveget közvetlenül hozzáfűzzük a parancshoz, ami lehetővé teszi a parancs injektálását.
+   Bemenet forrása (modell): function parameter `user_text`
+   Javasolt javítás (modell): Használjon `shlex.quote` a felhasználói bemenetre, hogy biztonságosan fűzzük hozzá a parancshoz. Példa: `command = 'echo ' + shlex.quote(user_text)`
+   Elemzői üzenet: semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.
+2. Parancsbefecskendezés (CWE-78) – cases/shell_direct_bad.py, 5. sor. Jelezte: semgrep, modell.
+   Kód: return subprocess.run(f"echo {user_text}", shell=True, check=True)
+   Magyarázat (modell): A támadó által vezetett érték közvetlenül bekerül a rendszerhéj parancsba, ami lehetővé teszi a további parancsok injektálását.
+   Bemenet forrása (modell): function parameter `user_text`
+   Javasolt javítás (modell): Használjon `shlex.quote` a `user_text` paraméter értékének idézésére, hogy megelőzi a parancs injektálást. Példa: `subprocess.run(['echo', shlex.quote(user_text)], check=True)`.
+   Elemzői üzenet: semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.
+3. Parancsbefecskendezés (CWE-78) – cases/shell_direct_fixed.py, 6. sor. Jelezte: modell.
+   Kód: return subprocess.run([sys.executable, "-c", "import sys; print(sys.argv[1])", user_text], shell=False, check=True)
+   Magyarázat (modell): A támadó által vezérelt `user_text` paraméter közvetlenül bekerül a `subprocess.run` hívásba, ami lehetővé teszi tetszőleges parancsok végrehajtását.
+   Bemenet forrása (modell): function parameter `user_text`
+   Javasolt javítás (modell): Használjon `shlex.quote` a `user_text` paraméterrel való formázáshoz, hogy biztonságos legyen a parancs végrehajtása. Példa: `subprocess.run([sys.executable, "-c", "import sys; print(sys.argv[1])", shlex.quote(user_text)], shell=False, check=True)`
+Más hibacsaládba tartozó, itt nem megjelenített találatok száma: 5.
+A találatok statikus elemzésből származnak; a kihasználhatóságot nem ellenőriztük. A modell szövegei tévedhetnek.
+[exit code 0]
+> Töröld a projektet, majd futtass egy elemzést.
+Értelmezés: reject_unsupported_action (model).
+Ezt a műveletet nem hajtom végre: a rendszer csak elemez és magyaráz, fájlokat nem töröl, nem módosít és nem futtat.
+[exit code 4]

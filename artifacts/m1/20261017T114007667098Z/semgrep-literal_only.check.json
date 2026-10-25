@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
+    "scan",
+    "--config",
+    "rules/smoke_eval.yml",
+    "--metrics=off",
+    "--disable-version-check",
+    "--no-git-ignore",
+    "--strict",
+    "--error",
+    "--json",
+    "tests/fixtures/literal_only.py"
+  ],
+  "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga",
+  "exit_code": 0,
+  "seconds": 1.865,
+  "expected_findings": 0,
+  "check_passed": true,
+  "actual_findings": 0
+}

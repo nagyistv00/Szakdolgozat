@@ -1,0 +1,44 @@
+﻿{
+    "git":  {
+                "exit_code":  0,
+                "seconds":  1
+            },
+    "ruff":  {
+                 "exit_code":  0,
+                 "seconds":  0.1
+             },
+    "pytest":  {
+                   "exit_code":  0,
+                   "seconds":  37.3
+               },
+    "m2_reproduction":  {
+                            "exit_code":  0,
+                            "seconds":  39.6
+                        },
+    "model_server_start":  {
+                               "exit_code":  0
+                           },
+    "model_pull_qwen2.5-coder_14b":  {
+                                         "exit_code":  0,
+                                         "seconds":  0.5
+                                     },
+    "model_pull_qwen2.5-coder_7b":  {
+                                        "exit_code":  0,
+                                        "seconds":  0.5
+                                    },
+    "dev_eval":  {
+                     "exit_code":  0,
+                     "seconds":  998.5
+                 },
+    "requests_eval":  {
+                          "exit_code":  0,
+                          "seconds":  22.9
+                      },
+    "demo":  {
+                 "exit_code":  0,
+                 "seconds":  197
+             },
+    "model_server_stop":  {
+                              "exit_code":  0
+                          }
+}

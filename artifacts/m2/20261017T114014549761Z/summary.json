@@ -1,0 +1,258 @@
+{
+  "scans": [
+    {
+      "tool": "bandit",
+      "case": "eval_direct_bad",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "eval_direct_fixed",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "eval_alias_bad",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "eval_alias_fixed",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "eval_constant_control",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "eval_shadow_control",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "shell_direct_bad",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "shell_direct_fixed",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "shell_alias_bad",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "shell_alias_fixed",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "shell_constant_control",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "shell_text_control",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "sql_direct_bad",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "sql_direct_fixed",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "sql_concat_bad",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "sql_concat_fixed",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "sql_integer_control",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "bandit",
+      "case": "sql_unexecuted_control",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "eval_direct_bad",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "eval_direct_fixed",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "eval_alias_bad",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "eval_alias_fixed",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "eval_constant_control",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "eval_shadow_control",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "shell_direct_bad",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "shell_direct_fixed",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "shell_alias_bad",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "shell_alias_fixed",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "shell_constant_control",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "shell_text_control",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "sql_direct_bad",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "sql_direct_fixed",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "sql_concat_bad",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "sql_concat_fixed",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "sql_integer_control",
+      "status": "completed",
+      "finding_count": 1,
+      "errors": []
+    },
+    {
+      "tool": "semgrep",
+      "case": "sql_unexecuted_control",
+      "status": "completed",
+      "finding_count": 0,
+      "errors": []
+    }
+  ],
+  "model_requested": false,
+  "model_checked": false
+}

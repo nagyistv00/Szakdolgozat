@@ -221,6 +221,41 @@ Ez a napló a később összeállítandó szakdolgozat háttéranyaga. A kutatá
 - Ezzel a fejlesztési adaton történő hangolást lezárjuk; a konfigurációt a záró futás után rögzítjük, és a további mérés független adaton (M4) történik.
 - Ellenőrzés eddig: Ruff sikeres; új teszt a szerkezeti ellenőrzésre; szimulált modellel a csak szövegre tett állítás elutasul (ellenőrző hívás nélkül), az aliasos eval átmegy.
 
+## 2026-10-17 – M3 záró futás és a mérföldkő lezárása
+
+- Mérföldkő: 3. Állapot: **mért fejlesztési eredmény; M3 lezárva.** Bizonyíték: `artifacts/m3/check-20261017T113935Z/` (git-pillanatkép `a40b1d4`); minden lépés 0 kilépési kóddal, pytest 94/94.
+- Záró fejlesztési mérés (18 fejlesztési minta, 2 ismétlés, minden ismétlés azonos):
+
+  | Feltétel | TP | FP | TN | FN | Accuracy | Precision | Recall |
+  |---|---|---|---|---|---|---|---|
+  | Semgrep taint (AI nélkül, rögzített alap) | 5 | 1 | 11 | 1 | 0,889 | 0,833 | 0,833 |
+  | **Semgrep + 14B (rögzített rendszer)** | 6 | 2 | 10 | 0 | **0,889** | 0,750 | **1,000** |
+  | Bandit ∪ Semgrep + 14B | 6 | 6 | 6 | 0 | 0,667 | 0,500 | 1,000 |
+  | Semgrep + 7B | 6 | 6 | 6 | 0 | 0,667 | 0,500 | 1,000 |
+  | Bandit ∪ Semgrep + 7B | 6 | 9 | 3 | 0 | 0,500 | 0,400 | 1,000 |
+
+- A második körhöz képest (Semgrep + 14B: 0,778/0,600/1,000) a szerkezeti ellenőrzés kiszűrte a csak karakterláncban szereplő kódra tett két téves állítást (shell_text_control, sql_unexecuted_control). Megjegyzés: a mérési statisztikában a `rejected_ungrounded` számláló a szerkezeti elutasításokat is tartalmazza.
+- A rögzített rendszer a Semgrephez képest egy valódi találattal többet ad (aliasos eval) és egy téves riasztással többet (shell_direct_fixed: lista-argumentumú, shell nélküli subprocess, amelyet a 14B tévesen parancsbefecskendezésnek tart). Az accuracy azonos (0,889), a recall 0,833 → 1,000, a precision 0,833 → 0,750.
+- Az önellenőrző hívás továbbra is gyenge: unió rétegnél az ellenőrzés nélküli abláció mindkét modellnél azonos eredményt adott.
+- Kéréshelyzetek: szabályalapú, 14B és 7B értelmező 12/12, minden mezőben.
+- Bemutató (14B, csak Semgrep réteg): a teljes munkafolyamat működik. A magyar magyarázatok érthetők, de nyelvileg néhol esetlenek („SQL injekcióra terjedhet”), és maradnak angol kifejezések („function parameter”). Tartalmi hibák is vannak: a shell_direct_bad javaslata `shlex.quote`-ot tesz egy lista-argumentumba (szükségtelen, megváltoztatja a kimenetet), a téves shell_direct_fixed találathoz pedig fölösleges javítást ad. Ezek a magyarázat-értékelésnél pontozandó hibák.
+- **Az M3 lezárása.** Megvalósítva és célgépen ellenőrizve: teljes Bandit és Semgrep taint-elemzés hibacsalád-leképezéssel; modellalapú felismerés és magyarázat forráshoz kötéssel, szerkezeti ellenőrzéssel és önellenőrzéssel; unió-alapú összefésülés; magyar/angol, determinisztikus szövegezésű összefoglaló; szabályalapú és modellalapú kérésértelmezés közös védőkorlátokkal; parancssor (`analyse`, `ask`, előző találat magyarázata); reprodukálható mérő- és ellenőrző szkriptek; verziókezelés.
+- Rögzített M4-konfiguráció: qwen2.5-coder:14b (`9ec8897f…68849`), Semgrep taint (`rules/m3_python_taint.yml`), szerkezeti ellenőrzés és önellenőrzés be, temperature 0, seed 0, magyar magyarázatnyelv. Összehasonlítás: ugyanez modell nélkül; referencia: Bandit és a 7B modell.
+- M4-hez szükséges, még hiányzó elemek: a témavezető tesztpéldái (elkérve, nem érkeztek meg); a felhasználó által írt, a szabályoktól független 10–15 új kérés; a fejlesztési minták emberi címkeellenőrzése (M2 óta nyitott); a magyarázatok kézi pontozása (`explanations-*.md`). M4-et a felhasználó még nem engedélyezte.
+- Szakdolgozati jelentőség: a fejlesztési adat alapján a végleges rendszer a témavezetői prioritásnak megfelelően a felismerést (recall) javítja azonos accuracy mellett, enyhe precision-veszteséggel; ezt független adaton kell megerősíteni vagy cáfolni.
+
+## 2026-10-25 – M4 előkészítése: a témavezető tesztlaborja
+
+- Mérföldkő: 4 (előkészítés). Állapot: **mérőkörnyezet kész, a célgépi futás még hátravan.** A felhasználó megkapta a témavezetőtől a tesztprojektet, és a `TestData/security_lab` mappába tette.
+- Adat: helyi, szándékosan sérülékeny oktatólabor (SocialHub…BuildBoard, p01–p10), saját ground-truth-tal (`vulnerability_manifest.json`, `# VULN`/`SZÁNDÉKOS` jelölők). Valóban független: az M3-konfiguráció 2026-10-17 óta befagyasztva, ezen az appon semmit nem hangoltunk. A mérőszkript futás előtt SHA-256-tal rögzíti a vizsgált fájlokat, és nem hangol.
+- Hatókör-elemzés (forrás átolvasva): 7 szándékos SQL-injekció (CWE-89) esik a hatókörbe — advanced.py:79/100/127/139 (LAB-02/03/04/05), core.py:82 (sql_project a /pNN/lab mögött), platform_lab.py:94/146 —, és 6 XSS (CWE-79) kívül esik rajta. Eval/parancsinjekció nincs a laborban.
+- Kulcsmegfigyelés: **minden SQL-hívás a projekt saját `query(...)` segédfüggvényén megy**, nem közvetlen `cursor.execute`-on (az egyetlen literál `db.execute` a core._execute biztonságos, paraméterezett burkolója). A befagyasztott Semgrep-szabály `cursor.execute`-ra hegyez, ezért várhatóan nem fogja ezeket; a felismerés a Bandit B608-on vagy a modellen múlik. A modell 20000 karakteres mérethatára az `advanced.py`-t (kb. 23,6 KB) kihagyja, tehát a legnagyobb fájlon a befagyasztott konfigban a modell nem fut. Ez a generalizációs kérdés, amit M4 vizsgál; a szabályokat szándékosan NEM igazítottam a laborhoz.
+- Hatókör-döntés: a labor élő HTTP-szervert futtat, és a felhasználó egy működő SQLi-payloadot adott a /p04/triage-hoz. Az eszköz statikus forráskódelemző, ezért kizárólag a labor forrásfájljait elemzem. A payload tényleges kilövése az élő szerverre (adatkiszivárogtatás egy futó szolgáltatáson) kívül esik az eszköz céljain, és nem végzem el; ezt a döntést a mérés érvényessége is indokolja (azt mérjük, amit a dolgozat állít).
+- Megvalósítva: `scripts/m4_eval.py` (befagyasztott rendszer a labor .py fájljain; a CWE-89 találatok a címkézett nyelőkhöz párosítva ±4 soron belül; feltételek: semgrep és unió réteg, modell nélkül/val, 14B és 7B, plusz egy külön jelölt feltáró futás megemelt modell-mérethatárral), `scripts/m4_check.ps1` (git-commit, ruff, pytest, modellkiszolgáló indítása/leállítása, m4_eval), `research/MILESTONE_4.md` (terv, hatókör, befagyasztott konfiguráció). A huzalozást az asszisztens felhőkörnyezetében szimulált elemzővel és modell nélkül végigpróbáltam; a tűfeloldás mind a 7 nyelőt egyértelműen megtalálja.
+- Metrika: TP/FP/FN, precision, recall nyelőnkénti felsorolással; accuracy elhagyva (egy teljes alkalmazáson nincs tiszta negatív halmaz); XSS-lefedettség 0/6 tervezetten.
+- Következő lépés: a felhasználó lefuttatja `scripts/m4_check.ps1`-et; a valódi eredményeket és a téves/kihagyott nyelők elemzését külön, dátumozott bejegyzésben rögzítjük. A szabályok esetleges bővítése (pl. a `query`/projekt-burkolók mint konfigurálható nyelők, függvényközi követés, a modell mérethatára) csak M4 eredményének rögzítése UTÁN, tudatos döntésként jöhet, nem a tesztadathoz hangolásként.
+- Szakdolgozati jelentőség: ez az első, valóban független mérés. Akár gyengén teljesít a befagyasztott rendszer ezen a realisztikus appon (burkolt DB-hívás, nagy fájl), az is érvényes, dokumentálandó eredmény a korlátokról.
+
 ## A későbbi bejegyzések mintája
 
 Az alábbi mezőket a tényleges tevékenységhez igazítsd; ami nem alkalmazható, elhagyható.

@@ -1,0 +1,1360 @@
+{
+  "conditions": {
+    "m2:bandit": {
+      "overall": {
+        "tp": 5,
+        "fp": 5,
+        "tn": 7,
+        "fn": 1,
+        "n": 18,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 0.8333
+      },
+      "CWE-95": {
+        "tp": 1,
+        "fp": 2,
+        "tn": 2,
+        "fn": 1,
+        "n": 6,
+        "accuracy": 0.5,
+        "precision": 0.3333,
+        "recall": 0.5
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "m2:semgrep": {
+      "overall": {
+        "tp": 4,
+        "fp": 4,
+        "tn": 8,
+        "fn": 2,
+        "n": 18,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 0.6667
+      },
+      "CWE-95": {
+        "tp": 1,
+        "fp": 2,
+        "tn": 2,
+        "fn": 1,
+        "n": 6,
+        "accuracy": 0.5,
+        "precision": 0.3333,
+        "recall": 0.5
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 1,
+        "fp": 1,
+        "tn": 3,
+        "fn": 1,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 0.5
+      },
+      "sklearn_agrees": true
+    },
+    "m2:scanners": {
+      "overall": {
+        "tp": 5,
+        "fp": 5,
+        "tn": 7,
+        "fn": 1,
+        "n": 18,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 0.8333
+      },
+      "CWE-95": {
+        "tp": 1,
+        "fp": 2,
+        "tn": 2,
+        "fn": 1,
+        "n": 6,
+        "accuracy": 0.5,
+        "precision": 0.3333,
+        "recall": 0.5
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "m3:bandit": {
+      "overall": {
+        "tp": 5,
+        "fp": 5,
+        "tn": 7,
+        "fn": 1,
+        "n": 18,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 0.8333
+      },
+      "CWE-95": {
+        "tp": 1,
+        "fp": 2,
+        "tn": 2,
+        "fn": 1,
+        "n": 6,
+        "accuracy": 0.5,
+        "precision": 0.3333,
+        "recall": 0.5
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "m3:semgrep": {
+      "overall": {
+        "tp": 5,
+        "fp": 1,
+        "tn": 11,
+        "fn": 1,
+        "n": 18,
+        "accuracy": 0.8889,
+        "precision": 0.8333,
+        "recall": 0.8333
+      },
+      "CWE-95": {
+        "tp": 1,
+        "fp": 1,
+        "tn": 3,
+        "fn": 1,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 0.5
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 4,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 4,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "m3:scanners": {
+      "overall": {
+        "tp": 5,
+        "fp": 5,
+        "tn": 7,
+        "fn": 1,
+        "n": 18,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 0.8333
+      },
+      "CWE-95": {
+        "tp": 1,
+        "fp": 2,
+        "tn": 2,
+        "fn": 1,
+        "n": 6,
+        "accuracy": 0.5,
+        "precision": 0.3333,
+        "recall": 0.5
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "union+qwen2.5-coder:14b#r1": {
+      "overall": {
+        "tp": 6,
+        "fp": 6,
+        "tn": 6,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "model-accepted:union+qwen2.5-coder:14b#r1": {
+      "overall": {
+        "tp": 6,
+        "fp": 5,
+        "tn": 7,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.7222,
+        "precision": 0.5455,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "union+qwen2.5-coder:14b#r2": {
+      "overall": {
+        "tp": 6,
+        "fp": 6,
+        "tn": 6,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "model-accepted:union+qwen2.5-coder:14b#r2": {
+      "overall": {
+        "tp": 6,
+        "fp": 5,
+        "tn": 7,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.7222,
+        "precision": 0.5455,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "semgrep+qwen2.5-coder:14b#r1": {
+      "overall": {
+        "tp": 6,
+        "fp": 2,
+        "tn": 10,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.8889,
+        "precision": 0.75,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 4,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "model-accepted:semgrep+qwen2.5-coder:14b#r1": {
+      "overall": {
+        "tp": 6,
+        "fp": 2,
+        "tn": 10,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.8889,
+        "precision": 0.75,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 4,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "semgrep+qwen2.5-coder:14b#r2": {
+      "overall": {
+        "tp": 6,
+        "fp": 2,
+        "tn": 10,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.8889,
+        "precision": 0.75,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 4,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "model-accepted:semgrep+qwen2.5-coder:14b#r2": {
+      "overall": {
+        "tp": 6,
+        "fp": 2,
+        "tn": 10,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.8889,
+        "precision": 0.75,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 4,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "union+qwen2.5-coder:14b-noverify": {
+      "overall": {
+        "tp": 6,
+        "fp": 6,
+        "tn": 6,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "union+qwen2.5-coder:7b#r1": {
+      "overall": {
+        "tp": 6,
+        "fp": 9,
+        "tn": 3,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.5,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 3,
+        "tn": 1,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.5,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 4,
+        "tn": 0,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.3333,
+        "precision": 0.3333,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "model-accepted:union+qwen2.5-coder:7b#r1": {
+      "overall": {
+        "tp": 6,
+        "fp": 9,
+        "tn": 3,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.5,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 3,
+        "tn": 1,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.5,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 4,
+        "tn": 0,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.3333,
+        "precision": 0.3333,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "union+qwen2.5-coder:7b#r2": {
+      "overall": {
+        "tp": 6,
+        "fp": 9,
+        "tn": 3,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.5,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 3,
+        "tn": 1,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.5,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 4,
+        "tn": 0,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.3333,
+        "precision": 0.3333,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "model-accepted:union+qwen2.5-coder:7b#r2": {
+      "overall": {
+        "tp": 6,
+        "fp": 9,
+        "tn": 3,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.5,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 3,
+        "tn": 1,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.5,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 4,
+        "tn": 0,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.3333,
+        "precision": 0.3333,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "semgrep+qwen2.5-coder:7b#r1": {
+      "overall": {
+        "tp": 6,
+        "fp": 6,
+        "tn": 6,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 3,
+        "tn": 1,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.5,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "model-accepted:semgrep+qwen2.5-coder:7b#r1": {
+      "overall": {
+        "tp": 5,
+        "fp": 6,
+        "tn": 6,
+        "fn": 1,
+        "n": 18,
+        "accuracy": 0.6111,
+        "precision": 0.4545,
+        "recall": 0.8333
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 1,
+        "fp": 3,
+        "tn": 1,
+        "fn": 1,
+        "n": 6,
+        "accuracy": 0.3333,
+        "precision": 0.25,
+        "recall": 0.5
+      },
+      "sklearn_agrees": true
+    },
+    "semgrep+qwen2.5-coder:7b#r2": {
+      "overall": {
+        "tp": 6,
+        "fp": 6,
+        "tn": 6,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 3,
+        "tn": 1,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.5,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    },
+    "model-accepted:semgrep+qwen2.5-coder:7b#r2": {
+      "overall": {
+        "tp": 5,
+        "fp": 6,
+        "tn": 6,
+        "fn": 1,
+        "n": 18,
+        "accuracy": 0.6111,
+        "precision": 0.4545,
+        "recall": 0.8333
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 3,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.8333,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 1,
+        "fp": 3,
+        "tn": 1,
+        "fn": 1,
+        "n": 6,
+        "accuracy": 0.3333,
+        "precision": 0.25,
+        "recall": 0.5
+      },
+      "sklearn_agrees": true
+    },
+    "union+qwen2.5-coder:7b-noverify": {
+      "overall": {
+        "tp": 6,
+        "fp": 9,
+        "tn": 3,
+        "fn": 0,
+        "n": 18,
+        "accuracy": 0.5,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "CWE-95": {
+        "tp": 2,
+        "fp": 3,
+        "tn": 1,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.5,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "CWE-78": {
+        "tp": 2,
+        "fp": 2,
+        "tn": 2,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "CWE-89": {
+        "tp": 2,
+        "fp": 4,
+        "tn": 0,
+        "fn": 0,
+        "n": 6,
+        "accuracy": 0.3333,
+        "precision": 0.3333,
+        "recall": 1.0
+      },
+      "sklearn_agrees": true
+    }
+  },
+  "changes_vs_scanner_layer": {
+    "union+qwen2.5-coder:14b#r1": {
+      "new_true_positives": [
+        "eval_alias_bad"
+      ],
+      "new_false_positives": [
+        "shell_direct_fixed"
+      ]
+    },
+    "union+qwen2.5-coder:14b#r2": {
+      "new_true_positives": [
+        "eval_alias_bad"
+      ],
+      "new_false_positives": [
+        "shell_direct_fixed"
+      ]
+    },
+    "semgrep+qwen2.5-coder:14b#r1": {
+      "new_true_positives": [
+        "eval_alias_bad"
+      ],
+      "new_false_positives": [
+        "shell_direct_fixed"
+      ]
+    },
+    "semgrep+qwen2.5-coder:14b#r2": {
+      "new_true_positives": [
+        "eval_alias_bad"
+      ],
+      "new_false_positives": [
+        "shell_direct_fixed"
+      ]
+    },
+    "union+qwen2.5-coder:14b-noverify": {
+      "new_true_positives": [
+        "eval_alias_bad"
+      ],
+      "new_false_positives": [
+        "shell_direct_fixed"
+      ]
+    },
+    "union+qwen2.5-coder:7b#r1": {
+      "new_true_positives": [
+        "eval_alias_bad"
+      ],
+      "new_false_positives": [
+        "eval_direct_fixed",
+        "shell_direct_fixed",
+        "sql_direct_fixed",
+        "sql_concat_fixed"
+      ]
+    },
+    "union+qwen2.5-coder:7b#r2": {
+      "new_true_positives": [
+        "eval_alias_bad"
+      ],
+      "new_false_positives": [
+        "eval_direct_fixed",
+        "shell_direct_fixed",
+        "sql_direct_fixed",
+        "sql_concat_fixed"
+      ]
+    },
+    "semgrep+qwen2.5-coder:7b#r1": {
+      "new_true_positives": [
+        "eval_alias_bad"
+      ],
+      "new_false_positives": [
+        "eval_direct_fixed",
+        "shell_direct_fixed",
+        "sql_direct_fixed",
+        "sql_concat_fixed",
+        "sql_integer_control"
+      ]
+    },
+    "semgrep+qwen2.5-coder:7b#r2": {
+      "new_true_positives": [
+        "eval_alias_bad"
+      ],
+      "new_false_positives": [
+        "eval_direct_fixed",
+        "shell_direct_fixed",
+        "sql_direct_fixed",
+        "sql_concat_fixed",
+        "sql_integer_control"
+      ]
+    },
+    "union+qwen2.5-coder:7b-noverify": {
+      "new_true_positives": [
+        "eval_alias_bad"
+      ],
+      "new_false_positives": [
+        "eval_direct_fixed",
+        "shell_direct_fixed",
+        "sql_direct_fixed",
+        "sql_concat_fixed"
+      ]
+    }
+  },
+  "model": {
+    "requested": true,
+    "models": {
+      "qwen2.5-coder:14b": {
+        "metadata": {
+          "runtime": {
+            "version": "0.34.2"
+          },
+          "model": {
+            "name": "qwen2.5-coder:14b",
+            "model": "qwen2.5-coder:14b",
+            "modified_at": "2026-10-17T13:09:29.6651538+02:00",
+            "size": 8988124298,
+            "digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "14.8B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion",
+              "tools",
+              "insert"
+            ]
+          }
+        },
+        "runs": {
+          "union#r1": {
+            "failed": 0,
+            "skipped": 0,
+            "accepted": 11,
+            "rejected_ungrounded": 1,
+            "rejected_by_verification": 0,
+            "verification_calls": 2,
+            "verification_failures": 0,
+            "line_corrected": 1,
+            "dismissed": 1,
+            "unknown_refs": 0,
+            "seconds_median": 7.129,
+            "seconds_max": 11.264,
+            "seconds_total": 107.983
+          },
+          "union#r2": {
+            "failed": 0,
+            "skipped": 0,
+            "accepted": 11,
+            "rejected_ungrounded": 1,
+            "rejected_by_verification": 0,
+            "verification_calls": 2,
+            "verification_failures": 0,
+            "line_corrected": 1,
+            "dismissed": 1,
+            "unknown_refs": 0,
+            "seconds_median": 6.539,
+            "seconds_max": 10.708,
+            "seconds_total": 100.213
+          },
+          "semgrep#r1": {
+            "failed": 0,
+            "skipped": 0,
+            "accepted": 8,
+            "rejected_ungrounded": 2,
+            "rejected_by_verification": 2,
+            "verification_calls": 4,
+            "verification_failures": 0,
+            "line_corrected": 1,
+            "dismissed": 0,
+            "unknown_refs": 0,
+            "seconds_median": 6.604,
+            "seconds_max": 11.929,
+            "seconds_total": 106.023
+          },
+          "semgrep#r2": {
+            "failed": 0,
+            "skipped": 0,
+            "accepted": 8,
+            "rejected_ungrounded": 2,
+            "rejected_by_verification": 2,
+            "verification_calls": 4,
+            "verification_failures": 0,
+            "line_corrected": 1,
+            "dismissed": 0,
+            "unknown_refs": 0,
+            "seconds_median": 6.377,
+            "seconds_max": 11.763,
+            "seconds_total": 104.145
+          },
+          "union-noverify": {
+            "failed": 0,
+            "skipped": 0,
+            "accepted": 11,
+            "rejected_ungrounded": 1,
+            "rejected_by_verification": 0,
+            "verification_calls": 0,
+            "verification_failures": 0,
+            "line_corrected": 1,
+            "dismissed": 1,
+            "unknown_refs": 0,
+            "seconds_median": 6.673,
+            "seconds_max": 8.273,
+            "seconds_total": 95.283
+          }
+        },
+        "unstable_cases:union": [],
+        "unstable_cases:semgrep": []
+      },
+      "qwen2.5-coder:7b": {
+        "metadata": {
+          "runtime": {
+            "version": "0.34.2"
+          },
+          "model": {
+            "name": "qwen2.5-coder:7b",
+            "model": "qwen2.5-coder:7b",
+            "modified_at": "2026-09-19T13:15:24.6452551+02:00",
+            "size": 4683087561,
+            "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "7.6B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 3584
+            },
+            "capabilities": [
+              "completion",
+              "tools",
+              "insert"
+            ]
+          }
+        },
+        "runs": {
+          "union#r1": {
+            "failed": 0,
+            "skipped": 0,
+            "accepted": 16,
+            "rejected_ungrounded": 1,
+            "rejected_by_verification": 0,
+            "verification_calls": 6,
+            "verification_failures": 0,
+            "line_corrected": 0,
+            "dismissed": 0,
+            "unknown_refs": 0,
+            "seconds_median": 4.586,
+            "seconds_max": 8.971,
+            "seconds_total": 85.239
+          },
+          "union#r2": {
+            "failed": 0,
+            "skipped": 0,
+            "accepted": 16,
+            "rejected_ungrounded": 1,
+            "rejected_by_verification": 0,
+            "verification_calls": 6,
+            "verification_failures": 0,
+            "line_corrected": 0,
+            "dismissed": 0,
+            "unknown_refs": 0,
+            "seconds_median": 4.241,
+            "seconds_max": 6.448,
+            "seconds_total": 77.791
+          },
+          "semgrep#r1": {
+            "failed": 0,
+            "skipped": 0,
+            "accepted": 12,
+            "rejected_ungrounded": 3,
+            "rejected_by_verification": 2,
+            "verification_calls": 9,
+            "verification_failures": 0,
+            "line_corrected": 1,
+            "dismissed": 0,
+            "unknown_refs": 0,
+            "seconds_median": 4.838,
+            "seconds_max": 7.47,
+            "seconds_total": 84.777
+          },
+          "semgrep#r2": {
+            "failed": 0,
+            "skipped": 0,
+            "accepted": 12,
+            "rejected_ungrounded": 3,
+            "rejected_by_verification": 2,
+            "verification_calls": 9,
+            "verification_failures": 0,
+            "line_corrected": 1,
+            "dismissed": 0,
+            "unknown_refs": 0,
+            "seconds_median": 4.873,
+            "seconds_max": 7.339,
+            "seconds_total": 85.295
+          },
+          "union-noverify": {
+            "failed": 0,
+            "skipped": 0,
+            "accepted": 16,
+            "rejected_ungrounded": 1,
+            "rejected_by_verification": 0,
+            "verification_calls": 0,
+            "verification_failures": 0,
+            "line_corrected": 0,
+            "dismissed": 0,
+            "unknown_refs": 0,
+            "seconds_median": 4.035,
+            "seconds_max": 5.115,
+            "seconds_total": 71.258
+          }
+        },
+        "unstable_cases:union": [],
+        "unstable_cases:semgrep": []
+      }
+    }
+  }
+}
