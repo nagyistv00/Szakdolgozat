@@ -1,0 +1,98 @@
+{
+  "per_file": {
+    "advanced.py": {
+      "model": "skipped",
+      "cwe89": [
+        {
+          "line": 127,
+          "detected_by": [
+            "bandit"
+          ],
+          "code": "rows=query('SELECT COUNT(*) AS matches FROM tickets t JOIN items i ON i.project=4 AND i.id=t.item_id WHERE t.priority='+str(priority))"
+        },
+        {
+          "line": 139,
+          "detected_by": [
+            "bandit"
+          ],
+          "code": "sql='SELECT i.id,i.title,e.department,e.salary,e.location,e.leave_days FROM employees e JOIN items i ON i.project=5 AND i.id=e.item_id ORDER BY '+sort"
+        }
+      ]
+    },
+    "app.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "content.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "core.py": {
+      "model": "skipped",
+      "cwe89": [
+        {
+          "line": 23,
+          "detected_by": [
+            "semgrep"
+          ],
+          "code": "cur=db.execute(sql,params)"
+        },
+        {
+          "line": 77,
+          "detected_by": [
+            "bandit"
+          ],
+          "code": "sql = f'SELECT * FROM records WHERE project = ? AND {column} = ?'"
+        },
+        {
+          "line": 82,
+          "detected_by": [
+            "bandit"
+          ],
+          "code": "sql = f'SELECT * FROM records WHERE project = {n} AND {column} = '+literal"
+        }
+      ]
+    },
+    "platform_lab.py": {
+      "model": "skipped",
+      "cwe89": [
+        {
+          "line": 146,
+          "detected_by": [
+            "bandit"
+          ],
+          "code": "else: rows=query(\"SELECT * FROM items WHERE project = ? AND status = '\"+expression+\"'\",(p,))"
+        }
+      ]
+    },
+    "runtime_services.py": {
+      "model": "skipped",
+      "cwe89": [
+        {
+          "line": 20,
+          "detected_by": [
+            "bandit"
+          ],
+          "code": "snapshot={key:query('SELECT COUNT(*) AS n FROM '+table)[0]['n'] for key,table in [('records','items'),('mail','mail'),('purchases','purchases')]}"
+        }
+      ]
+    },
+    "seed_data.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "smtp_local.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "ui.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "workflows.py": {
+      "model": "skipped",
+      "cwe89": []
+    }
+  },
+  "problems": []
+}

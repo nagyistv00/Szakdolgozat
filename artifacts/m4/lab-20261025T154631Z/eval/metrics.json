@@ -1,0 +1,289 @@
+{
+  "in_scope_sqli_sinks": 7,
+  "xss_scenarios_out_of_scope": 6,
+  "conditions": {
+    "semgrep (no AI)": {
+      "tp": 0,
+      "fp": 1,
+      "tn": 0,
+      "fn": 7,
+      "n": 8,
+      "precision": 0.0,
+      "recall": 0.0,
+      "found_sinks": [],
+      "missed_sinks": [
+        "LAB-02 contacts LIKE",
+        "LAB-03 coupon scope (second-order)",
+        "LAB-04 triage priority",
+        "LAB-05 payroll ORDER BY",
+        "core.sql_project (/pNN/lab)",
+        "platform items LIKE",
+        "platform status filter"
+      ],
+      "false_positive_lines": [
+        "core.py:23"
+      ]
+    },
+    "union (no AI)": {
+      "tp": 4,
+      "fp": 3,
+      "tn": 0,
+      "fn": 3,
+      "n": 10,
+      "precision": 0.5714,
+      "recall": 0.5714,
+      "found_sinks": [
+        "LAB-04 triage priority",
+        "LAB-05 payroll ORDER BY",
+        "core.sql_project (/pNN/lab)",
+        "platform status filter"
+      ],
+      "missed_sinks": [
+        "LAB-02 contacts LIKE",
+        "LAB-03 coupon scope (second-order)",
+        "platform items LIKE"
+      ],
+      "false_positive_lines": [
+        "core.py:23",
+        "core.py:77",
+        "runtime_services.py:20"
+      ]
+    },
+    "semgrep + qwen2.5-coder:14b": {
+      "tp": 0,
+      "fp": 1,
+      "tn": 0,
+      "fn": 7,
+      "n": 8,
+      "precision": 0.0,
+      "recall": 0.0,
+      "found_sinks": [],
+      "missed_sinks": [
+        "LAB-02 contacts LIKE",
+        "LAB-03 coupon scope (second-order)",
+        "LAB-04 triage priority",
+        "LAB-05 payroll ORDER BY",
+        "core.sql_project (/pNN/lab)",
+        "platform items LIKE",
+        "platform status filter"
+      ],
+      "false_positive_lines": [
+        "core.py:23"
+      ],
+      "model_ran_files": [
+        "app.py",
+        "content.py",
+        "core.py",
+        "platform_lab.py",
+        "runtime_services.py",
+        "seed_data.py",
+        "smtp_local.py",
+        "workflows.py"
+      ],
+      "model_skipped_files": [
+        "advanced.py",
+        "ui.py"
+      ]
+    },
+    "union + qwen2.5-coder:14b": {
+      "tp": 4,
+      "fp": 3,
+      "tn": 0,
+      "fn": 3,
+      "n": 10,
+      "precision": 0.5714,
+      "recall": 0.5714,
+      "found_sinks": [
+        "LAB-04 triage priority",
+        "LAB-05 payroll ORDER BY",
+        "core.sql_project (/pNN/lab)",
+        "platform status filter"
+      ],
+      "missed_sinks": [
+        "LAB-02 contacts LIKE",
+        "LAB-03 coupon scope (second-order)",
+        "platform items LIKE"
+      ],
+      "false_positive_lines": [
+        "core.py:23",
+        "core.py:77",
+        "runtime_services.py:20"
+      ],
+      "model_ran_files": [
+        "app.py",
+        "content.py",
+        "core.py",
+        "platform_lab.py",
+        "runtime_services.py",
+        "seed_data.py",
+        "smtp_local.py",
+        "workflows.py"
+      ],
+      "model_skipped_files": [
+        "advanced.py",
+        "ui.py"
+      ]
+    },
+    "union + qwen2.5-coder:14b [explore: large files]": {
+      "tp": 4,
+      "fp": 3,
+      "tn": 0,
+      "fn": 3,
+      "n": 10,
+      "precision": 0.5714,
+      "recall": 0.5714,
+      "found_sinks": [
+        "LAB-04 triage priority",
+        "LAB-05 payroll ORDER BY",
+        "core.sql_project (/pNN/lab)",
+        "platform status filter"
+      ],
+      "missed_sinks": [
+        "LAB-02 contacts LIKE",
+        "LAB-03 coupon scope (second-order)",
+        "platform items LIKE"
+      ],
+      "false_positive_lines": [
+        "core.py:23",
+        "core.py:77",
+        "runtime_services.py:20"
+      ],
+      "model_ran_files": [
+        "advanced.py",
+        "app.py",
+        "content.py",
+        "core.py",
+        "platform_lab.py",
+        "runtime_services.py",
+        "seed_data.py",
+        "smtp_local.py",
+        "ui.py",
+        "workflows.py"
+      ],
+      "model_skipped_files": []
+    },
+    "semgrep + qwen2.5-coder:7b": {
+      "tp": 0,
+      "fp": 5,
+      "tn": 0,
+      "fn": 7,
+      "n": 12,
+      "precision": 0.0,
+      "recall": 0.0,
+      "found_sinks": [],
+      "missed_sinks": [
+        "LAB-02 contacts LIKE",
+        "LAB-03 coupon scope (second-order)",
+        "LAB-04 triage priority",
+        "LAB-05 payroll ORDER BY",
+        "core.sql_project (/pNN/lab)",
+        "platform items LIKE",
+        "platform status filter"
+      ],
+      "false_positive_lines": [
+        "content.py:151",
+        "content.py:154",
+        "core.py:23",
+        "runtime_services.py:20",
+        "smtp_local.py:45"
+      ],
+      "model_ran_files": [
+        "app.py",
+        "content.py",
+        "core.py",
+        "platform_lab.py",
+        "runtime_services.py",
+        "seed_data.py",
+        "smtp_local.py"
+      ],
+      "model_skipped_files": [
+        "advanced.py",
+        "ui.py"
+      ]
+    },
+    "union + qwen2.5-coder:7b": {
+      "tp": 4,
+      "fp": 7,
+      "tn": 0,
+      "fn": 3,
+      "n": 14,
+      "precision": 0.3636,
+      "recall": 0.5714,
+      "found_sinks": [
+        "LAB-04 triage priority",
+        "LAB-05 payroll ORDER BY",
+        "core.sql_project (/pNN/lab)",
+        "platform status filter"
+      ],
+      "missed_sinks": [
+        "LAB-02 contacts LIKE",
+        "LAB-03 coupon scope (second-order)",
+        "platform items LIKE"
+      ],
+      "false_positive_lines": [
+        "content.py:151",
+        "content.py:154",
+        "core.py:23",
+        "core.py:77",
+        "platform_lab.py:153",
+        "runtime_services.py:20",
+        "smtp_local.py:45"
+      ],
+      "model_ran_files": [
+        "app.py",
+        "content.py",
+        "core.py",
+        "platform_lab.py",
+        "runtime_services.py",
+        "seed_data.py",
+        "smtp_local.py"
+      ],
+      "model_skipped_files": [
+        "advanced.py",
+        "ui.py"
+      ]
+    },
+    "union + qwen2.5-coder:7b [explore: large files]": {
+      "tp": 4,
+      "fp": 8,
+      "tn": 0,
+      "fn": 3,
+      "n": 15,
+      "precision": 0.3333,
+      "recall": 0.5714,
+      "found_sinks": [
+        "LAB-04 triage priority",
+        "LAB-05 payroll ORDER BY",
+        "core.sql_project (/pNN/lab)",
+        "platform status filter"
+      ],
+      "missed_sinks": [
+        "LAB-02 contacts LIKE",
+        "LAB-03 coupon scope (second-order)",
+        "platform items LIKE"
+      ],
+      "false_positive_lines": [
+        "content.py:151",
+        "content.py:154",
+        "core.py:23",
+        "core.py:77",
+        "platform_lab.py:153",
+        "runtime_services.py:20",
+        "smtp_local.py:45",
+        "ui.py:52"
+      ],
+      "model_ran_files": [
+        "advanced.py",
+        "app.py",
+        "content.py",
+        "core.py",
+        "platform_lab.py",
+        "runtime_services.py",
+        "seed_data.py",
+        "smtp_local.py",
+        "ui.py"
+      ],
+      "model_skipped_files": []
+    }
+  }
+}

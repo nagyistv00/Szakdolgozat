@@ -1,0 +1,57 @@
+{
+  "per_file": {
+    "advanced.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "app.py": {
+      "model": "completed",
+      "cwe89": []
+    },
+    "content.py": {
+      "model": "completed",
+      "cwe89": []
+    },
+    "core.py": {
+      "model": "completed",
+      "cwe89": [
+        {
+          "line": 23,
+          "detected_by": [
+            "semgrep",
+            "model"
+          ],
+          "code": "cur=db.execute(sql,params)"
+        }
+      ]
+    },
+    "platform_lab.py": {
+      "model": "completed",
+      "cwe89": []
+    },
+    "runtime_services.py": {
+      "model": "completed",
+      "cwe89": []
+    },
+    "seed_data.py": {
+      "model": "completed",
+      "cwe89": []
+    },
+    "smtp_local.py": {
+      "model": "completed",
+      "cwe89": []
+    },
+    "ui.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "workflows.py": {
+      "model": "completed",
+      "cwe89": []
+    }
+  },
+  "problems": [
+    "advanced.py: model review skipped: source exceeds the model review limit (400 lines)",
+    "ui.py: model review skipped: source exceeds the model review limit (400 lines)"
+  ]
+}

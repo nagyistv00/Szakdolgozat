@@ -1,10 +1,12 @@
 # Milestone 4 held-out evaluation on the supervisor security lab. Run from PowerShell:
 #   ./scripts/m4_check.ps1                 (14B default + 7B reference; roughly 20-30 min)
 #   ./scripts/m4_check.ps1 -SkipModel      (scanners only, no model)
+#   ./scripts/m4_check.ps1 -RequestsOnly   (only the 14 held-out NL requests; a few minutes)
 # Static source analysis only: it reads the lab's .py files and never contacts the
 # running lab server. Evidence is saved under artifacts/m4/lab-<UTC time>/.
 param(
     [switch]$SkipModel,
+    [switch]$RequestsOnly,
     [string]$Models = 'qwen2.5-coder:14b,qwen2.5-coder:7b',
     [string]$LabRoot = ''
 )
@@ -14,7 +16,8 @@ Set-Location -LiteralPath $root
 if (-not $LabRoot) { $LabRoot = Join-Path $root 'TestData/security_lab' }
 if (-not (Test-Path -LiteralPath $LabRoot)) { throw "Lab root not found: $LabRoot" }
 $stamp = (Get-Date).ToUniversalTime().ToString('yyyyMMddTHHmmssZ')
-$out = Join-Path $root "artifacts/m4/lab-$stamp"
+$kind = if ($RequestsOnly) { 'requests' } else { 'lab' }
+$out = Join-Path $root "artifacts/m4/$kind-$stamp"
 New-Item -ItemType Directory -Force -Path $out | Out-Null
 $previousEncoding = [Console]::OutputEncoding
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
@@ -55,7 +58,13 @@ try {
         if (-not $listener) { Invoke-ModelServer 'Start' }
         $modelArgs = @('--models', $Models)
     }
-    Invoke-Step 'm4_eval' { & uv run --locked python scripts/m4_eval.py --root "$LabRoot" --out "$out/eval" @modelArgs }
+    if (-not $RequestsOnly) {
+        Invoke-Step 'm4_eval' { & uv run --locked python scripts/m4_eval.py --root "$LabRoot" --out "$out/eval" @modelArgs }
+    }
+    $requests = Join-Path $root 'TestData/m4_requests.json'
+    if (Test-Path -LiteralPath $requests) {
+        Invoke-Step 'm4_requests' { & uv run --locked python scripts/m4_requests_eval.py --root "$LabRoot" --cases "$requests" --out "$out/requests" @modelArgs }
+    }
 } finally {
     if (-not $SkipModel -and (Test-Path -LiteralPath (Join-Path $root '.runtime/ollama-process.json'))) {
         Invoke-ModelServer 'Stop'

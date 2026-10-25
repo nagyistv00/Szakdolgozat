@@ -94,6 +94,7 @@ A fejlesztett funkciók és ellenőrzési megoldások tesztelése és kiértéke
 - A dolgozat szövegét angolul kell megírni; a magyar fordítást a felhasználó maga végzi.
 - A felhasználó a fordítás indokaként az AI közreműködésének felismerhetetlenségét említette. Ez rögzített kontextus, nem detektorkijátszási feladat: a fordítás nem garantál felismerhetetlenséget. Ne ígérj ilyet.
 - A munkát a felhasználó saját kutatására, megvalósítására és ellenőrzött forrásokra kell alapozni. Ne találj ki forrásokat, kutatási eredményeket vagy elvégzett munkát. Az AI használatánál az alkalmazandó egyetemi előírásokat kell követni.
+- 2026-10-25, a felhasználó közlése: a dolgozat szövegében az MI-használatot nem kell jelölni; azt a felhasználó külön nyilatkozatban adja le.
 - Az oldalterjedelmet a végleges magyar változatban is ellenőrizni kell, mert fordításkor változhat.
 
 ## A követelmények forrása és értelmezése

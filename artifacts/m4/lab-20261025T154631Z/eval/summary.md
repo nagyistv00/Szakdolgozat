@@ -1,0 +1,18 @@
+# M4 held-out evaluation — supervisor security lab
+
+In-scope SQLi sinks (ground truth): 7. Out-of-scope XSS scenarios: 6 (not targeted by the tool).
+Detector frozen (M3 configuration); this run performs no tuning.
+
+| Condition | TP | FP | FN | Precision | Recall |
+|---|---|---|---|---|---|
+| semgrep (no AI) | 0 | 1 | 7 | 0.0 | 0.0 |
+| union (no AI) | 4 | 3 | 3 | 0.5714 | 0.5714 |
+| semgrep + qwen2.5-coder:14b | 0 | 1 | 7 | 0.0 | 0.0 |
+| union + qwen2.5-coder:14b | 4 | 3 | 3 | 0.5714 | 0.5714 |
+| union + qwen2.5-coder:14b [explore: large files] | 4 | 3 | 3 | 0.5714 | 0.5714 |
+| semgrep + qwen2.5-coder:7b | 0 | 5 | 7 | 0.0 | 0.0 |
+| union + qwen2.5-coder:7b | 4 | 7 | 3 | 0.3636 | 0.5714 |
+| union + qwen2.5-coder:7b [explore: large files] | 4 | 8 | 3 | 0.3333 | 0.5714 |
+
+Recall denominator = 7 in-scope SQLi sinks. FP = CWE-89 detections not matching any labelled sink (listed in metrics.json).
+XSS coverage by design: 0 of 6 scenarios (CWE-79 is outside the tool's three families).

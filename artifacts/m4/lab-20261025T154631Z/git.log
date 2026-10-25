@@ -1,0 +1,42 @@
+﻿warning: in the working copy of 'AGENTS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'RESEARCH_LOG.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'research/MILESTONE_3.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/SCENARIOS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/TEST_RESULTS.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/advanced.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/app.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/content.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/core.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/platform_lab.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/projects/p01.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/projects/p02.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/projects/p03.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/projects/p04.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/projects/p05.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/projects/p06.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/projects/p07.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/projects/p08.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/projects/p09.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/projects/p10.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/runtime_services.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/seed_data.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/smtp_local.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/source/analysis.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/start.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/start.sh', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/tests/test_advanced.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/tests/test_lab.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/ui.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/vulnerability_manifest.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TestData/security_lab/workflows.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'research/MILESTONE_4.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/m4_check.ps1', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/m4_eval.py', LF will be replaced by CRLF the next time Git touches it
+1050501 M4 setup: held-out evaluation harness for the supervisor security lab
+a40b1d4 M3 closing iteration: structural check, 14B and Semgrep defaults
+30a5b0c M3 iteration 2: verification step, English reasoning, model comparison
+125c8ac Track evidence artifacts and files present at repository initialisation
+504a082 Milestone 3: code-review fixes, model-assisted detection, explanation and NL control
+Version control up to date.

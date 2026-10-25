@@ -1,0 +1,89 @@
+{
+  "per_file": {
+    "advanced.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "app.py": {
+      "model": "completed",
+      "cwe89": []
+    },
+    "content.py": {
+      "model": "completed",
+      "cwe89": [
+        {
+          "line": 151,
+          "detected_by": [
+            "model"
+          ],
+          "code": "row=query('SELECT body FROM items WHERE project=? AND id=?',(project,item_id))"
+        },
+        {
+          "line": 154,
+          "detected_by": [
+            "model"
+          ],
+          "code": "query('UPDATE items SET body=? WHERE project=? AND id=?',(description,project,item_id))"
+        }
+      ]
+    },
+    "core.py": {
+      "model": "completed",
+      "cwe89": [
+        {
+          "line": 23,
+          "detected_by": [
+            "semgrep",
+            "model"
+          ],
+          "code": "cur=db.execute(sql,params)"
+        }
+      ]
+    },
+    "platform_lab.py": {
+      "model": "completed",
+      "cwe89": []
+    },
+    "runtime_services.py": {
+      "model": "completed",
+      "cwe89": [
+        {
+          "line": 20,
+          "detected_by": [
+            "model"
+          ],
+          "code": "snapshot={key:query('SELECT COUNT(*) AS n FROM '+table)[0]['n'] for key,table in [('records','items'),('mail','mail'),('purchases','purchases')]}"
+        }
+      ]
+    },
+    "seed_data.py": {
+      "model": "completed",
+      "cwe89": []
+    },
+    "smtp_local.py": {
+      "model": "completed",
+      "cwe89": [
+        {
+          "line": 45,
+          "detected_by": [
+            "model"
+          ],
+          "code": "query('INSERT INTO mail VALUES (?,?,?,?,?)',(2,recipient,sender,str(message.get('Subject','')),body))"
+        }
+      ]
+    },
+    "ui.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "workflows.py": {
+      "model": "failed",
+      "cwe89": []
+    }
+  },
+  "problems": [
+    "advanced.py: model review skipped: source exceeds the model review limit (400 lines)",
+    "ui.py: model review skipped: source exceeds the model review limit (400 lines)",
+    "workflows.py: model review failed: Model output is incomplete or generation hit its limit"
+  ]
+}

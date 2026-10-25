@@ -1,0 +1,53 @@
+{
+  "per_file": {
+    "advanced.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "app.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "content.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "core.py": {
+      "model": "skipped",
+      "cwe89": [
+        {
+          "line": 23,
+          "detected_by": [
+            "semgrep"
+          ],
+          "code": "cur=db.execute(sql,params)"
+        }
+      ]
+    },
+    "platform_lab.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "runtime_services.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "seed_data.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "smtp_local.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "ui.py": {
+      "model": "skipped",
+      "cwe89": []
+    },
+    "workflows.py": {
+      "model": "skipped",
+      "cwe89": []
+    }
+  },
+  "problems": []
+}

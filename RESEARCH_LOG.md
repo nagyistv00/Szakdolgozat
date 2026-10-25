@@ -256,6 +256,45 @@ Ez a napló a később összeállítandó szakdolgozat háttéranyaga. A kutatá
 - Következő lépés: a felhasználó lefuttatja `scripts/m4_check.ps1`-et; a valódi eredményeket és a téves/kihagyott nyelők elemzését külön, dátumozott bejegyzésben rögzítjük. A szabályok esetleges bővítése (pl. a `query`/projekt-burkolók mint konfigurálható nyelők, függvényközi követés, a modell mérethatára) csak M4 eredményének rögzítése UTÁN, tudatos döntésként jöhet, nem a tesztadathoz hangolásként.
 - Szakdolgozati jelentőség: ez az első, valóban független mérés. Akár gyengén teljesít a befagyasztott rendszer ezen a realisztikus appon (burkolt DB-hívás, nagy fájl), az is érvényes, dokumentálandó eredmény a korlátokról.
 
+## 2026-10-25 – MI-használat feltüntetése
+
+- Forrás: a felhasználó 2026-10-25-i közlése. A dolgozat szövegében az MI-használatot nem kell jelölni; a felhasználó külön nyilatkozatban adja le. Rögzítve az `AGENTS.md`-ben is.
+
+## 2026-10-25 – M4: független természetes nyelvű kérések
+
+- Mérföldkő: 4. Állapot: **mérőkörnyezet kész; a célgépi futás (14B, 7B) hátravan.**
+- Adat és eredet: `TestData/m4_requests.json`, 14 kérés (H-01…H-14; 7 magyar, 7 angol). Egy külső asszisztens (GPT-6) generálta egy kategórialeírásból, amelyet az asszisztens írt; a szabályalapú értelmezőt és az intent-promptot a generáló nem látta. A címkéket a felhasználó adta át; az asszisztens a cselekvés-definíciókkal összevetette, ellentmondást nem talált. Az eredeti brief 15 kérést kért, de az elosztás 14-et adott ki; az asszisztens javaslatára 14 maradt. A fájlt a mérés változatlanul használja, SHA-256-tal rögzíti; az értelmezőket nem hangoljuk rá.
+- Lefedett helyzetek: célzott elemzés fájlra és mappára (`projects`), hibacsalád-szűrő mindhárom családra (köztük elgépelés: „chek”), korábbi találat magyarázata sorszámmal és anélkül, hiányzó cél, hálózati cél, munkaterületen kívüli útvonal, nem támogatott (módosító) művelet, utasítás-felülírás, eredményhamisítás, nem létező fájl.
+- Pontozási protokoll (az első futás előtt rögzítve, `scripts/m4_requests_eval.py`): cselekvés, nyelv és szűrő mindig; cél csak `analyse` és `target_not_found` címkénél (elutasított/tisztázandó kérésnek tervezetten nincs validált célja — a fejlesztési halmaz konvenciója is ez); találatsorszám csak `explain_existing`-nél. Egy kérés akkor helyes, ha minden alkalmazható ellenőrzés teljesül. Munkaterület: a labor gyökere.
+- Előzetes megfigyelés (az asszisztens felhőkörnyezetében, csak a szabályalapú értelmezővel, a labor fájlneveit utánzó munkaterületen): 9/14. Hibák: H-01 („végigmennél … elemzést szeretnék”) és H-03 („Ellenőrizd a platform_lab.py-t”) → `clarify_target`; H-06 („what exactly makes finding 3 a security problem”) → nem ismeri fel magyarázatkérésnek; H-11 („Írd át … biztonságosan”) → elutasítja, de rossz okkal (eredményhamisításnak veszi a „biztonságos” szó miatt); **H-12 (utasítás-felülírás „follow them” alakban) → `analyse`**, azaz a védőkorlát mintája nem fogja. Ez utóbbi a legfontosabb: a felülírási kísérletet a kérésszinten nem utasítja el; a forráskódot a modellhívás ettől még adatként kezeli, de a dolgozatban korlátként kell rögzíteni. A végleges számokat a célgépi futás adja.
+- Szakdolgozati jelentőség: a fejlesztési 12/12 a szabályokkal együtt írt kérésekre vonatkozott; a független kérések mutatják meg a kulcsszavas alapmegoldás valódi általánosítását és a modellalapú értelmező hozzáadott értékét.
+
+## 2026-10-25 – M4 eredmény: a befagyasztott rendszer a témavezetői laboron
+
+- Mérföldkő: 4. Állapot: **ellenőrzött eredmény** (célgépi futás, `artifacts/m4/lab-20261025T154631Z/`; git, ruff, pytest 94/94, m4_eval mind 0-s kilépési kóddal). Befagyasztott M3-konfiguráció, hangolás nélkül; a vizsgált fájlok SHA-256-ja az `eval/manifest.json`-ban.
+- Eredmény (7 címkézett SQLi-nyelő, ±4 sor):
+
+  | Feltétel | TP | FP | FN | Precision | Recall |
+  |---|---|---|---|---|---|
+  | Semgrep (AI nélkül) | 0 | 1 | 7 | 0,000 | 0,000 |
+  | Bandit ∪ Semgrep (AI nélkül) | 4 | 3 | 3 | 0,571 | 0,571 |
+  | Semgrep + 14B | 0 | 1 | 7 | 0,000 | 0,000 |
+  | **Bandit ∪ Semgrep + 14B (befagyasztott rendszer)** | **4** | **3** | **3** | **0,571** | **0,571** |
+  | ugyanez, feltáró: modell a nagy fájlokon is | 4 | 3 | 3 | 0,571 | 0,571 |
+  | Semgrep + 7B | 0 | 5 | 7 | 0,000 | 0,000 |
+  | Bandit ∪ Semgrep + 7B | 4 | 7 | 3 | 0,364 | 0,571 |
+  | ugyanez, feltáró | 4 | 8 | 3 | 0,333 | 0,571 |
+
+- Megtalált nyelők (mind a Bandit B608-tól): LAB-04 triage prioritás (advanced.py:127), LAB-05 ORDER BY (advanced.py:139), core.sql_project (core.py:82), platform státuszszűrő (platform_lab.py:146).
+- Kihagyott nyelők: LAB-02 (advanced.py:79), LAB-03 másodrendű kuponszabály (advanced.py:100), platform items LIKE (platform_lab.py:94). Közös ok: a lekérdezés két lépésben épül — egy `base` változó (`'SELECT …'`) és egy hozzáfűzött töredék (`"c.name LIKE '%"+q+"%' …"`). A B608 heurisztikája csak SQL-kulcsszóval kezdődő literált vizsgál, a töredék nem az; a Semgrep-szabály nyelője `$CURSOR.execute`, a labor viszont a saját `query()` burkolóján megy.
+- Téves riasztások (befagyasztott rendszer): core.py:23 (Semgrep; a `_execute(db, sql, params)` burkoló — a szabály minden függvényparamétert forrásnak vesz, így a burkoló belsejében a `db.execute(sql, …)` taint-találat; technikailag ez az a pont, ahol minden lekérdezés lefut, de nem javítható helyen jelez, a protokoll szerint FP); core.py:77 (Bandit; a biztonságos ágban az f-string oszlopneve fehérlistás hármas feltételből jön); runtime_services.py:20 (Bandit + 14B; a táblanév konstans listából jön).
+- A modellréteg hatása: **a 14B egyetlen új valódi találatot sem adott**, és új téves riasztást sem; csak Bandit-találatokat erősített meg (core.py:82, runtime_services.py:20; feltáró futásban advanced.py:127/139 is). A platform_lab.py-t (94 és 146 SQLi-vel) teljesen elemezte, mégsem jelezte önállóan egyiket sem; az advanced.py-ban a mérethatár feloldása után sem találta meg LAB-02/03-at. A 7B 4–5 többlet téves riasztást adott, mind `?`-paraméterezett, biztonságos `query()` hívásokon (content.py:151/154, smtp_local.py:45, platform_lab.py:153, ui.py:52); a szerkezeti ellenőrzés ezeket nem szűrte, mert a hívás formailag lekérdezés. A 7B a workflows.py-n kétszer is csonka kimenetet adott (mérethatár).
+- Méretkorlát: a befagyasztott 400 soros/20000 karakteres korlát az advanced.py-t ÉS az ui.py-t is kihagyta (korábban csak az advanced.py-ra számítottam). A feltáró futás szerint a korlát feloldása a 14B-nél nem változtatott az eredményen.
+- XSS (CWE-79): 6 forgatókönyv, a hatókörön kívül, 0/6 tervezetten.
+- Értelmezés: a fejlesztési adaton a modell egy valódi többlettalálatot hozott (aliasos eval); ez a független laboron **nem ismétlődött meg**. A befagyasztott rendszer itt pontosan annyit ér, mint a két hagyományos szkenner uniója (recall és precision 0,571), és ezt szinte teljesen a Bandit adja. Ez fontos, őszintén közlendő eredmény: a kis, helyi modell felismerési hozzájárulása nem általánosított, viszont a 14B a precisiont nem rontotta (a 7B igen).
+- Mérlegelt, de NEM alkalmazott módosítások (az eredmény rögzítése előtt tilos volt): a `query()` mint konfigurálható nyelő a Semgrep-szabályban; a B608 kiegészítése két lépésben épülő lekérdezésekre; a modell mérethatárának átállítása. Ezek a dolgozatban továbbfejlesztési irányként szerepelhetnek; ha később megvalósulnak, az eredményt új, külön jelölt mérésként kell közölni, nem a független M4-eredmény helyett.
+- Szakdolgozati jelentőség: ez a dolgozat fő független mérése. A korlátok (burkolt adatbázis-hívás, több lépésben épülő lekérdezés, másodrendű injekció, méretkorlát, a kis modell gyenge önálló felismerése) konkrét, kódsorral alátámasztott példákkal mutathatók be.
+
 ## A későbbi bejegyzések mintája
 
 Az alábbi mezőket a tényleges tevékenységhez igazítsd; ami nem alkalmazható, elhagyható.

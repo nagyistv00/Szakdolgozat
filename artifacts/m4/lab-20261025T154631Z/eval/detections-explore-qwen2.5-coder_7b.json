@@ -1,0 +1,141 @@
+{
+  "per_file": {
+    "advanced.py": {
+      "model": "completed",
+      "cwe89": [
+        {
+          "line": 127,
+          "detected_by": [
+            "bandit"
+          ],
+          "code": "rows=query('SELECT COUNT(*) AS matches FROM tickets t JOIN items i ON i.project=4 AND i.id=t.item_id WHERE t.priority='+str(priority))"
+        },
+        {
+          "line": 139,
+          "detected_by": [
+            "bandit",
+            "model"
+          ],
+          "code": "sql='SELECT i.id,i.title,e.department,e.salary,e.location,e.leave_days FROM employees e JOIN items i ON i.project=5 AND i.id=e.item_id ORDER BY '+sort"
+        }
+      ]
+    },
+    "app.py": {
+      "model": "completed",
+      "cwe89": []
+    },
+    "content.py": {
+      "model": "completed",
+      "cwe89": [
+        {
+          "line": 151,
+          "detected_by": [
+            "model"
+          ],
+          "code": "row=query('SELECT body FROM items WHERE project=? AND id=?',(project,item_id))"
+        },
+        {
+          "line": 154,
+          "detected_by": [
+            "model"
+          ],
+          "code": "query('UPDATE items SET body=? WHERE project=? AND id=?',(description,project,item_id))"
+        }
+      ]
+    },
+    "core.py": {
+      "model": "completed",
+      "cwe89": [
+        {
+          "line": 23,
+          "detected_by": [
+            "semgrep"
+          ],
+          "code": "cur=db.execute(sql,params)"
+        },
+        {
+          "line": 77,
+          "detected_by": [
+            "bandit"
+          ],
+          "code": "sql = f'SELECT * FROM records WHERE project = ? AND {column} = ?'"
+        },
+        {
+          "line": 82,
+          "detected_by": [
+            "bandit"
+          ],
+          "code": "sql = f'SELECT * FROM records WHERE project = {n} AND {column} = '+literal"
+        }
+      ]
+    },
+    "platform_lab.py": {
+      "model": "completed",
+      "cwe89": [
+        {
+          "line": 146,
+          "detected_by": [
+            "bandit",
+            "model"
+          ],
+          "code": "else: rows=query(\"SELECT * FROM items WHERE project = ? AND status = '\"+expression+\"'\",(p,))"
+        },
+        {
+          "line": 153,
+          "detected_by": [
+            "model"
+          ],
+          "code": "rows=query('SELECT sender,subject,body FROM mail WHERE project = ? AND recipient = ? ORDER BY rowid DESC',(p,account['username']+'@example.test'))"
+        }
+      ]
+    },
+    "runtime_services.py": {
+      "model": "completed",
+      "cwe89": [
+        {
+          "line": 20,
+          "detected_by": [
+            "bandit",
+            "model"
+          ],
+          "code": "snapshot={key:query('SELECT COUNT(*) AS n FROM '+table)[0]['n'] for key,table in [('records','items'),('mail','mail'),('purchases','purchases')]}"
+        }
+      ]
+    },
+    "seed_data.py": {
+      "model": "completed",
+      "cwe89": []
+    },
+    "smtp_local.py": {
+      "model": "completed",
+      "cwe89": [
+        {
+          "line": 45,
+          "detected_by": [
+            "model"
+          ],
+          "code": "query('INSERT INTO mail VALUES (?,?,?,?,?)',(2,recipient,sender,str(message.get('Subject','')),body))"
+        }
+      ]
+    },
+    "ui.py": {
+      "model": "completed",
+      "cwe89": [
+        {
+          "line": 52,
+          "detected_by": [
+            "model"
+          ],
+          "code": "notes=query('SELECT COUNT(*) AS n FROM notes WHERE project=?',(p,))[0]['n']"
+        }
+      ]
+    },
+    "workflows.py": {
+      "model": "failed",
+      "cwe89": []
+    }
+  },
+  "problems": [
+    "workflows.py: model review failed: Model output is incomplete or generation hit its limit"
+  ]
+}
