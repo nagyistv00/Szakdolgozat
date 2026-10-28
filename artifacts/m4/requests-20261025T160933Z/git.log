@@ -1,0 +1,11 @@
+﻿warning: in the working copy of 'AGENTS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'RESEARCH_LOG.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'research/MILESTONE_4.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/m4_check.ps1', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/m4_requests_eval.py', LF will be replaced by CRLF the next time Git touches it
+d6f0070 M4: held-out lab results and natural-language request evaluation
+1050501 M4 setup: held-out evaluation harness for the supervisor security lab
+a40b1d4 M3 closing iteration: structural check, 14B and Semgrep defaults
+30a5b0c M3 iteration 2: verification step, English reasoning, model comparison
+125c8ac Track evidence artifacts and files present at repository initialisation
+Version control up to date.

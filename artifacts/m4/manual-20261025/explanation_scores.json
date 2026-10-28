@@ -1,0 +1,214 @@
+{
+  "scorer": "thesis author (human), via the M4 scoring page",
+  "date": "2026-10-25",
+  "source": "artifacts/m3/check-20261017T113935Z/dev/explanations-qwen2.5-coder_14b.md (frozen 14B, union layer, repeat 1)",
+  "rubric": "family/line/source/fix/clear, 0 or 1; on a finding for a case labelled not vulnerable, family and fix score 0, the rest by factual accuracy (rubric shown on the page before scoring)",
+  "summary": {
+    "all": {
+      "items": 12,
+      "per_criterion": {
+        "family": 7,
+        "line": 10,
+        "source": 11,
+        "fix": 2,
+        "clear": 12
+      },
+      "total": 42,
+      "max": 60
+    },
+    "true_positive_findings": {
+      "items": 7,
+      "per_criterion": {
+        "family": 7,
+        "line": 7,
+        "source": 7,
+        "fix": 2,
+        "clear": 7
+      },
+      "total": 30,
+      "max": 35
+    },
+    "false_positive_findings": {
+      "items": 5,
+      "per_criterion": {
+        "family": 0,
+        "line": 3,
+        "source": 4,
+        "fix": 0,
+        "clear": 5
+      },
+      "total": 12,
+      "max": 25
+    }
+  },
+  "items": [
+    {
+      "case": "eval_direct_bad",
+      "item": "e01",
+      "line": 2,
+      "note": "A 2. sorban a beépített eval közvetlenül megkapja a user_text értékét. Az ast.literal_eval megfelelő a literális adatok feldolgozására és megszünteti a CWE-95 hibát. Nem általános kifejezéskiértékelő; az erőforrás-kimerítés a minta deklarált hatókörén kívül van.",
+      "scores": {
+        "clear": 1,
+        "family": 1,
+        "fix": 1,
+        "line": 1,
+        "source": 1
+      },
+      "updated": "2026-10-25T16:27:28.757Z"
+    },
+    {
+      "case": "eval_alias_bad",
+      "item": "e02",
+      "line": 3,
+      "note": "Az evaluator a beépített eval álneve, ezért a 3. sorban ugyanúgy megtörténik a nem megbízható szöveg kiértékelése. A korlátozott műveletkészletű értelmező helyes javítási irány, ezért a javaslat 1 pontot kap; konkrét megvalósítást a szöveg nem ad. Az eval puszta átnevezése vagy a bemenet típusának ellenőrzése önmagában nem lenne elegendő.",
+      "scores": {
+        "clear": 1,
+        "family": 1,
+        "fix": 1,
+        "line": 1,
+        "source": 1
+      },
+      "updated": "2026-10-25T16:27:35.082Z"
+    },
+    {
+      "case": "eval_shadow_control",
+      "item": "e03",
+      "line": 6,
+      "note": "Téves találat: az eval itt helyben definiált függvény, amely csak visszaadja az argumentumát. A 6. sor nem kódkiértékelési pont, ezért a sor is 0; a user_text forrás megnevezése helyes. Az ast.literal_eval szükségtelen és megváltoztatná a viselkedést. A magyarázat érthető, de tényszerűen hibás.",
+      "scores": {
+        "clear": 1,
+        "family": 0,
+        "fix": 0,
+        "line": 0,
+        "source": 1
+      },
+      "updated": "2026-10-25T16:27:49.463Z"
+    },
+    {
+      "case": "shell_direct_bad",
+      "item": "e04",
+      "line": 5,
+      "note": "Az 5. sorban a user_text shell=True mellett parancsszintaxissá válhat. A javítás szigorú, platformsemleges értékelésben 0: a shlex.quote POSIX-héjakhoz való, nem környezeti változót hoz létre; a listás echo-példa pedig külön echo végrehajtható állományt feltételez, ami például Windowson nem garantált. POSIX-környezet kikötésével a listás alternatíva elfogadható. Hordozható megoldás a shell_direct_fixed mintában szereplő rögzített Python-program és argumentumlista.",
+      "scores": {
+        "clear": 1,
+        "family": 1,
+        "fix": 0,
+        "line": 1,
+        "source": 1
+      },
+      "updated": "2026-10-25T16:28:04.094Z"
+    },
+    {
+      "case": "shell_direct_fixed",
+      "item": "e05",
+      "line": 6,
+      "note": "Téves találat: shell=False mellett a rögzített Python-program a user_text értékét sys.argv[1]-ként kapja, és csak kiírja. Nincs rendszerhéj vagy támadó által megadott programkód, ezért a sor nem CWE-78 végrehajtási pont. A forrás helyes. A shlex.quote itt szükségtelen, és idézőjeleket vihet a kiírt adatba. A téves magyarázat nyelvileg érthető.",
+      "scores": {
+        "clear": 1,
+        "family": 0,
+        "fix": 0,
+        "line": 0,
+        "source": 1
+      },
+      "updated": "2026-10-25T16:28:26.955Z"
+    },
+    {
+      "case": "shell_alias_bad",
+      "item": "e06",
+      "line": 6,
+      "note": "A command az 5. sorban épül fel, a 6. sorban a launch valóban a subprocess.run álneveként futtatja shell=True mellett. Mindkét hely releváns, a jelölt 6. sor helyes. A shlex.quote javaslat POSIX-héjon megakadályozza a parancs befecskendezését, de ilyen környezeti feltétel nincs megadva; ezért platformsemleges javításként 0. POSIX-kikötéssel ez a részpont 1-re módosítható. Hordozható megoldás a rögzített Python-program argumentumlistával, shell=False mellett.",
+      "scores": {
+        "clear": 1,
+        "family": 1,
+        "fix": 0,
+        "line": 1,
+        "source": 1
+      },
+      "updated": "2026-10-25T16:28:33.276Z"
+    },
+    {
+      "case": "shell_constant_control",
+      "item": "e07",
+      "line": 5,
+      "note": "Téves találat: a parancs rögzített, támadó által vezérelt bemenet nincs. Az 5. sor tényleges rendszerhéj-hívás, ezért a lokalizáció önálló szempontként 1. A fixed_value függvény nem külső bemeneti forrás. A javítás erre a mintára szükségtelen. A feltételes kockázatleírás érthető, de nem bizonyít hibát ebben a kódban.",
+      "scores": {
+        "clear": 1,
+        "family": 0,
+        "fix": 0,
+        "line": 1,
+        "source": 0
+      },
+      "updated": "2026-10-25T16:28:46.711Z"
+    },
+    {
+      "case": "sql_direct_bad",
+      "item": "e08",
+      "line": 2,
+      "note": "A 2. sorban a user_text az SQL szintaxisába kerül; a hibacsalád, a sor és a forrás helyes. A paraméterkötés jó irány, de a bemutatott %s helyőrző szabványos sqlite3 kurzorral hibát okoz. Helyes példa: cursor.execute(\"SELECT name FROM accounts WHERE name = ?\", (user_text,)). Ezért a konkrét javítás 0.",
+      "scores": {
+        "clear": 1,
+        "family": 1,
+        "fix": 0,
+        "line": 1,
+        "source": 1
+      },
+      "updated": "2026-10-25T16:28:54.888Z"
+    },
+    {
+      "case": "sql_concat_bad",
+      "item": "e09",
+      "line": 2,
+      "note": "A 2. sorban épül fel a nem megbízható adatot tartalmazó SQL, így a jelölt sor helyes. A „function parameter” önmagában pontatlan, de a magyarázat megnevezi a user_text paramétert; együtt a forrás azonosítható, ezért 1. A %s nem sqlite3-helyőrző. Helyes javítás: query = \"SELECT name FROM accounts WHERE name = ?\"; return cursor.execute(query, (user_text,)).",
+      "scores": {
+        "clear": 1,
+        "family": 1,
+        "fix": 0,
+        "line": 1,
+        "source": 1
+      },
+      "updated": "2026-10-25T16:29:04.264Z"
+    },
+    {
+      "case": "sql_concat_bad",
+      "item": "e10",
+      "line": 3,
+      "note": "A 3. sor hajtja végre a 2. sorban összeállított, befecskendezhető SQL-t, ezért a végrehajtási pontként megjelölt sor is helyes. A magyarázatban megnevezett user_text feloldja az általános „function parameter” forrásleírást. A javítás 0, mert sqlite3 esetén a %s helyett ? szükséges: cursor.execute(\"SELECT name FROM accounts WHERE name = ?\", (user_text,)).",
+      "scores": {
+        "clear": 1,
+        "family": 1,
+        "fix": 0,
+        "line": 1,
+        "source": 1
+      },
+      "updated": "2026-10-25T16:29:16.724Z"
+    },
+    {
+      "case": "sql_integer_control",
+      "item": "e11",
+      "line": 3,
+      "note": "Téves találat: a beépített int siker esetén egész számmá alakítja a bemenetet, sikertelen átalakításkor pedig a lekérdezésig sem jut el a kód. Az account_id nem tud SQL-vezérlőszintaxist bevinni. A 3. sor tényleges lekérdezés-építési és végrehajtási hely, a user_text pedig a bemenet eredeti forrása. A javítás szükségtelen a jelzett CWE-re, és a %s sqlite3-mal hibás. A magyarázat érthető, de hamis.",
+      "scores": {
+        "clear": 1,
+        "family": 0,
+        "fix": 0,
+        "line": 1,
+        "source": 1
+      },
+      "updated": "2026-10-25T16:29:27.184Z"
+    },
+    {
+      "case": "sql_unexecuted_control",
+      "item": "e12",
+      "line": 2,
+      "note": "A függvény csak szöveget ad vissza; a bemutatott mintában nincs adatbázis-végrehajtás, ezért a CWE-89 találat téves. A 2. sor ténylegesen lekérdezésszöveget épít, ezért a rubrika alapján a sor 1; a forrás is helyes. A javítás nem végez paraméterkötést, elhagyja a bemeneti értéket, és megváltoztatja a visszatérési értéket. Későbbi, külön kódban történő execute esetén újra kellene értékelni az adatfolyamot.",
+      "scores": {
+        "clear": 1,
+        "family": 0,
+        "fix": 0,
+        "line": 1,
+        "source": 1
+      },
+      "updated": "2026-10-25T16:29:40.660Z"
+    }
+  ]
+}

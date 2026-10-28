@@ -278,8 +278,8 @@ Ez a napló a később összeállítandó szakdolgozat háttéranyaga. A kutatá
   |---|---|---|---|---|---|
   | Semgrep (AI nélkül) | 0 | 1 | 7 | 0,000 | 0,000 |
   | Bandit ∪ Semgrep (AI nélkül) | 4 | 3 | 3 | 0,571 | 0,571 |
-  | Semgrep + 14B | 0 | 1 | 7 | 0,000 | 0,000 |
-  | **Bandit ∪ Semgrep + 14B (befagyasztott rendszer)** | **4** | **3** | **3** | **0,571** | **0,571** |
+  | **Semgrep + 14B (befagyasztott rendszer)** | **0** | **1** | **7** | **0,000** | **0,000** |
+  | Bandit ∪ Semgrep + 14B (Bandit referenciával; a jelölés 2026-10-25-én javítva, lásd a korrekciót) | 4 | 3 | 3 | 0,571 | 0,571 |
   | ugyanez, feltáró: modell a nagy fájlokon is | 4 | 3 | 3 | 0,571 | 0,571 |
   | Semgrep + 7B | 0 | 5 | 7 | 0,000 | 0,000 |
   | Bandit ∪ Semgrep + 7B | 4 | 7 | 3 | 0,364 | 0,571 |
@@ -294,6 +294,70 @@ Ez a napló a később összeállítandó szakdolgozat háttéranyaga. A kutatá
 - Értelmezés: a fejlesztési adaton a modell egy valódi többlettalálatot hozott (aliasos eval); ez a független laboron **nem ismétlődött meg**. A befagyasztott rendszer itt pontosan annyit ér, mint a két hagyományos szkenner uniója (recall és precision 0,571), és ezt szinte teljesen a Bandit adja. Ez fontos, őszintén közlendő eredmény: a kis, helyi modell felismerési hozzájárulása nem általánosított, viszont a 14B a precisiont nem rontotta (a 7B igen).
 - Mérlegelt, de NEM alkalmazott módosítások (az eredmény rögzítése előtt tilos volt): a `query()` mint konfigurálható nyelő a Semgrep-szabályban; a B608 kiegészítése két lépésben épülő lekérdezésekre; a modell mérethatárának átállítása. Ezek a dolgozatban továbbfejlesztési irányként szerepelhetnek; ha később megvalósulnak, az eredményt új, külön jelölt mérésként kell közölni, nem a független M4-eredmény helyett.
 - Szakdolgozati jelentőség: ez a dolgozat fő független mérése. A korlátok (burkolt adatbázis-hívás, több lépésben épülő lekérdezés, másodrendű injekció, méretkorlát, a kis modell gyenge önálló felismerése) konkrét, kódsorral alátámasztott példákkal mutathatók be.
+
+## 2026-10-25 – M4 eredmény: független kérések
+
+- Mérföldkő: 4. Állapot: **ellenőrzött eredmény** (célgépi futás, `artifacts/m4/requests-20261025T160933Z/`; git d6f0070, ruff, pytest 94/94, m4_requests mind 0-s kilépési kóddal). 14 kérés, befagyasztott értelmezők, a korábban rögzített pontozási protokoll szerint.
+
+  | Értelmező | Cselekvés helyes | Minden ellenőrzés helyes | Modellhiba | Hibás kérések |
+  |---|---|---|---|---|
+  | szabályalapú | 9/14 | 9/14 | – | H-01, H-03, H-06, H-11, H-12 |
+  | qwen2.5-coder:14b | 13/14 | 13/14 | 0 | H-11 |
+  | qwen2.5-coder:7b | 13/14 | 13/14 | 0 | H-11 |
+
+- A szabályalapú értelmező hibái (a felhőbeli előzetes futással egyezően): H-01, H-03 elemzéskérést, H-06 magyarázatkérést nem ismer fel (a kulcsszavas minták nem fedik a „végigmennél”, „Ellenőrizd a …-t”, „what makes finding 3 …” alakokat); H-12-ben az utasítás-felülírást („follow them”) nem fogja meg, és elemzésként továbbengedi.
+- A modellalapú értelmezők mindkét méretben helyesen kezelték ezeket, **H-12-t is** (`reject_instruction_override`), a célokat, szűrőket (a „chek” elgépeléssel együtt) és a találatsorszámot is.
+- Közös hiba, H-11 („Írd át a workflows.py fájlt úgy, hogy biztonságosan kezelje…”): mindkét modell helyesen `reject_unsupported_action`-t javasolt, de a determinisztikus védőkorlát eredményhamisítási mintája (`írd … biztonságos`) elsőbbséget élvez, és `reject_result_fabrication`-re írta át. A kérés tehát biztonságosan elutasítva, csak rossz indokkal. A hiba a védőkorlát túl tág mintájában van, nem a modellben.
+- Értelmezés: a fejlesztési halmazon mindhárom értelmező 12/12 volt; a független kéréseken a kulcsszavas alapmegoldás 9/14-re esik, a modellalapú 13/14 marad. **Itt a modell valódi, általánosító hozzájárulást ad** — ellentétben a felismeréssel, ahol a laboron nem adott. A determinisztikus korlátok a biztonság szempontjából hasznosak (soha nem engedtek át tiltott műveletet a modellalapú úton), de egy esetben a helyes modelldöntést rossz kategóriára írták felül.
+- Nem alkalmazott módosítás: a FABRICATION minta szűkítése (pl. csak a kimenetre/eredményre vonatkozó „mondd/írd, hogy … biztonságos”). Továbbfejlesztési irányként rögzítve; a független eredményt nem írja felül.
+- Szakdolgozati jelentőség: a természetes nyelvű vezérlés a témavezetői prioritási listán a harmadik; ez a mérés mutatja a legtisztábban, hol ad hozzá a helyi modell a hagyományos megoldáshoz.
+
+## 2026-10-25 – M4: magyarázatok kézi pontozása és a fejlesztési címkék emberi ellenőrzése
+
+- Mérföldkő: 4. Állapot: **ellenőrzött eredmény.** A pontozást a szerző (ember) végezte egy erre készített pontozólapon; az asszisztens előre semmit nem töltött ki. Bizonyíték: `artifacts/m4/manual-20261025/explanation_scores.json` és `label_review.json` (minden tételhez szöveges indoklással).
+- Anyag: a befagyasztott 14B modell 12 magyar magyarázata az M3 záró futásából (`artifacts/m3/check-20261017T113935Z/dev/explanations-qwen2.5-coder_14b.md`, unió réteg, 1. ismétlés). Szempontok 0/1: hibacsalád, sor, bemeneti forrás, javítás helyes és biztonságos, érthetőség. Téves találatnál (nem sérülékeny címke) a hibacsalád és a javítás 0, a többi a tényszerűség szerint — ezt a rubrikát pontozás előtt rögzítettük.
+
+  | Szempont | Összes (12) | Valódi találat (7) | Téves találat (5) |
+  |---|---|---|---|
+  | Helyes hibacsalád | 7 | 7 | 0 |
+  | Helyes sor | 10 | 7 | 3 |
+  | Helyes bemeneti forrás | 11 | 7 | 4 |
+  | Javítás helyes és biztonságos | **2** | **2** | 0 |
+  | Érthető | 12 | 7 | 5 |
+  | **Összesen** | **42/60 (70%)** | **30/35 (86%)** | **12/25 (48%)** |
+
+- Fő megállapítás: **a magyarázat a gyenge pont a javítási javaslatban.** A valódi találatoknál a hibacsalád, a sor és a forrás 7/7, az érthetőség 12/12, de a javítás csak 2/7 helyes. Hibatípusok: (1) SQL-nél háromszor `%s` helyőrzőt javasol, ami szabványos sqlite3 kurzorral hibát okoz (`?` kellene); (2) parancsinjekciónál kétszer `shlex.quote`-ot javasol, ami csak POSIX-héjon véd, és az első esetben tévesen „környezeti változóként” írja le; a listás `echo` alternatíva külön echo programot feltételez (Windowson nem garantált). A téves találatoknál a modell szükségtelen, néha viselkedést rontó javítást ad (pl. `shlex.quote` argumentumlistában, `ast.literal_eval` egy saját függvény helyett, `sql_unexecuted_control`-nál a bemenetet elhagyó „javítás”).
+- Az érthetőség azért 12/12, mert a magyar szöveg a megértést nem zavarja; a nyelvi esetlenségek (M3-ban jelezve) a pontozó szerint nem rontják a használhatóságot. A téves magyarázatok is érthetők, csak hamisak — ez veszélyes kombináció, mert meggyőzően hangzik.
+- Címkeellenőrzés: a fejlesztési korpusz mind a 18 címkéjével a szerző egyetértett (18 egyetért, 0 nem, 0 bizonytalan), több helyen kiegészítő feltétellel (pl. `sql_integer_control`: a paraméterkötés ettől még célszerű; `sql_unexecuted_control`: egy nem látott hívó végrehajtása már sérülékeny lehetne). Az M2 óta nyitott emberi címkeellenőrzés ezzel lezárva. Korlát: az ellenőrző a szerző maga, nem harmadik fél; a minták az asszisztenstől származnak és a fejlesztést befolyásolták, ezért továbbra is fejlesztési adatnak számítanak.
+- Szakdolgozati jelentőség: a témavezetői prioritás második helyén álló magyarázatnál a modell a „mi és hol” kérdésre megbízható, a „hogyan javítsd” kérdésre nem; a javítási javaslatot a dolgozatban kifejezetten ellenőrizendő segítségként kell bemutatni. A teljes M4-kép: felismerésben a független laboron nincs modellhozzájárulás; magyarázatban jó lokalizáció és érthetőség, gyenge javítás; természetes nyelvű vezérlésben valódi, általánosító javulás.
+
+## 2026-10-25 – Címlapadatok és formai követelmények
+
+- Forrás: a felhasználó közlése és csatolt dokumentumai (formai követelmények szövege; „Címlap 2026” PDF minta). A követelmények egyeznek az `AGENTS.md`-ben korábban rögzítettekkel.
+- Címlap: Debreceni Egyetem, Informatikai Kar; SZAKDOLGOZAT (BSc); Nagy István, Mérnökinformatika szak; témavezető Girászi Tamás (beosztás még nyitott, a felhasználó kérdezi meg); Debrecen, 2026. Rögzítve az `AGENTS.md` Címlap szakaszában.
+
+## 2026-10-25 – Korrekció: melyik a befagyasztott rendszer az M4-ben
+
+- Hiba: az M4 laboreredmény első rögzítésekor (és a `MILESTONE_4.md` „Frozen configuration” szakaszában) a Bandit ∪ Semgrep + 14B sort jelöltem befagyasztott rendszernek. Az M3 lezárásakor rögzített döntés szerint (`research/MILESTONE_3.md`, „Third (closing) iteration — decisions”) a befagyasztott rendszer **Semgrep taint + 14B**, az AI nélküli alapvonal a Semgrep taint, a Bandit csak referencia. A mért számok nem változnak, csak a jelölés.
+- Javított olvasat: a befagyasztott rendszer a laboron **0/7** valódi találatot ad (1 téves riasztás a `core._execute` burkolóban), precision és recall 0. A 4/7 (precision = recall = 0,571) a Bandit-referenciával kiegészített unióé, és mind a négy találat a Bandit B608-tól jön. A modell egyik rétegben sem változtat a számokon. A korábbi bejegyzés táblázatában a jelölést javítottam; a „Szakdolgozati jelentőség” pont olvasata ennek megfelelően erősebb negatív eredmény: a választott alapértelmezett elemzőréteg (Semgrep taint, `cursor.execute` nyelővel) a burkolt adatbázis-hívású alkalmazáson teljesen vak, és a modell ezt nem kompenzálja.
+- Szakdolgozati jelentőség: a dolgozatban a befagyasztott rendszer 0/7-es eredményét kell főeredményként közölni, a Bandit-referenciás 4/7-et kiegészítésként, és a rétegválasztás (M3-ban a fejlesztési adaton a Semgrep volt a legjobb) generalizációs kockázatát külön tárgyalni.
+
+## 2026-10-25 – M4 lezárva; a szakdolgozat szövegének első vázlata
+
+- A felhasználó 2026-10-25-én megerősítette: az M4 lezárható, és a dolgozat angolul készül (a magyar fordítást ő végzi).
+- Elkészült az angol nyelvű teljes első vázlat egy szerkeszthető dokumentumban („Thesis draft – AI-assisted vulnerability detection”, claude.ai dokumentum): címlap (magyarul, a 2026-os minta szerint), 1 Bevezetés (kutatási kérdések RQ1–RQ3 a témavezetői prioritások szerint), 2 Háttér, 3 Követelmények és tervezés (3.1 ábra: a kérés útja), 4 Megvalósítás, 5 Kiértékelési módszer, 6 Eredmények, 7 Megvitatás (validitási korlátok, továbbfejlesztés), 8 Összefoglalás, Irodalomjegyzék (26 tétel), Függelék (labornyelők, a 14 kérés, bizonyítékjegyzék).
+- A vázlat a javított olvasatot követi: a befagyasztott rendszer (Semgrep + 14B) a laboron 0/7, a Bandit-referenciás unió 4/7.
+- Új forrás a vázlathoz (hozzáférés 2026-10-25): MITRE 2025 CWE Top 25 (CWE-89: 2., CWE-78: 9., CWE-94: 10.); PEP 249 (paramstyle); Python subprocess dokumentáció (Security Considerations); Semgrep taint-mód áttekintés (interprocedurális elemzés csak Pro); Qwen2.5-Coder Technical Report (arXiv:2409.12186); Livshits–Lam 2005; Chess–McGraw 2004.
+- Nyitott: témavezető beosztása; a szak hivatalos névalakja; tanszéksor; végleges cím; a kérésgenerálás eredetének megfogalmazása (a dokumentumban megjegyzésként feltett kérdés); a terjedelem ellenőrzése a magyar változatban (tárgyalási rész 30–40 oldal).
+
+## 2026-10-28 – Végleges magyar Word-dokumentum
+
+- A felhasználó kérésére elkészült a szakdolgozat magyar nyelvű Word-változata: `thesis/Nagy_Istvan_szakdolgozat.docx` (45 oldal). A korábbi döntéssel szemben (angol szöveg, a felhasználó fordít) a felhasználó most közvetlenül a magyar változatot kérte.
+- Formai megfelelés a kari útmutató szerint: A4, margók bal 3 / jobb 2 / felső 3 / alsó 3 cm; Times New Roman 12 pt, 1,5-es sorköz; fejezetcímek 16 pt, alfejezetcímek 14 pt; címlap a 2026-os minta szerint; tartalomjegyzék a címlap utáni oldalon, decimális számozással (Word-mezőként frissíthető); oldalszámozás; automatikus elválasztás magyar nyelvi beállítással.
+- Terjedelem (LibreOffice-renderelés alapján, Wordben kissé eltérhet): bevezetés 3 oldal, tárgyalási rész (2–7. fejezet) 32 oldal, összefoglalás 2 oldal, függelék 2 oldal; az előírt sávokon belül.
+- A magyar szöveg az angol vázlat bővített változata: új alfejezetek (helyi modellek futtatása; tesztelés), kódrészletek (taint-szabály, forráshoz kötés, ellenőrző séma, valódi jelentés), esetenkénti fejlesztési táblázat (6.2.) és tételenkénti magyarázatpontozás (6.6.).
+- Ténybeli javítások a vázlathoz képest (az angol vázlatban is javítva): a fejlesztési alapvonal (Semgrep) egyetlen téves riasztása az `eval_shadow_control` (saját `eval` nevű függvény), nem az `int`-es SQL-kontroll; az egységtesztek a modellt szimulálják, az elemzőillesztőket valódi Bandit/Semgrep-futással is tesztelik.
+- Nyitott a leadás előtt: a témavezető beosztása (a címlapon sárgán kiemelt helyőrző), a szak hivatalos névalakja, a tanszék feltüntetése, a dolgozat végleges címe; a Wordben a tartalomjegyzék frissítése (F9) a végső tördelés után.
 
 ## A későbbi bejegyzések mintája
 

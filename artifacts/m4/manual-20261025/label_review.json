@@ -1,0 +1,156 @@
+{
+  "reviewer": "thesis author (human), via the M4 scoring page",
+  "date": "2026-10-25",
+  "corpus": "data/m2 (18 cases)",
+  "summary": {
+    "agree": 18,
+    "disagree": 0,
+    "unsure": 0
+  },
+  "items": [
+    {
+      "case": "eval_alias_bad",
+      "cwe": "CWE-95",
+      "label_vulnerable": true,
+      "note": "Egyetértek: az evaluator ugyanarra a beépített eval függvényre hivatkozik; az álnév nem szakítja meg a veszélyes adatfolyamot.",
+      "updated": "2026-10-25T16:30:07.383Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "eval_alias_fixed",
+      "cwe": "CWE-95",
+      "label_vulnerable": false,
+      "note": "Egyetértek: a beépített int egész számot konvertál, nem Python-kódot hajt végre. Érvénytelen szövegnél kivételt dob.",
+      "updated": "2026-10-25T16:30:13.364Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "eval_constant_control",
+      "cwe": "CWE-95",
+      "label_vulnerable": false,
+      "note": "Egyetértek: az eval kizárólag a rögzített „1 + 2” kifejezést kapja; nincs támadó által vezérelt kiértékelt szöveg.",
+      "updated": "2026-10-25T16:30:16.993Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "eval_direct_bad",
+      "cwe": "CWE-95",
+      "label_vulnerable": true,
+      "note": "Egyetértek: a nem megbízható user_text közvetlenül a beépített eval argumentuma, ezért Python-kód kiértékelését vezérelheti.",
+      "updated": "2026-10-25T16:29:56.770Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "eval_direct_fixed",
+      "cwe": "CWE-95",
+      "label_vulnerable": false,
+      "note": "Egyetértek a CWE-95 hatókörében: az ast.literal_eval literális adatokat értelmez, nem hajt végre általános Python-kódot. Az erőforrás-kimerítés nincs benne ebben a címkében.",
+      "updated": "2026-10-25T16:30:03.001Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "eval_shadow_control",
+      "cwe": "CWE-95",
+      "label_vulnerable": false,
+      "note": "Egyetértek: a modulban definiált eval csak visszaadja az argumentumot, és elfedi a beépített függvényt; itt nincs kódkiértékelés.",
+      "updated": "2026-10-25T16:30:22.376Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "shell_alias_bad",
+      "cwe": "CWE-78",
+      "label_vulnerable": true,
+      "note": "Egyetértek: a launch a subprocess.run importált álneve; a bemenetből összefűzött command továbbra is rendszerhéjban fut.",
+      "updated": "2026-10-25T16:30:40.720Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "shell_alias_fixed",
+      "cwe": "CWE-78",
+      "label_vulnerable": false,
+      "note": "Egyetértek: a print csak kiírja a szöveget, rendszerhéjat nem indít. Más kimeneti kockázatok nem a CWE-78 címke tárgyai.",
+      "updated": "2026-10-25T16:30:48.825Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "shell_constant_control",
+      "cwe": "CWE-78",
+      "label_vulnerable": false,
+      "note": "Egyetértek: a shell=True használat önmagában nem bizonyít befecskendezést; a parancs teljesen rögzített, a mintában nincs külső bemenet.",
+      "updated": "2026-10-25T16:30:51.884Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "shell_direct_bad",
+      "cwe": "CWE-78",
+      "label_vulnerable": true,
+      "note": "Egyetértek: a user_text közvetlenül a shell=True mellett értelmezett parancsba kerül, ezért parancselválasztók és más héjszintaxis beilleszthető.",
+      "updated": "2026-10-25T16:30:32.313Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "shell_direct_fixed",
+      "cwe": "CWE-78",
+      "label_vulnerable": false,
+      "note": "Egyetértek: a programkód rögzített, shell=False, a user_text külön argumentumként jut a kiírást végző Python-programhoz.",
+      "updated": "2026-10-25T16:30:35.956Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "shell_text_control",
+      "cwe": "CWE-78",
+      "label_vulnerable": false,
+      "note": "Egyetértek: a subprocess.run hívás csak egy visszaadott karakterlánc része, nem végrehajtott Python-kód.",
+      "updated": "2026-10-25T16:30:55.620Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "sql_concat_bad",
+      "cwe": "CWE-89",
+      "label_vulnerable": true,
+      "note": "Egyetértek: a query változóba tett összefűzés nem véd; a következő sor a felhasználó által módosítható SQL-szintaxist végrehajtja.",
+      "updated": "2026-10-25T16:31:13.336Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "sql_concat_fixed",
+      "cwe": "CWE-89",
+      "label_vulnerable": false,
+      "note": "Egyetértek: a query szövege rögzített, a user_text külön paraméterként kerül az execute hívásba.",
+      "updated": "2026-10-25T16:31:21.820Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "sql_direct_bad",
+      "cwe": "CWE-89",
+      "label_vulnerable": true,
+      "note": "Egyetértek: a user_text közvetlen SQL-interpolációja lehetővé teszi az idézőjelből való kilépést és a WHERE feltétel módosítását, szabványos sqlite3 esetén is.",
+      "updated": "2026-10-25T16:31:03.884Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "sql_direct_fixed",
+      "cwe": "CWE-89",
+      "label_vulnerable": false,
+      "note": "Egyetértek: a ? helyőrző és a külön átadott egyelemű tuple valódi sqlite3-paraméterkötést használ; a bemenet adat marad.",
+      "updated": "2026-10-25T16:31:07.861Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "sql_integer_control",
+      "cwe": "CWE-89",
+      "label_vulnerable": false,
+      "note": "Egyetértek a megadott feltételekkel: a beépített int csak egész számmá alakítható bemenetet enged tovább; a kapott egész szám nem visz be SQL-szintaxist. A paraméterkötés ettől még célszerű általános gyakorlat.",
+      "updated": "2026-10-25T16:31:24.860Z",
+      "verdict": "agree"
+    },
+    {
+      "case": "sql_unexecuted_control",
+      "cwe": "CWE-89",
+      "label_vulnerable": false,
+      "note": "Egyetértek a bemutatott függvény határain belül: csak szöveg képződik, adatbázis-hívás nincs. Ha egy nem látott hívó ezt végrehajtaná, a teljes adatfolyam már sérülékeny lehetne.",
+      "updated": "2026-10-25T16:31:28.456Z",
+      "verdict": "agree"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 18 original, assistant-authored Python snippets: six proposed vulnerable cases, their six paired fixes, and six contextual negative controls. Categories: CWE-95 (eval injection), CWE-78 (OS command injection) and CWE-89 (SQL injection). See `manifest.json` for each source hash, group, label rationale and origin.
 
-All cases are **development data**. Labels are provisional source-inspection judgements, not independently verified ground truth. Human review is pending. The functions assume that `user_text` can be supplied by an untrusted caller, and SQL examples assume a normal sqlite3-compatible cursor. Negative labels concern only the specified weakness, not overall safety.
+All cases are **development data**. Labels were written as source-inspection judgements and reviewed by the thesis author on 2026-10-25 (18/18 agreed; see `artifacts/m4/manual-20261025/label_review.json`). The reviewer is not a third party, so they remain development labels rather than independent ground truth. The functions assume that `user_text` can be supplied by an untrusted caller, and SQL examples assume a normal sqlite3-compatible cursor. Negative labels concern only the specified weakness, not overall safety.
 
 Do not execute or import the samples. The source describes unsafe operations solely so static analyzers can inspect it. No live target or external repository is scanned by the diagnostic.
 

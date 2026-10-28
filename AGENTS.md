@@ -124,6 +124,8 @@ A fejlesztett funkciók és ellenőrzési megoldások tesztelése és kiértéke
 - Alsó harmadban, bal oldalon: a témavezető neve és beosztása.
 - Lap alján, középre rendezve: Debrecen és a benyújtás éve.
 - A linkelt mintán DEBRECENI EGYETEM és INFORMATIKAI KAR szerepel. A szöveges előírás tanszéket is említ, a mintán ez nem szerepel; a végleges címlapnál ezt az eltérést rendezni kell, tanszéknevet ne találj ki.
+- Címlapadatok (a felhasználó közlése, 2026-10-25): Debreceni Egyetem, Informatikai Kar; képzési szint BSc → **SZAKDOLGOZAT**; szerző: **Nagy István**, szak: **Mérnökinformatika** (pontos hivatalos szaknév-alak, pl. „mérnökinformatikus BSc”, a leadás előtt ellenőrizendő); témavezető: **Girászi Tamás**, beosztása még ismeretlen — kitalálni tilos, a felhasználónak kell megkérdeznie; hely és év: **Debrecen, 2026**. A dolgozat címe még nincs véglegesítve.
+- 2026-10-25-én a felhasználó csatolta a formai követelmények szövegét és a 2026-os címlapmintát (PDF); mindkettő egyezik az itt rögzítettekkel. A minta szerkezete: fent DEBRECENI EGYETEM / INFORMATIKAI KAR, felső harmadban SZAKDOLGOZAT, alatta a cím, alsó harmadban balra „Témavezető: név, beosztás”, jobbra „Készítette: név, szak”, alul DEBRECEN / évszám.
 
 ## Formátum
 

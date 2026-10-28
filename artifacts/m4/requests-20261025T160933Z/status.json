@@ -1,0 +1,20 @@
+﻿{
+    "git":  {
+                "exit_code":  0
+            },
+    "ruff":  {
+                 "exit_code":  0
+             },
+    "pytest":  {
+                   "exit_code":  0
+               },
+    "model_server_start":  {
+                               "exit_code":  0
+                           },
+    "m4_requests":  {
+                        "exit_code":  0
+                    },
+    "model_server_stop":  {
+                              "exit_code":  0
+                          }
+}
