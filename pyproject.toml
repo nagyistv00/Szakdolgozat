@@ -1,7 +1,7 @@
 [project]
 name = "thesis-vulnerability-assistant"
 version = "0.0.2"
-description = "Milestone 2 replaceable scanner and model connectors with research fixtures"
+description = "Static vulnerability analysis of Python code with Bandit, Semgrep and a local language model"
 requires-python = ">=3.11,<3.12"
 dependencies = [
     "bandit>=1.8,<2",
@@ -19,7 +19,7 @@ requires = ["hatchling>=1.27,<2"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/vuln_assistant"]
+packages = ["src/vulnscan"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

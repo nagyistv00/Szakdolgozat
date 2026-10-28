@@ -1,4 +1,4 @@
-"""Preserve installation-check evidence independently of conversation history."""
+"""Shared fixture: an output folder for the scanner installation checks."""
 
 import hashlib
 import importlib.metadata
@@ -14,12 +14,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 @pytest.fixture(scope="session")
-def evidence_dir():
-    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%S%fZ")
-    directory = ROOT / "artifacts" / "m1" / stamp
+def output_dir():
+    stamp = datetime.now(UTC).strftime("%Y-%m-%d_%H%M%S")
+    directory = ROOT / "results" / "install_checks" / stamp
     directory.mkdir(parents=True, exist_ok=False)
     paths = [ROOT / "uv.lock", ROOT / "pyproject.toml", ROOT / ".python-version"]
-    for folder in ("tests", "rules"):
+    for folder in ("tests", "semgrep"):
         paths.extend(
             path
             for path in (ROOT / folder).rglob("*")
@@ -44,5 +44,5 @@ def evidence_dir():
     (directory / "manifest.json").write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8"
     )
-    print(f"\nEvidence directory: {directory}")
+    print(f"\nInstall check output: {directory}")
     return directory

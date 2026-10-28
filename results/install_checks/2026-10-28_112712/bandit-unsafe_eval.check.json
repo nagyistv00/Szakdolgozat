@@ -1,0 +1,18 @@
+{
+  "command": [
+    "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\python.exe",
+    "-m",
+    "bandit",
+    "-t",
+    "B307",
+    "-f",
+    "json",
+    "tests/fixtures/unsafe_eval.py"
+  ],
+  "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga",
+  "exit_code": 1,
+  "seconds": 0.271,
+  "expected_findings": 1,
+  "check_passed": true,
+  "actual_findings": 1
+}

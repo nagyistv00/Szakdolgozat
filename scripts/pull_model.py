@@ -1,9 +1,9 @@
-"""Explicit download only; normal connector calls never fetch models.
+"""Download a model into the project Ollama server (normal runs never download).
 
     uv run --locked python scripts/pull_model.py --model qwen2.5-coder:14b
 
-An installed model is not downloaded again. Identity (digest, size, licence) is recorded
-under artifacts/m3/ (the milestone 2 record stays in artifacts/m2/model-install.json).
+An installed model is not downloaded again. Its digest, size and licence are saved to
+results/setup/model_install_<model>.json.
 """
 
 import argparse
@@ -56,7 +56,7 @@ def main():
         "show": info.json(),
     }
     safe = args.model.replace(":", "_").replace("/", "_")
-    destination = ROOT / "artifacts/m3" / f"model-install-{safe}.json"
+    destination = ROOT / "results" / "setup" / f"model_install_{safe}.json"
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(record, indent=2), encoding="utf-8")
     print(f"{args.model} digest {selected.get('digest')} recorded: {destination}")
