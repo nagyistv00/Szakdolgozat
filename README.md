@@ -59,4 +59,3 @@ A szkript először commitolja az aktuális állapotot, majd minden lépés kime
 | `data/lab/` | a témavezetőtől kapott tesztalkalmazás |
 | `data/requests_dev.json`, `data/requests_test.json` | a fejlesztési és a teszt kérések |
 | `results/` | a mérések eredményei (lásd `results/README.md`) |
-| `thesis/` | a szakdolgozat |
