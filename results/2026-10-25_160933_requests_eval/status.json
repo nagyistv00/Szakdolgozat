@@ -8,13 +8,13 @@
     "pytest":  {
                    "exit_code":  0
                },
-    "model_server_start":  {
+    "ollama_start":  {
                                "exit_code":  0
                            },
-    "m4_requests":  {
+    "eval_requests":  {
                         "exit_code":  0
                     },
-    "model_server_stop":  {
+    "ollama_stop":  {
                               "exit_code":  0
                           }
 }

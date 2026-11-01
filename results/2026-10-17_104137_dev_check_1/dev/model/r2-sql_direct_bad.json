@@ -49,7 +49,7 @@
           },
           {
             "role": "user",
-            "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-89 (SQL injection), bandit B608: Possible SQL injection vector through string-based query construction.\nF2: line 2, CWE-89 (SQL injection), semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def find_account(cursor, user_text):\n2|     return cursor.execute(f\"SELECT name FROM accounts WHERE name = '{user_text}'\")\nSOURCE>>>"
+            "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-89 (SQL injection), bandit B608: Possible SQL injection vector through string-based query construction.\nF2: line 2, CWE-89 (SQL injection), semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def find_account(cursor, user_text):\n2|     return cursor.execute(f\"SELECT name FROM accounts WHERE name = '{user_text}'\")\nSOURCE>>>"
           }
         ],
         "format": {
@@ -209,7 +209,7 @@
       ],
       "scanner_messages": [
         "bandit B608: Possible SQL injection vector through string-based query construction.",
-        "semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter."
+        "semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter."
       ],
       "explanation_source": "model",
       "explanation": "Az SQL lekérdezés dinamikusan épül az untrusted data alapján, ami lehetővé teszi az SQL injekció támadását.",

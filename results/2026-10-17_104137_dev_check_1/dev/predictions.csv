@@ -1,4 +1,4 @@
-case,group,cwe,expected_vulnerable,m2:bandit,m2:semgrep,m2:scanners,m3:bandit,m3:semgrep,m3:scanners,m3:scanners+model#r1,model-accepted#r1,m3:scanners+model#r2,model-accepted#r2,m3:scanners+model#r3,model-accepted#r3
+case,group,cwe,expected_vulnerable,basic:bandit,basic:semgrep,basic:scanners,full:bandit,full:semgrep,full:scanners,full:scanners+model#r1,model-accepted#r1,full:scanners+model#r2,model-accepted#r2,full:scanners+model#r3,model-accepted#r3
 eval_direct_bad,eval_direct,CWE-95,True,True,True,True,True,True,True,True,True,True,True,True,True
 eval_direct_fixed,eval_direct,CWE-95,False,False,False,False,False,False,False,True,True,True,True,True,True
 eval_alias_bad,eval_alias,CWE-95,True,False,False,False,False,False,False,True,True,True,True,True,True

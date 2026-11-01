@@ -60,7 +60,7 @@
           },
           {
             "role": "user",
-            "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 5, CWE-78 (OS command injection), semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| import subprocess\n2| \n3| \n4| def show_value(user_text):\n5|     return subprocess.run(f\"echo {user_text}\", shell=True, check=True)\nSOURCE>>>"
+            "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 5, CWE-78 (OS command injection), semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| import subprocess\n2| \n3| \n4| def show_value(user_text):\n5|     return subprocess.run(f\"echo {user_text}\", shell=True, check=True)\nSOURCE>>>"
           }
         ],
         "format": {
@@ -218,7 +218,7 @@
         "e56d7a018bbd881364cfd390"
       ],
       "scanner_messages": [
-        "semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands."
+        "semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands."
       ],
       "explanation_source": "model",
       "explanation": "A támadó által vezetett érték közvetlenül bekerül a rendszerhéj parancsba, ami lehetővé teszi a további rendszerhéj parancsok injektálását.",

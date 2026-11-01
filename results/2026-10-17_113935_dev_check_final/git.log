@@ -2,13 +2,13 @@
 warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
 warning: in the working copy of 'RESEARCH_LOG.md', LF will be replaced by CRLF the next time Git touches it
 warning: in the working copy of 'research/MILESTONE_3.md', LF will be replaced by CRLF the next time Git touches it
-warning: in the working copy of 'scripts/m3_check.ps1', LF will be replaced by CRLF the next time Git touches it
-warning: in the working copy of 'scripts/m3_demo.py', LF will be replaced by CRLF the next time Git touches it
-warning: in the working copy of 'src/vuln_assistant/analysis.py', LF will be replaced by CRLF the next time Git touches it
-warning: in the working copy of 'src/vuln_assistant/cli.py', LF will be replaced by CRLF the next time Git touches it
-warning: in the working copy of 'src/vuln_assistant/model.py', LF will be replaced by CRLF the next time Git touches it
-warning: in the working copy of 'src/vuln_assistant/review.py', LF will be replaced by CRLF the next time Git touches it
-warning: in the working copy of 'tests/test_m3_review.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/check.ps1', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/demo.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/vulnscan/analysis.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/vulnscan/cli.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/vulnscan/model.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/vulnscan/review.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/test_review.py', LF will be replaced by CRLF the next time Git touches it
 a40b1d4 M3 closing iteration: structural check, 14B and Semgrep defaults
 30a5b0c M3 iteration 2: verification step, English reasoning, model comparison
 125c8ac Track evidence artifacts and files present at repository initialisation

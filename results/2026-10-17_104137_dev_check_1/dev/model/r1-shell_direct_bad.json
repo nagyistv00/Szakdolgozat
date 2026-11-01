@@ -49,7 +49,7 @@
           },
           {
             "role": "user",
-            "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 5, CWE-78 (OS command injection), bandit B602: subprocess call with shell=True identified, security issue.\nF2: line 5, CWE-78 (OS command injection), semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| import subprocess\n2| \n3| \n4| def show_value(user_text):\n5|     return subprocess.run(f\"echo {user_text}\", shell=True, check=True)\nSOURCE>>>"
+            "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 5, CWE-78 (OS command injection), bandit B602: subprocess call with shell=True identified, security issue.\nF2: line 5, CWE-78 (OS command injection), semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| import subprocess\n2| \n3| \n4| def show_value(user_text):\n5|     return subprocess.run(f\"echo {user_text}\", shell=True, check=True)\nSOURCE>>>"
           }
         ],
         "format": {
@@ -209,7 +209,7 @@
       ],
       "scanner_messages": [
         "bandit B602: subprocess call with shell=True identified, security issue.",
-        "semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands."
+        "semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands."
       ],
       "explanation_source": "model",
       "explanation": "Az untrusted data (user_text) bejön a show_value függvényben, és az osztályozott shell=True paraméter miatt az operációs rendszer parancsának futtatására kerülhet. Ez egy potenciális biztonsági kockázat, mivel az untrusted data lehetővé teszi, hogy futtatható parancsokat tartalmazó adatokat tartalmazzon.",

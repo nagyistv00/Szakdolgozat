@@ -7,7 +7,7 @@
     {
       "id": "c8cf24849b7f2d2c12de19bb",
       "tool": "semgrep",
-      "rule_id": "C.Users.istu2.Documents.Szakdoga.rules.m2-python-eval",
+      "rule_id": "C.Users.istu2.Documents.Szakdoga.semgrep.python-eval-pattern",
       "path": "cases/eval_shadow_control.py",
       "line": 6,
       "severity": "WARNING",
@@ -25,7 +25,7 @@
       "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
       "scan",
       "--config",
-      "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m2_python.yml",
+      "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\patterns.yml",
       "--metrics=off",
       "--disable-version-check",
       "--no-git-ignore",
@@ -33,11 +33,11 @@
       "--strict",
       "--error",
       "--json",
-      "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_shadow_control.py"
+      "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_shadow_control.py"
     ],
-    "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+    "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
     "exit_code": 1,
-    "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.rules.m2-python-eval\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_shadow_control.py\",\"start\":{\"line\":6,\"col\":12,\"offset\":75},\"end\":{\"line\":6,\"col\":27,\"offset\":90},\"extra\":{\"message\":\"Direct eval call; assess whether untrusted input can reach it.\",\"metadata\":{\"cwe\":\"CWE-95\"},\"severity\":\"WARNING\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_shadow_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.007063865661621094,\"profiling_times\":{\"config_time\":0.09351253509521484,\"core_time\":0.12216067314147949,\"ignores_time\":0.0,\"total_time\":0.22528696060180664},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007009744644165039,\"per_file_time\":{\"mean\":0.007009744644165039,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":87894400},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+    "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.semgrep.python-eval-pattern\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_shadow_control.py\",\"start\":{\"line\":6,\"col\":12,\"offset\":75},\"end\":{\"line\":6,\"col\":27,\"offset\":90},\"extra\":{\"message\":\"Direct eval call; assess whether untrusted input can reach it.\",\"metadata\":{\"cwe\":\"CWE-95\"},\"severity\":\"WARNING\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_shadow_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.007063865661621094,\"profiling_times\":{\"config_time\":0.09351253509521484,\"core_time\":0.12216067314147949,\"ignores_time\":0.0,\"total_time\":0.22528696060180664},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007009744644165039,\"per_file_time\":{\"mean\":0.007009744644165039,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":87894400},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
     "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 1 (1 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 1 finding.\n",
     "seconds": 1.844
   }

@@ -13,7 +13,7 @@
       "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
       "scan",
       "--config",
-      "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m2_python.yml",
+      "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\patterns.yml",
       "--metrics=off",
       "--disable-version-check",
       "--no-git-ignore",

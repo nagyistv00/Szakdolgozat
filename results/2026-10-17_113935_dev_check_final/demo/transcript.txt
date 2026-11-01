@@ -7,7 +7,7 @@ Lehetséges sérülékenységek száma: 1.
    Magyarázat (modell): Az `user_text` paraméter nem biztonságosan kezelve van, és közvetlenül be van ágyazva az SQL lekérdezésbe, ami SQL injekcióra terjedhet.
    Bemenet forrása (modell): function parameter `user_text`
    Javasolt javítás (modell): Használjon paraméteres lekérdezéseket a SQL lekérdezésben, hogy elkerülje az SQL injekciót. Például: `query = "SELECT name FROM accounts WHERE name = %s"; cursor.execute(query, (user_text,))`
-   Elemzői üzenet: semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.
+   Elemzői üzenet: semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.
 A találatok statikus elemzésből származnak; a kihasználhatóságot nem ellenőriztük. A modell szövegei tévedhetnek.
 [exit code 0]
 
@@ -18,7 +18,7 @@ A találatok statikus elemzésből származnak; a kihasználhatóságot nem elle
    Magyarázat (modell): Az `user_text` paraméter nem biztonságosan kezelve van, és közvetlenül be van ágyazva az SQL lekérdezésbe, ami SQL injekcióra terjedhet.
    Bemenet forrása (modell): function parameter `user_text`
    Javasolt javítás (modell): Használjon paraméteres lekérdezéseket a SQL lekérdezésben, hogy elkerülje az SQL injekciót. Például: `query = "SELECT name FROM accounts WHERE name = %s"; cursor.execute(query, (user_text,))`
-   Elemzői üzenet: semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.
+   Elemzői üzenet: semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.
 [exit code 0]
 
 > Check cases/eval_alias_bad.py for code injection.
@@ -44,13 +44,13 @@ Lehetséges sérülékenységek száma: 3.
    Magyarázat (modell): A felhasználó által megadott szöveget közvetlenül hozzáfűzzük a parancshoz, ami lehetővé teszi a parancs injektálását.
    Bemenet forrása (modell): function parameter `user_text`
    Javasolt javítás (modell): Használjon `shlex.quote` a felhasználói bemenetre, hogy biztonságosan fűzzük hozzá a parancshoz. Példa: `command = 'echo ' + shlex.quote(user_text)`
-   Elemzői üzenet: semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.
+   Elemzői üzenet: semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.
 2. Parancsbefecskendezés (CWE-78) – cases/shell_direct_bad.py, 5. sor. Jelezte: semgrep, modell.
    Kód: return subprocess.run(f"echo {user_text}", shell=True, check=True)
    Magyarázat (modell): A támadó által vezetett érték közvetlenül bekerül a rendszerhéj parancsba, ami lehetővé teszi a további parancsok injektálását.
    Bemenet forrása (modell): function parameter `user_text`
    Javasolt javítás (modell): Használjon `shlex.quote` a `user_text` paraméter értékének idézésére, hogy megelőzi a parancs injektálást. Példa: `subprocess.run(['echo', shlex.quote(user_text)], check=True)`.
-   Elemzői üzenet: semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.
+   Elemzői üzenet: semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.
 3. Parancsbefecskendezés (CWE-78) – cases/shell_direct_fixed.py, 6. sor. Jelezte: modell.
    Kód: return subprocess.run([sys.executable, "-c", "import sys; print(sys.argv[1])", user_text], shell=False, check=True)
    Magyarázat (modell): A támadó által vezérelt `user_text` paraméter közvetlenül bekerül a `subprocess.run` hívásba, ami lehetővé teszi tetszőleges parancsok végrehajtását.

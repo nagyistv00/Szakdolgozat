@@ -3,7 +3,7 @@
   "status": "completed",
   "target": "cases/shell_constant_control.py",
   "source_sha256": "bc7beff944971f93a747bccdb7c530ba7ec6c0a8ed6f8872a13b0faf439b836d",
-  "profile": "m2",
+  "profile": "basic",
   "findings": [
     {
       "id": "92311bd87988d4555ee55ac5",
@@ -32,11 +32,11 @@
       "--ignore-nosec",
       "-f",
       "json",
-      "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_constant_control.py"
+      "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_constant_control.py"
     ],
-    "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+    "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
     "exit_code": 1,
-    "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:42:18Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_constant_control.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"4 def fixed_value():\\n5     return subprocess.run(\\\"echo fixed\\\", shell=True, check=True)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 63,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_constant_control.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell\",\n      \"line_number\": 5,\n      \"line_range\": [\n        5\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b602_subprocess_popen_with_shell_equals_true.html\",\n      \"test_id\": \"B602\",\n      \"test_name\": \"subprocess_popen_with_shell_equals_true\"\n    }\n  ]\n}",
+    "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:42:18Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_constant_control.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"4 def fixed_value():\\n5     return subprocess.run(\\\"echo fixed\\\", shell=True, check=True)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 63,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_constant_control.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell\",\n      \"line_number\": 5,\n      \"line_range\": [\n        5\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b602_subprocess_popen_with_shell_equals_true.html\",\n      \"test_id\": \"B602\",\n      \"test_name\": \"subprocess_popen_with_shell_equals_true\"\n    }\n  ]\n}",
     "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: B307,B602,B608\n[main]\tINFO\tcli exclude tests: None\n",
     "seconds": 0.247
   }

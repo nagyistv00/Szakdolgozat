@@ -91,19 +91,19 @@
   "input_sha256": {
     ".python-version": "f7401ec58a777fe2a730f8805ab7f63ff80f064930c616b18efe3a475daf57fd",
     "pyproject.toml": "cbab9531e1934b0f8010d2efde96ec152319e5f6a7c2cf90568028866ffa614a",
-    "rules/m2_python.yml": "7b6c3c40efcd487cb234ff3907a83fdbd81c421944a47c26153c5e1c83b4fc69",
-    "rules/m3_python_taint.yml": "2a343787a1cfbcf52e3f797dbd52910789318fc5576e47aee636ef24af1e18db",
-    "rules/smoke_eval.yml": "516aeeaaf92661a32b5bbbdb0c814f660887c045be796fd39892904c67649afb",
+    "semgrep/patterns.yml": "7b6c3c40efcd487cb234ff3907a83fdbd81c421944a47c26153c5e1c83b4fc69",
+    "semgrep/injection.yml": "2a343787a1cfbcf52e3f797dbd52910789318fc5576e47aee636ef24af1e18db",
+    "semgrep/smoke_eval.yml": "516aeeaaf92661a32b5bbbdb0c814f660887c045be796fd39892904c67649afb",
     "tests/conftest.py": "c5602fe5f241be126244aef62d8d9853a37c34ae2e0b6366d77a687d89c52e48",
     "tests/fixtures/literal_only.py": "2105af5d7647595d891a26be1479177c18cb6686ac2e529df1fb18caccab2dc8",
     "tests/fixtures/README.md": "018f2805253d12af54837d5c30deca07b65212c1ae717eaa2b211dd46a1994fc",
     "tests/fixtures/text_only.py": "03b44ef8acbc28b3dd0b69231d0cb2a451011660773f9cd6f72d8d086083ff00",
     "tests/fixtures/unsafe_eval.py": "8bc8f1aaeb8c2c1632a93a39c66df2d8e0a3fd118ecd0be14e6b6af747fabea3",
-    "tests/test_m2_connectors.py": "ee5de8414c47ad022df05d4ef647138837910bdbee924d82b9c442a299839eab",
-    "tests/test_m3_intent.py": "c56a4484d1535bb742b672769a6e3f0766f0d2c16d96c5900d06e1159b350da8",
-    "tests/test_m3_review.py": "680696881aa4e018b99e9bf18d18c6bc13b4ebd6f9f91810088e24ea4f2f97c6",
-    "tests/test_m3_scanners.py": "24877a941154165065487d25769bf8a74cca63356a96690a5fa1c68be118bbbb",
-    "tests/test_scanner_installation.py": "6603d6e3ab79a9712bee35c1993fef4575ce4e3eaf5bf23d7b70686df6b98094",
+    "tests/test_connectors.py": "ee5de8414c47ad022df05d4ef647138837910bdbee924d82b9c442a299839eab",
+    "tests/test_intent.py": "c56a4484d1535bb742b672769a6e3f0766f0d2c16d96c5900d06e1159b350da8",
+    "tests/test_review.py": "680696881aa4e018b99e9bf18d18c6bc13b4ebd6f9f91810088e24ea4f2f97c6",
+    "tests/test_scanners.py": "24877a941154165065487d25769bf8a74cca63356a96690a5fa1c68be118bbbb",
+    "tests/test_install.py": "6603d6e3ab79a9712bee35c1993fef4575ce4e3eaf5bf23d7b70686df6b98094",
     "uv.lock": "46fb72b2c48f02f2975bc96e1143b4b51bb78e0a63566926c0061a5ff3ba3dd7"
   }
 }

@@ -1,7 +1,7 @@
 {
   "reviewer": "thesis author (human), via the M4 scoring page",
   "date": "2026-10-25",
-  "corpus": "data/m2 (18 cases)",
+  "corpus": "data/samples (18 cases)",
   "summary": {
     "agree": 18,
     "disagree": 0,

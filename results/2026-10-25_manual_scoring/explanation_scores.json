@@ -1,7 +1,7 @@
 {
   "scorer": "thesis author (human), via the M4 scoring page",
   "date": "2026-10-25",
-  "source": "artifacts/m3/check-20261017T113935Z/dev/explanations-qwen2.5-coder_14b.md (frozen 14B, union layer, repeat 1)",
+  "source": "results/2026-10-17_113935_dev_check_final/dev/explanations-qwen2.5-coder_14b.md (frozen 14B, union layer, repeat 1)",
   "rubric": "family/line/source/fix/clear, 0 or 1; on a finding for a case labelled not vulnerable, family and fix score 0, the rest by factual accuracy (rubric shown on the page before scoring)",
   "summary": {
     "all": {

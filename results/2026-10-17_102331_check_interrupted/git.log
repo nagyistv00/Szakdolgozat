@@ -1,5 +1,5 @@
-﻿C:/Users/istu2/Documents/Szakdoga/scripts/git/history.bundle is okay
-warning: in the working copy of 'artifacts/m2/investigations/model_server_before_timestamp_fix.ps1', LF will be replaced by CRLF the next time Git touches it
+﻿C:/Users/istu2/Documents/Szakdoga/notes/git/history.bundle is okay
+warning: in the working copy of 'results/sample_scans/investigations/ollama_before_timestamp_fix.ps1', LF will be replaced by CRLF the next time Git touches it
 125c8ac Track evidence artifacts and files present at repository initialisation
 504a082 Milestone 3: code-review fixes, model-assisted detection, explanation and NL control
 e38e98c Record supervisor feedback and independent review (2026-10-17)

@@ -1,6 +1,6 @@
 # M4 held-out request evaluation
 
-Requests: 14 (TestData/m4_requests.json). Interpreters frozen at M3.
+Requests: 14 (data/requests_test.json). Interpreters frozen at M3.
 
 | Interpreter | Action correct | All checks passed | Model failures | Failed IDs |
 |---|---|---|---|---|

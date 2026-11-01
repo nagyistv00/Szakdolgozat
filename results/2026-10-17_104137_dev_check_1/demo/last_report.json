@@ -14,7 +14,7 @@
           "status": "completed",
           "target": "cases/eval_alias_bad.py",
           "source_sha256": "07ef4fe68179c786f91983fa0118ab8b14b8ffadc9a0469a424e69ff7be41193",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -28,11 +28,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_alias_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_alias_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:08Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_alias_bad.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:08Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_alias_bad.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.261
           }
@@ -42,7 +42,7 @@
           "status": "completed",
           "target": "cases/eval_alias_bad.py",
           "source_sha256": "07ef4fe68179c786f91983fa0118ab8b14b8ffadc9a0469a424e69ff7be41193",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -53,7 +53,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -61,11 +61,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_alias_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_alias_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_alias_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0025146007537841797,\"profiling_times\":{\"config_time\":0.10282254219055176,\"core_time\":0.11229658126831055,\"ignores_time\":0.0,\"total_time\":0.22441506385803223},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007014274597167969,\"per_file_time\":{\"mean\":0.007014274597167969,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89060672},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_alias_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0025146007537841797,\"profiling_times\":{\"config_time\":0.10282254219055176,\"core_time\":0.11229658126831055,\"ignores_time\":0.0,\"total_time\":0.22441506385803223},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007014274597167969,\"per_file_time\":{\"mean\":0.007014274597167969,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89060672},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.863
           }
@@ -285,7 +285,7 @@
           "status": "completed",
           "target": "cases/eval_alias_fixed.py",
           "source_sha256": "cb26243268cc9f2d5f9d1f646b09d1821395808a031685471ce355f0fcbce1d1",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -299,11 +299,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_alias_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_alias_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:18Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_alias_fixed.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:18Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_alias_fixed.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.263
           }
@@ -313,7 +313,7 @@
           "status": "completed",
           "target": "cases/eval_alias_fixed.py",
           "source_sha256": "cb26243268cc9f2d5f9d1f646b09d1821395808a031685471ce355f0fcbce1d1",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -324,7 +324,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -332,11 +332,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_alias_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_alias_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_alias_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.003384828567504883,\"profiling_times\":{\"config_time\":0.10204577445983887,\"core_time\":0.09885525703430176,\"ignores_time\":0.0,\"total_time\":0.20941638946533203},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.0,\"rules_matched_ratio\":0.0},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":74216448},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_alias_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.003384828567504883,\"profiling_times\":{\"config_time\":0.10204577445983887,\"core_time\":0.09885525703430176,\"ignores_time\":0.0,\"total_time\":0.20941638946533203},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.0,\"rules_matched_ratio\":0.0},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":74216448},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.823
           }
@@ -525,7 +525,7 @@
           "status": "completed",
           "target": "cases/eval_constant_control.py",
           "source_sha256": "51fe500e9cb55c5381204b73b3350c2a59644a483d77a5564f5535f3d1728269",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "a029f4eed6b34a1783eb7090",
@@ -552,11 +552,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_constant_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_constant_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:21Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_constant_control.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 def fixed_value():\\n2     return eval(\\\"1 + 2\\\")\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 24,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_constant_control.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Use of possibly insecure function - consider using safer ast.literal_eval.\",\n      \"line_number\": 2,\n      \"line_range\": [\n        2\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b307-eval\",\n      \"test_id\": \"B307\",\n      \"test_name\": \"blacklist\"\n    }\n  ]\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:21Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_constant_control.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 def fixed_value():\\n2     return eval(\\\"1 + 2\\\")\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 24,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_constant_control.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Use of possibly insecure function - consider using safer ast.literal_eval.\",\n      \"line_number\": 2,\n      \"line_range\": [\n        2\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b307-eval\",\n      \"test_id\": \"B307\",\n      \"test_name\": \"blacklist\"\n    }\n  ]\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.243
           }
@@ -566,7 +566,7 @@
           "status": "completed",
           "target": "cases/eval_constant_control.py",
           "source_sha256": "51fe500e9cb55c5381204b73b3350c2a59644a483d77a5564f5535f3d1728269",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -577,7 +577,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -585,11 +585,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_constant_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_constant_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_constant_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0010027885437011719,\"profiling_times\":{\"config_time\":0.10019731521606445,\"core_time\":0.1036994457244873,\"ignores_time\":0.0,\"total_time\":0.2116255760192871},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007020235061645508,\"per_file_time\":{\"mean\":0.007020235061645508,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89322816},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_constant_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0010027885437011719,\"profiling_times\":{\"config_time\":0.10019731521606445,\"core_time\":0.1036994457244873,\"ignores_time\":0.0,\"total_time\":0.2116255760192871},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007020235061645508,\"per_file_time\":{\"mean\":0.007020235061645508,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89322816},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.821
           }
@@ -818,7 +818,7 @@
           "status": "completed",
           "target": "cases/eval_direct_bad.py",
           "source_sha256": "8bc8f1aaeb8c2c1632a93a39c66df2d8e0a3fd118ecd0be14e6b6af747fabea3",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "2dc6fae333940360486aa9a3",
@@ -845,11 +845,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_direct_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_direct_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:27Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_direct_bad.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 def parse_value(user_text):\\n2     return eval(user_text)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 26,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_direct_bad.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Use of possibly insecure function - consider using safer ast.literal_eval.\",\n      \"line_number\": 2,\n      \"line_range\": [\n        2\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b307-eval\",\n      \"test_id\": \"B307\",\n      \"test_name\": \"blacklist\"\n    }\n  ]\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:27Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_direct_bad.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 def parse_value(user_text):\\n2     return eval(user_text)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 26,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_direct_bad.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Use of possibly insecure function - consider using safer ast.literal_eval.\",\n      \"line_number\": 2,\n      \"line_range\": [\n        2\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b307-eval\",\n      \"test_id\": \"B307\",\n      \"test_name\": \"blacklist\"\n    }\n  ]\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.25
           }
@@ -859,12 +859,12 @@
           "status": "completed",
           "target": "cases/eval_direct_bad.py",
           "source_sha256": "8bc8f1aaeb8c2c1632a93a39c66df2d8e0a3fd118ecd0be14e6b6af747fabea3",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "ed5380f185b4fdf2fe9482d6",
               "tool": "semgrep",
-              "rule_id": "m3-python-eval-injection",
+              "rule_id": "python-eval-injection",
               "path": "cases/eval_direct_bad.py",
               "line": 2,
               "severity": "ERROR",
@@ -883,7 +883,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -891,11 +891,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_direct_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_direct_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.rules.m3-python-eval-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_direct_bad.py\",\"start\":{\"line\":2,\"col\":17,\"offset\":44},\"end\":{\"line\":2,\"col\":26,\"offset\":53},\"extra\":{\"message\":\"Untrusted input reaches eval/exec and may be executed as Python code.\",\"metadata\":{\"cwe\":\"CWE-95\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_direct_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.001003265380859375,\"profiling_times\":{\"config_time\":0.10426044464111328,\"core_time\":0.11053729057312012,\"ignores_time\":0.0,\"total_time\":0.22385692596435547},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007571220397949219,\"per_file_time\":{\"mean\":0.007571220397949219,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89584960},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.semgrep.python-eval-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_direct_bad.py\",\"start\":{\"line\":2,\"col\":17,\"offset\":44},\"end\":{\"line\":2,\"col\":26,\"offset\":53},\"extra\":{\"message\":\"Untrusted input reaches eval/exec and may be executed as Python code.\",\"metadata\":{\"cwe\":\"CWE-95\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_direct_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.001003265380859375,\"profiling_times\":{\"config_time\":0.10426044464111328,\"core_time\":0.11053729057312012,\"ignores_time\":0.0,\"total_time\":0.22385692596435547},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007571220397949219,\"per_file_time\":{\"mean\":0.007571220397949219,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89584960},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 1 (1 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 1 finding.\n",
             "seconds": 1.811
           }
@@ -951,7 +951,7 @@
               },
               {
                 "role": "user",
-                "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-95 (eval injection), bandit B307: Use of possibly insecure function - consider using safer ast.literal_eval.\nF2: line 2, CWE-95 (eval injection), semgrep m3-python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def parse_value(user_text):\n2|     return eval(user_text)\nSOURCE>>>"
+                "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-95 (eval injection), bandit B307: Use of possibly insecure function - consider using safer ast.literal_eval.\nF2: line 2, CWE-95 (eval injection), semgrep python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def parse_value(user_text):\n2|     return eval(user_text)\nSOURCE>>>"
               }
             ],
             "format": {
@@ -1111,7 +1111,7 @@
           ],
           "scanner_messages": [
             "bandit B307: Use of possibly insecure function - consider using safer ast.literal_eval.",
-            "semgrep m3-python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code."
+            "semgrep python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code."
           ],
           "explanation_source": "model",
           "explanation": "A 'eval' függvény kódolást futtatja, ami potenciálisan veszélyes lehet. Használjon a 'ast.literal_eval' függvényt, amely csak biztonságosan értékeket értelmezi.",
@@ -1129,7 +1129,7 @@
           "status": "completed",
           "target": "cases/eval_direct_fixed.py",
           "source_sha256": "2105af5d7647595d891a26be1479177c18cb6686ac2e529df1fb18caccab2dc8",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -1143,11 +1143,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_direct_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_direct_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:33Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_direct_fixed.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:33Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_direct_fixed.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.259
           }
@@ -1157,7 +1157,7 @@
           "status": "completed",
           "target": "cases/eval_direct_fixed.py",
           "source_sha256": "2105af5d7647595d891a26be1479177c18cb6686ac2e529df1fb18caccab2dc8",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -1168,7 +1168,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -1176,11 +1176,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_direct_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_direct_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_direct_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0024988651275634766,\"profiling_times\":{\"config_time\":0.10093092918395996,\"core_time\":0.10648465156555176,\"ignores_time\":0.0,\"total_time\":0.21594834327697754},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007533550262451172,\"per_file_time\":{\"mean\":0.007533550262451172,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89847104},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_direct_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0024988651275634766,\"profiling_times\":{\"config_time\":0.10093092918395996,\"core_time\":0.10648465156555176,\"ignores_time\":0.0,\"total_time\":0.21594834327697754},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007533550262451172,\"per_file_time\":{\"mean\":0.007533550262451172,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89847104},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.799
           }
@@ -1400,7 +1400,7 @@
           "status": "completed",
           "target": "cases/eval_shadow_control.py",
           "source_sha256": "5c69edb54f7423139d9571261899b7bf586f936ee189621409bfdea6a6687d41",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "90e7e705424c85eb1c914489",
@@ -1427,11 +1427,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_shadow_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_shadow_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:40Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_shadow_control.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"5 def parse_value(user_text):\\n6     return eval(user_text)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 26,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_shadow_control.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Use of possibly insecure function - consider using safer ast.literal_eval.\",\n      \"line_number\": 6,\n      \"line_range\": [\n        6\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b307-eval\",\n      \"test_id\": \"B307\",\n      \"test_name\": \"blacklist\"\n    }\n  ]\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:40Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_shadow_control.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"5 def parse_value(user_text):\\n6     return eval(user_text)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 26,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_shadow_control.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Use of possibly insecure function - consider using safer ast.literal_eval.\",\n      \"line_number\": 6,\n      \"line_range\": [\n        6\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b307-eval\",\n      \"test_id\": \"B307\",\n      \"test_name\": \"blacklist\"\n    }\n  ]\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.255
           }
@@ -1441,12 +1441,12 @@
           "status": "completed",
           "target": "cases/eval_shadow_control.py",
           "source_sha256": "5c69edb54f7423139d9571261899b7bf586f936ee189621409bfdea6a6687d41",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "312fa225dbd86d500f4b1c4d",
               "tool": "semgrep",
-              "rule_id": "m3-python-eval-injection",
+              "rule_id": "python-eval-injection",
               "path": "cases/eval_shadow_control.py",
               "line": 6,
               "severity": "ERROR",
@@ -1465,7 +1465,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -1473,11 +1473,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_shadow_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_shadow_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.rules.m3-python-eval-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_shadow_control.py\",\"start\":{\"line\":6,\"col\":17,\"offset\":80},\"end\":{\"line\":6,\"col\":26,\"offset\":89},\"extra\":{\"message\":\"Untrusted input reaches eval/exec and may be executed as Python code.\",\"metadata\":{\"cwe\":\"CWE-95\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_shadow_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0020096302032470703,\"profiling_times\":{\"config_time\":0.10020589828491211,\"core_time\":0.11161327362060547,\"ignores_time\":0.0,\"total_time\":0.22153520584106445},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007998943328857422,\"per_file_time\":{\"mean\":0.007998943328857422,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89584960},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.semgrep.python-eval-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_shadow_control.py\",\"start\":{\"line\":6,\"col\":17,\"offset\":80},\"end\":{\"line\":6,\"col\":26,\"offset\":89},\"extra\":{\"message\":\"Untrusted input reaches eval/exec and may be executed as Python code.\",\"metadata\":{\"cwe\":\"CWE-95\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_shadow_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0020096302032470703,\"profiling_times\":{\"config_time\":0.10020589828491211,\"core_time\":0.11161327362060547,\"ignores_time\":0.0,\"total_time\":0.22153520584106445},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007998943328857422,\"per_file_time\":{\"mean\":0.007998943328857422,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89584960},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 1 (1 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 1 finding.\n",
             "seconds": 1.872
           }
@@ -1533,7 +1533,7 @@
               },
               {
                 "role": "user",
-                "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 6, CWE-95 (eval injection), bandit B307: Use of possibly insecure function - consider using safer ast.literal_eval.\nF2: line 6, CWE-95 (eval injection), semgrep m3-python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def eval(value):\n2|     return value\n3| \n4| \n5| def parse_value(user_text):\n6|     return eval(user_text)\nSOURCE>>>"
+                "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 6, CWE-95 (eval injection), bandit B307: Use of possibly insecure function - consider using safer ast.literal_eval.\nF2: line 6, CWE-95 (eval injection), semgrep python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def eval(value):\n2|     return value\n3| \n4| \n5| def parse_value(user_text):\n6|     return eval(user_text)\nSOURCE>>>"
               }
             ],
             "format": {
@@ -1693,7 +1693,7 @@
           ],
           "scanner_messages": [
             "bandit B307: Use of possibly insecure function - consider using safer ast.literal_eval.",
-            "semgrep m3-python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code."
+            "semgrep python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code."
           ],
           "explanation_source": "model",
           "explanation": "Az eval függvény nem biztonságos, mert az untrusted data-t értékelődik ki. Ez lehetővé teszi, hogy az untrusted data Python kódot futtasson, ami biztonsági kockázatot jelenthet.",
@@ -1711,7 +1711,7 @@
           "status": "completed",
           "target": "cases/shell_alias_bad.py",
           "source_sha256": "bb80a4711ca0f83712a1becedeea6022c5657a606b4c7bcecc38de0d31c66869",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "a52a446b00e77c40dc4f3ddd",
@@ -1750,11 +1750,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_alias_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_alias_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:46Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_alias_bad.py\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 1,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 1,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 from subprocess import run as launch\\n2 \\n3 \\n\",\n      \"col_offset\": 0,\n      \"end_col_offset\": 36,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_alias_bad.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"Consider possible security implications associated with the subprocess module.\",\n      \"line_number\": 1,\n      \"line_range\": [\n        1\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess\",\n      \"test_id\": \"B404\",\n      \"test_name\": \"blacklist\"\n    },\n    {\n      \"code\": \"5     command = \\\"echo \\\" + user_text\\n6     return launch(command, shell=True, check=True)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 50,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_alias_bad.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"HIGH\",\n      \"issue_text\": \"subprocess call with shell=True identified, security issue.\",\n      \"line_number\": 6,\n      \"line_range\": [\n        6\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b602_subprocess_popen_with_shell_equals_true.html\",\n      \"test_id\": \"B602\",\n      \"test_name\": \"subprocess_popen_with_shell_equals_true\"\n    }\n  ]\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:46Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_alias_bad.py\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 1,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 1,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 from subprocess import run as launch\\n2 \\n3 \\n\",\n      \"col_offset\": 0,\n      \"end_col_offset\": 36,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_alias_bad.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"Consider possible security implications associated with the subprocess module.\",\n      \"line_number\": 1,\n      \"line_range\": [\n        1\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess\",\n      \"test_id\": \"B404\",\n      \"test_name\": \"blacklist\"\n    },\n    {\n      \"code\": \"5     command = \\\"echo \\\" + user_text\\n6     return launch(command, shell=True, check=True)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 50,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_alias_bad.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"HIGH\",\n      \"issue_text\": \"subprocess call with shell=True identified, security issue.\",\n      \"line_number\": 6,\n      \"line_range\": [\n        6\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b602_subprocess_popen_with_shell_equals_true.html\",\n      \"test_id\": \"B602\",\n      \"test_name\": \"subprocess_popen_with_shell_equals_true\"\n    }\n  ]\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.249
           }
@@ -1764,12 +1764,12 @@
           "status": "completed",
           "target": "cases/shell_alias_bad.py",
           "source_sha256": "bb80a4711ca0f83712a1becedeea6022c5657a606b4c7bcecc38de0d31c66869",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "b3d930b900108d6b1b93560c",
               "tool": "semgrep",
-              "rule_id": "m3-python-command-injection",
+              "rule_id": "python-command-injection",
               "path": "cases/shell_alias_bad.py",
               "line": 6,
               "severity": "ERROR",
@@ -1788,7 +1788,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -1796,11 +1796,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_alias_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_alias_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.rules.m3-python-command-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_alias_bad.py\",\"start\":{\"line\":6,\"col\":19,\"offset\":118},\"end\":{\"line\":6,\"col\":26,\"offset\":125},\"extra\":{\"message\":\"Untrusted input reaches a shell command and may inject additional commands.\",\"metadata\":{\"cwe\":\"CWE-78\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_alias_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0019958019256591797,\"profiling_times\":{\"config_time\":0.10206055641174316,\"core_time\":0.1100311279296875,\"ignores_time\":0.0,\"total_time\":0.22047638893127441},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007361412048339844,\"per_file_time\":{\"mean\":0.007361412048339844,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89584960},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.semgrep.python-command-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_alias_bad.py\",\"start\":{\"line\":6,\"col\":19,\"offset\":118},\"end\":{\"line\":6,\"col\":26,\"offset\":125},\"extra\":{\"message\":\"Untrusted input reaches a shell command and may inject additional commands.\",\"metadata\":{\"cwe\":\"CWE-78\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_alias_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0019958019256591797,\"profiling_times\":{\"config_time\":0.10206055641174316,\"core_time\":0.1100311279296875,\"ignores_time\":0.0,\"total_time\":0.22047638893127441},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007361412048339844,\"per_file_time\":{\"mean\":0.007361412048339844,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89584960},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 1 (1 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 1 finding.\n",
             "seconds": 1.874
           }
@@ -1856,7 +1856,7 @@
               },
               {
                 "role": "user",
-                "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 6, CWE-78 (OS command injection), bandit B602: subprocess call with shell=True identified, security issue.\nF2: line 6, CWE-78 (OS command injection), semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| from subprocess import run as launch\n2| \n3| \n4| def show_value(user_text):\n5|     command = \"echo \" + user_text\n6|     return launch(command, shell=True, check=True)\nSOURCE>>>"
+                "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 6, CWE-78 (OS command injection), bandit B602: subprocess call with shell=True identified, security issue.\nF2: line 6, CWE-78 (OS command injection), semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| from subprocess import run as launch\n2| \n3| \n4| def show_value(user_text):\n5|     command = \"echo \" + user_text\n6|     return launch(command, shell=True, check=True)\nSOURCE>>>"
               }
             ],
             "format": {
@@ -2016,7 +2016,7 @@
           ],
           "scanner_messages": [
             "bandit B602: subprocess call with shell=True identified, security issue.",
-            "semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands."
+            "semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands."
           ],
           "explanation_source": "model",
           "explanation": "Az untrusted data (user_text) bejön a show_value függvényben, és az osztályozott shell=True paraméter miatt potenciális OS parancs injekcióra utal. Ez egy biztonsági kockázat, mivel az untrusted data közvetlenül a shell-ben futtatásra kerülhet.",
@@ -2034,7 +2034,7 @@
           "status": "completed",
           "target": "cases/shell_alias_fixed.py",
           "source_sha256": "6df8afa0c32c306d293c7564ccb966318bab35293ec7e5fed2a87f67e2bde285",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -2048,11 +2048,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_alias_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_alias_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:53Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_alias_fixed.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:53Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_alias_fixed.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.251
           }
@@ -2062,7 +2062,7 @@
           "status": "completed",
           "target": "cases/shell_alias_fixed.py",
           "source_sha256": "6df8afa0c32c306d293c7564ccb966318bab35293ec7e5fed2a87f67e2bde285",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -2073,7 +2073,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -2081,11 +2081,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_alias_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_alias_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_alias_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015156269073486328,\"profiling_times\":{\"config_time\":0.11904478073120117,\"core_time\":0.11326193809509277,\"ignores_time\":0.0,\"total_time\":0.2424449920654297},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.0,\"rules_matched_ratio\":0.0},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":73954304},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_alias_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015156269073486328,\"profiling_times\":{\"config_time\":0.11904478073120117,\"core_time\":0.11326193809509277,\"ignores_time\":0.0,\"total_time\":0.2424449920654297},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.0,\"rules_matched_ratio\":0.0},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":73954304},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.975
           }
@@ -2305,7 +2305,7 @@
           "status": "completed",
           "target": "cases/shell_constant_control.py",
           "source_sha256": "bc7beff944971f93a747bccdb7c530ba7ec6c0a8ed6f8872a13b0faf439b836d",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "bac1070e0e72e206559f8112",
@@ -2356,11 +2356,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_constant_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_constant_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:59Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_constant_control.py\": {\n      \"CONFIDENCE.HIGH\": 3,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 3,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 3,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 3,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 import subprocess\\n2 \\n3 \\n\",\n      \"col_offset\": 0,\n      \"end_col_offset\": 17,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_constant_control.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"Consider possible security implications associated with the subprocess module.\",\n      \"line_number\": 1,\n      \"line_range\": [\n        1\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess\",\n      \"test_id\": \"B404\",\n      \"test_name\": \"blacklist\"\n    },\n    {\n      \"code\": \"4 def fixed_value():\\n5     return subprocess.run(\\\"echo fixed\\\", shell=True, check=True)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 63,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_constant_control.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"Starting a process with a partial executable path\",\n      \"line_number\": 5,\n      \"line_range\": [\n        5\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b607_start_process_with_partial_path.html\",\n      \"test_id\": \"B607\",\n      \"test_name\": \"start_process_with_partial_path\"\n    },\n    {\n      \"code\": \"4 def fixed_value():\\n5     return subprocess.run(\\\"echo fixed\\\", shell=True, check=True)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 63,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_constant_control.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell\",\n      \"line_number\": 5,\n      \"line_range\": [\n        5\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b602_subprocess_popen_with_shell_equals_true.html\",\n      \"test_id\": \"B602\",\n      \"test_name\": \"subprocess_popen_with_shell_equals_true\"\n    }\n  ]\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:49:59Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_constant_control.py\": {\n      \"CONFIDENCE.HIGH\": 3,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 3,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 3,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 3,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 import subprocess\\n2 \\n3 \\n\",\n      \"col_offset\": 0,\n      \"end_col_offset\": 17,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_constant_control.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"Consider possible security implications associated with the subprocess module.\",\n      \"line_number\": 1,\n      \"line_range\": [\n        1\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess\",\n      \"test_id\": \"B404\",\n      \"test_name\": \"blacklist\"\n    },\n    {\n      \"code\": \"4 def fixed_value():\\n5     return subprocess.run(\\\"echo fixed\\\", shell=True, check=True)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 63,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_constant_control.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"Starting a process with a partial executable path\",\n      \"line_number\": 5,\n      \"line_range\": [\n        5\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b607_start_process_with_partial_path.html\",\n      \"test_id\": \"B607\",\n      \"test_name\": \"start_process_with_partial_path\"\n    },\n    {\n      \"code\": \"4 def fixed_value():\\n5     return subprocess.run(\\\"echo fixed\\\", shell=True, check=True)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 63,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_constant_control.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell\",\n      \"line_number\": 5,\n      \"line_range\": [\n        5\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b602_subprocess_popen_with_shell_equals_true.html\",\n      \"test_id\": \"B602\",\n      \"test_name\": \"subprocess_popen_with_shell_equals_true\"\n    }\n  ]\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.269
           }
@@ -2370,7 +2370,7 @@
           "status": "completed",
           "target": "cases/shell_constant_control.py",
           "source_sha256": "bc7beff944971f93a747bccdb7c530ba7ec6c0a8ed6f8872a13b0faf439b836d",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -2381,7 +2381,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -2389,11 +2389,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_constant_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_constant_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_constant_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0010001659393310547,\"profiling_times\":{\"config_time\":0.10149455070495605,\"core_time\":0.10744810104370117,\"ignores_time\":0.0,\"total_time\":0.21843695640563965},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007517099380493164,\"per_file_time\":{\"mean\":0.007517099380493164,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89060672},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_constant_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0010001659393310547,\"profiling_times\":{\"config_time\":0.10149455070495605,\"core_time\":0.10744810104370117,\"ignores_time\":0.0,\"total_time\":0.21843695640563965},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007517099380493164,\"per_file_time\":{\"mean\":0.007517099380493164,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89060672},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.871
           }
@@ -2622,7 +2622,7 @@
           "status": "completed",
           "target": "cases/shell_direct_bad.py",
           "source_sha256": "c6f45fa2632f20e90826010075d9f87bc53ffb011eacbec7d6cfc5a5d70a0dfd",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "15857a4c1d734bee77db6e76",
@@ -2661,11 +2661,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_direct_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_direct_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:07Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_direct_bad.py\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 1,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 1,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 import subprocess\\n2 \\n3 \\n\",\n      \"col_offset\": 0,\n      \"end_col_offset\": 17,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_direct_bad.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"Consider possible security implications associated with the subprocess module.\",\n      \"line_number\": 1,\n      \"line_range\": [\n        1\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess\",\n      \"test_id\": \"B404\",\n      \"test_name\": \"blacklist\"\n    },\n    {\n      \"code\": \"4 def show_value(user_text):\\n5     return subprocess.run(f\\\"echo {user_text}\\\", shell=True, check=True)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 70,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_direct_bad.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"HIGH\",\n      \"issue_text\": \"subprocess call with shell=True identified, security issue.\",\n      \"line_number\": 5,\n      \"line_range\": [\n        5\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b602_subprocess_popen_with_shell_equals_true.html\",\n      \"test_id\": \"B602\",\n      \"test_name\": \"subprocess_popen_with_shell_equals_true\"\n    }\n  ]\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:07Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_direct_bad.py\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 1,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 1,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 import subprocess\\n2 \\n3 \\n\",\n      \"col_offset\": 0,\n      \"end_col_offset\": 17,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_direct_bad.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"Consider possible security implications associated with the subprocess module.\",\n      \"line_number\": 1,\n      \"line_range\": [\n        1\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess\",\n      \"test_id\": \"B404\",\n      \"test_name\": \"blacklist\"\n    },\n    {\n      \"code\": \"4 def show_value(user_text):\\n5     return subprocess.run(f\\\"echo {user_text}\\\", shell=True, check=True)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 70,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_direct_bad.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"HIGH\",\n      \"issue_text\": \"subprocess call with shell=True identified, security issue.\",\n      \"line_number\": 5,\n      \"line_range\": [\n        5\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b602_subprocess_popen_with_shell_equals_true.html\",\n      \"test_id\": \"B602\",\n      \"test_name\": \"subprocess_popen_with_shell_equals_true\"\n    }\n  ]\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.256
           }
@@ -2675,12 +2675,12 @@
           "status": "completed",
           "target": "cases/shell_direct_bad.py",
           "source_sha256": "c6f45fa2632f20e90826010075d9f87bc53ffb011eacbec7d6cfc5a5d70a0dfd",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "e56d7a018bbd881364cfd390",
               "tool": "semgrep",
-              "rule_id": "m3-python-command-injection",
+              "rule_id": "python-command-injection",
               "path": "cases/shell_direct_bad.py",
               "line": 5,
               "severity": "ERROR",
@@ -2699,7 +2699,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -2707,11 +2707,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_direct_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_direct_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.rules.m3-python-command-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_direct_bad.py\",\"start\":{\"line\":5,\"col\":27,\"offset\":73},\"end\":{\"line\":5,\"col\":46,\"offset\":92},\"extra\":{\"message\":\"Untrusted input reaches a shell command and may inject additional commands.\",\"metadata\":{\"cwe\":\"CWE-78\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_direct_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0025064945220947266,\"profiling_times\":{\"config_time\":0.10715508460998535,\"core_time\":0.12154722213745117,\"ignores_time\":0.0,\"total_time\":0.23796987533569336},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008738994598388672,\"per_file_time\":{\"mean\":0.008738994598388672,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89060672},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.semgrep.python-command-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_direct_bad.py\",\"start\":{\"line\":5,\"col\":27,\"offset\":73},\"end\":{\"line\":5,\"col\":46,\"offset\":92},\"extra\":{\"message\":\"Untrusted input reaches a shell command and may inject additional commands.\",\"metadata\":{\"cwe\":\"CWE-78\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_direct_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0025064945220947266,\"profiling_times\":{\"config_time\":0.10715508460998535,\"core_time\":0.12154722213745117,\"ignores_time\":0.0,\"total_time\":0.23796987533569336},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008738994598388672,\"per_file_time\":{\"mean\":0.008738994598388672,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89060672},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 1 (1 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 1 finding.\n",
             "seconds": 1.865
           }
@@ -2767,7 +2767,7 @@
               },
               {
                 "role": "user",
-                "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 5, CWE-78 (OS command injection), bandit B602: subprocess call with shell=True identified, security issue.\nF2: line 5, CWE-78 (OS command injection), semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| import subprocess\n2| \n3| \n4| def show_value(user_text):\n5|     return subprocess.run(f\"echo {user_text}\", shell=True, check=True)\nSOURCE>>>"
+                "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 5, CWE-78 (OS command injection), bandit B602: subprocess call with shell=True identified, security issue.\nF2: line 5, CWE-78 (OS command injection), semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| import subprocess\n2| \n3| \n4| def show_value(user_text):\n5|     return subprocess.run(f\"echo {user_text}\", shell=True, check=True)\nSOURCE>>>"
               }
             ],
             "format": {
@@ -2927,7 +2927,7 @@
           ],
           "scanner_messages": [
             "bandit B602: subprocess call with shell=True identified, security issue.",
-            "semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands."
+            "semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands."
           ],
           "explanation_source": "model",
           "explanation": "Az untrusted data közvetlenül kerül egy shell parancsba, ami lehetővé teszi az OS parancs injekciót. Ez egy potenciális biztonsági kockázat.",
@@ -2945,7 +2945,7 @@
           "status": "completed",
           "target": "cases/shell_direct_fixed.py",
           "source_sha256": "1ab25de09b05a417a99e6d08ca1f318ef780bdef962728c1f5bbf808f626413b",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "7719b13d7c47a37e343d9c97",
@@ -2984,11 +2984,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_direct_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_direct_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:14Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_direct_fixed.py\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 2,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 2,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 import subprocess\\n2 import sys\\n3 \\n\",\n      \"col_offset\": 0,\n      \"end_col_offset\": 17,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_direct_fixed.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"Consider possible security implications associated with the subprocess module.\",\n      \"line_number\": 1,\n      \"line_range\": [\n        1\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess\",\n      \"test_id\": \"B404\",\n      \"test_name\": \"blacklist\"\n    },\n    {\n      \"code\": \"5 def show_value(user_text):\\n6     return subprocess.run([sys.executable, \\\"-c\\\", \\\"import sys; print(sys.argv[1])\\\", user_text], shell=False, check=True)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 119,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_direct_fixed.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"subprocess call - check for execution of untrusted input.\",\n      \"line_number\": 6,\n      \"line_range\": [\n        6\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html\",\n      \"test_id\": \"B603\",\n      \"test_name\": \"subprocess_without_shell_equals_true\"\n    }\n  ]\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:14Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_direct_fixed.py\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 2,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 2,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 import subprocess\\n2 import sys\\n3 \\n\",\n      \"col_offset\": 0,\n      \"end_col_offset\": 17,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_direct_fixed.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"Consider possible security implications associated with the subprocess module.\",\n      \"line_number\": 1,\n      \"line_range\": [\n        1\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess\",\n      \"test_id\": \"B404\",\n      \"test_name\": \"blacklist\"\n    },\n    {\n      \"code\": \"5 def show_value(user_text):\\n6     return subprocess.run([sys.executable, \\\"-c\\\", \\\"import sys; print(sys.argv[1])\\\", user_text], shell=False, check=True)\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 119,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_direct_fixed.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"LOW\",\n      \"issue_text\": \"subprocess call - check for execution of untrusted input.\",\n      \"line_number\": 6,\n      \"line_range\": [\n        6\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html\",\n      \"test_id\": \"B603\",\n      \"test_name\": \"subprocess_without_shell_equals_true\"\n    }\n  ]\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.26
           }
@@ -2998,7 +2998,7 @@
           "status": "completed",
           "target": "cases/shell_direct_fixed.py",
           "source_sha256": "1ab25de09b05a417a99e6d08ca1f318ef780bdef962728c1f5bbf808f626413b",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -3009,7 +3009,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -3017,11 +3017,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_direct_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_direct_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_direct_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0009992122650146484,\"profiling_times\":{\"config_time\":0.10782170295715332,\"core_time\":0.11109781265258789,\"ignores_time\":0.0,\"total_time\":0.2285292148590088},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007176637649536133,\"per_file_time\":{\"mean\":0.007176637649536133,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":85211072},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_direct_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0009992122650146484,\"profiling_times\":{\"config_time\":0.10782170295715332,\"core_time\":0.11109781265258789,\"ignores_time\":0.0,\"total_time\":0.2285292148590088},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007176637649536133,\"per_file_time\":{\"mean\":0.007176637649536133,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":85211072},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.883
           }
@@ -3241,7 +3241,7 @@
           "status": "completed",
           "target": "cases/shell_text_control.py",
           "source_sha256": "b92bd30fba2188ae405a8ac5df8fa82971493a396f2f7b8eae44b74ec81f800b",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -3255,11 +3255,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_text_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_text_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:21Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_text_control.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:21Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_text_control.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.258
           }
@@ -3269,7 +3269,7 @@
           "status": "completed",
           "target": "cases/shell_text_control.py",
           "source_sha256": "b92bd30fba2188ae405a8ac5df8fa82971493a396f2f7b8eae44b74ec81f800b",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -3280,7 +3280,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -3288,11 +3288,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_text_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_text_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_text_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015027523040771484,\"profiling_times\":{\"config_time\":0.12187337875366211,\"core_time\":0.10656547546386719,\"ignores_time\":0.0,\"total_time\":0.2384171485900879},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.005768775939941406,\"per_file_time\":{\"mean\":0.005768775939941406,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":85211072},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_text_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015027523040771484,\"profiling_times\":{\"config_time\":0.12187337875366211,\"core_time\":0.10656547546386719,\"ignores_time\":0.0,\"total_time\":0.2384171485900879},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.005768775939941406,\"per_file_time\":{\"mean\":0.005768775939941406,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":85211072},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.955
           }
@@ -3512,7 +3512,7 @@
           "status": "completed",
           "target": "cases/sql_concat_bad.py",
           "source_sha256": "3a05e9b9e99a3e8e9beb14f6d9ba50e23cc57d3c72813eca5e852a7930a2a61e",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "44338c20bb77f544e687ea2d",
@@ -3539,11 +3539,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_concat_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_concat_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:28Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_concat_bad.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 1,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 1,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 def find_account(cursor, user_text):\\n2     query = \\\"SELECT name FROM accounts WHERE name = '\\\" + user_text + \\\"'\\\"\\n3     return cursor.execute(query)\\n\",\n      \"col_offset\": 12,\n      \"end_col_offset\": 54,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_concat_bad.py\",\n      \"issue_confidence\": \"LOW\",\n      \"issue_cwe\": {\n        \"id\": 89,\n        \"link\": \"https://cwe.mitre.org/data/definitions/89.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Possible SQL injection vector through string-based query construction.\",\n      \"line_number\": 2,\n      \"line_range\": [\n        2\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b608_hardcoded_sql_expressions.html\",\n      \"test_id\": \"B608\",\n      \"test_name\": \"hardcoded_sql_expressions\"\n    }\n  ]\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:28Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_concat_bad.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 1,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 1,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 def find_account(cursor, user_text):\\n2     query = \\\"SELECT name FROM accounts WHERE name = '\\\" + user_text + \\\"'\\\"\\n3     return cursor.execute(query)\\n\",\n      \"col_offset\": 12,\n      \"end_col_offset\": 54,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_concat_bad.py\",\n      \"issue_confidence\": \"LOW\",\n      \"issue_cwe\": {\n        \"id\": 89,\n        \"link\": \"https://cwe.mitre.org/data/definitions/89.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Possible SQL injection vector through string-based query construction.\",\n      \"line_number\": 2,\n      \"line_range\": [\n        2\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b608_hardcoded_sql_expressions.html\",\n      \"test_id\": \"B608\",\n      \"test_name\": \"hardcoded_sql_expressions\"\n    }\n  ]\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.261
           }
@@ -3553,12 +3553,12 @@
           "status": "completed",
           "target": "cases/sql_concat_bad.py",
           "source_sha256": "3a05e9b9e99a3e8e9beb14f6d9ba50e23cc57d3c72813eca5e852a7930a2a61e",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "b71a0debd043db5d21d271d0",
               "tool": "semgrep",
-              "rule_id": "m3-python-sql-injection",
+              "rule_id": "python-sql-injection",
               "path": "cases/sql_concat_bad.py",
               "line": 3,
               "severity": "ERROR",
@@ -3577,7 +3577,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -3585,11 +3585,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_concat_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_concat_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.rules.m3-python-sql-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_concat_bad.py\",\"start\":{\"line\":3,\"col\":27,\"offset\":136},\"end\":{\"line\":3,\"col\":32,\"offset\":141},\"extra\":{\"message\":\"Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\",\"metadata\":{\"cwe\":\"CWE-89\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_concat_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0010018348693847656,\"profiling_times\":{\"config_time\":0.10239052772521973,\"core_time\":0.10976219177246094,\"ignores_time\":0.0005242824554443359,\"total_time\":0.22115206718444824},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007611751556396484,\"per_file_time\":{\"mean\":0.007611751556396484,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88274240},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.semgrep.python-sql-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_concat_bad.py\",\"start\":{\"line\":3,\"col\":27,\"offset\":136},\"end\":{\"line\":3,\"col\":32,\"offset\":141},\"extra\":{\"message\":\"Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\",\"metadata\":{\"cwe\":\"CWE-89\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_concat_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0010018348693847656,\"profiling_times\":{\"config_time\":0.10239052772521973,\"core_time\":0.10976219177246094,\"ignores_time\":0.0005242824554443359,\"total_time\":0.22115206718444824},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007611751556396484,\"per_file_time\":{\"mean\":0.007611751556396484,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88274240},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 1 (1 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 1 finding.\n",
             "seconds": 1.868
           }
@@ -3645,7 +3645,7 @@
               },
               {
                 "role": "user",
-                "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-89 (SQL injection), bandit B608: Possible SQL injection vector through string-based query construction.\nF2: line 3, CWE-89 (SQL injection), semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def find_account(cursor, user_text):\n2|     query = \"SELECT name FROM accounts WHERE name = '\" + user_text + \"'\"\n3|     return cursor.execute(query)\nSOURCE>>>"
+                "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-89 (SQL injection), bandit B608: Possible SQL injection vector through string-based query construction.\nF2: line 3, CWE-89 (SQL injection), semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def find_account(cursor, user_text):\n2|     query = \"SELECT name FROM accounts WHERE name = '\" + user_text + \"'\"\n3|     return cursor.execute(query)\nSOURCE>>>"
               }
             ],
             "format": {
@@ -3822,7 +3822,7 @@
             "b71a0debd043db5d21d271d0"
           ],
           "scanner_messages": [
-            "semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter."
+            "semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter."
           ],
           "explanation_source": "model",
           "explanation": "Az SQL lekérdezés dinamikusan épül az untrusted data alapján, ami lehetővé teszi az SQL injekció támadását. Használja a bound parameter metódust az SQL lekérdezésben, hogy elkerülje az injekció riskusát.",
@@ -3840,7 +3840,7 @@
           "status": "completed",
           "target": "cases/sql_concat_fixed.py",
           "source_sha256": "a18aec3eaf894c236edb8668ddf376c31762917529d2aa78d55b3b807d3740d8",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -3854,11 +3854,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_concat_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_concat_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:34Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_concat_fixed.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:34Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_concat_fixed.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.251
           }
@@ -3868,7 +3868,7 @@
           "status": "completed",
           "target": "cases/sql_concat_fixed.py",
           "source_sha256": "a18aec3eaf894c236edb8668ddf376c31762917529d2aa78d55b3b807d3740d8",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -3879,7 +3879,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -3887,11 +3887,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_concat_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_concat_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_concat_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015072822570800781,\"profiling_times\":{\"config_time\":0.10398459434509277,\"core_time\":0.11148309707641602,\"ignores_time\":0.0,\"total_time\":0.22496914863586426},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.006595134735107422,\"per_file_time\":{\"mean\":0.006595134735107422,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89584960},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_concat_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015072822570800781,\"profiling_times\":{\"config_time\":0.10398459434509277,\"core_time\":0.11148309707641602,\"ignores_time\":0.0,\"total_time\":0.22496914863586426},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.006595134735107422,\"per_file_time\":{\"mean\":0.006595134735107422,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89584960},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.869
           }
@@ -4111,7 +4111,7 @@
           "status": "completed",
           "target": "cases/sql_direct_bad.py",
           "source_sha256": "3ab984cc5e4e903bb08e4bfbe5b1c85b60918fcd3398dfaa9228e7ccea5aaf5c",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "cb8e5068241f29c5460c45a9",
@@ -4138,11 +4138,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_direct_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_direct_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:40Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_direct_bad.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 1,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 1,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 def find_account(cursor, user_text):\\n2     return cursor.execute(f\\\"SELECT name FROM accounts WHERE name = '{user_text}'\\\")\\n\",\n      \"col_offset\": 26,\n      \"end_col_offset\": 81,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_direct_bad.py\",\n      \"issue_confidence\": \"MEDIUM\",\n      \"issue_cwe\": {\n        \"id\": 89,\n        \"link\": \"https://cwe.mitre.org/data/definitions/89.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Possible SQL injection vector through string-based query construction.\",\n      \"line_number\": 2,\n      \"line_range\": [\n        2\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b608_hardcoded_sql_expressions.html\",\n      \"test_id\": \"B608\",\n      \"test_name\": \"hardcoded_sql_expressions\"\n    }\n  ]\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:40Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_direct_bad.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 1,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 1,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 def find_account(cursor, user_text):\\n2     return cursor.execute(f\\\"SELECT name FROM accounts WHERE name = '{user_text}'\\\")\\n\",\n      \"col_offset\": 26,\n      \"end_col_offset\": 81,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_direct_bad.py\",\n      \"issue_confidence\": \"MEDIUM\",\n      \"issue_cwe\": {\n        \"id\": 89,\n        \"link\": \"https://cwe.mitre.org/data/definitions/89.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Possible SQL injection vector through string-based query construction.\",\n      \"line_number\": 2,\n      \"line_range\": [\n        2\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b608_hardcoded_sql_expressions.html\",\n      \"test_id\": \"B608\",\n      \"test_name\": \"hardcoded_sql_expressions\"\n    }\n  ]\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.249
           }
@@ -4152,12 +4152,12 @@
           "status": "completed",
           "target": "cases/sql_direct_bad.py",
           "source_sha256": "3ab984cc5e4e903bb08e4bfbe5b1c85b60918fcd3398dfaa9228e7ccea5aaf5c",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "887ae10e29f917ea0e876fb1",
               "tool": "semgrep",
-              "rule_id": "m3-python-sql-injection",
+              "rule_id": "python-sql-injection",
               "path": "cases/sql_direct_bad.py",
               "line": 2,
               "severity": "ERROR",
@@ -4176,7 +4176,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -4184,11 +4184,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_direct_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_direct_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.rules.m3-python-sql-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_direct_bad.py\",\"start\":{\"line\":2,\"col\":27,\"offset\":63},\"end\":{\"line\":2,\"col\":82,\"offset\":118},\"extra\":{\"message\":\"Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\",\"metadata\":{\"cwe\":\"CWE-89\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_direct_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015435218811035156,\"profiling_times\":{\"config_time\":0.10370302200317383,\"core_time\":0.10744237899780273,\"ignores_time\":0.0,\"total_time\":0.2202308177947998},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.00806879997253418,\"per_file_time\":{\"mean\":0.00806879997253418,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88798528},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.semgrep.python-sql-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_direct_bad.py\",\"start\":{\"line\":2,\"col\":27,\"offset\":63},\"end\":{\"line\":2,\"col\":82,\"offset\":118},\"extra\":{\"message\":\"Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\",\"metadata\":{\"cwe\":\"CWE-89\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_direct_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015435218811035156,\"profiling_times\":{\"config_time\":0.10370302200317383,\"core_time\":0.10744237899780273,\"ignores_time\":0.0,\"total_time\":0.2202308177947998},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.00806879997253418,\"per_file_time\":{\"mean\":0.00806879997253418,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88798528},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 1 (1 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 1 finding.\n",
             "seconds": 1.86
           }
@@ -4244,7 +4244,7 @@
               },
               {
                 "role": "user",
-                "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-89 (SQL injection), bandit B608: Possible SQL injection vector through string-based query construction.\nF2: line 2, CWE-89 (SQL injection), semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def find_account(cursor, user_text):\n2|     return cursor.execute(f\"SELECT name FROM accounts WHERE name = '{user_text}'\")\nSOURCE>>>"
+                "content": "Explanation language: Hungarian\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-89 (SQL injection), bandit B608: Possible SQL injection vector through string-based query construction.\nF2: line 2, CWE-89 (SQL injection), semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def find_account(cursor, user_text):\n2|     return cursor.execute(f\"SELECT name FROM accounts WHERE name = '{user_text}'\")\nSOURCE>>>"
               }
             ],
             "format": {
@@ -4404,7 +4404,7 @@
           ],
           "scanner_messages": [
             "bandit B608: Possible SQL injection vector through string-based query construction.",
-            "semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter."
+            "semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter."
           ],
           "explanation_source": "model",
           "explanation": "Az SQL lekérdezés dinamikusan épül az untrusted data alapján, ami lehetővé teszi az SQL injekció támadását.",
@@ -4422,7 +4422,7 @@
           "status": "completed",
           "target": "cases/sql_direct_fixed.py",
           "source_sha256": "8e7d81d58dd0e1ae8280adbea30ba365672cead4f5549013c98e1091d9f5a7c2",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -4436,11 +4436,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_direct_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_direct_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:45Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_direct_fixed.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:45Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_direct_fixed.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.251
           }
@@ -4450,7 +4450,7 @@
           "status": "completed",
           "target": "cases/sql_direct_fixed.py",
           "source_sha256": "8e7d81d58dd0e1ae8280adbea30ba365672cead4f5549013c98e1091d9f5a7c2",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -4461,7 +4461,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -4469,11 +4469,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_direct_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_direct_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_direct_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015103816986083984,\"profiling_times\":{\"config_time\":0.10500240325927734,\"core_time\":0.10808539390563965,\"ignores_time\":0.0,\"total_time\":0.2211136817932129},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.00550079345703125,\"per_file_time\":{\"mean\":0.00550079345703125,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":85997504},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_direct_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015103816986083984,\"profiling_times\":{\"config_time\":0.10500240325927734,\"core_time\":0.10808539390563965,\"ignores_time\":0.0,\"total_time\":0.2211136817932129},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.00550079345703125,\"per_file_time\":{\"mean\":0.00550079345703125,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":85997504},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.906
           }
@@ -4693,7 +4693,7 @@
           "status": "completed",
           "target": "cases/sql_integer_control.py",
           "source_sha256": "e09e3f7272a91852c52eceafc9d4f1bacf8d4f199be23c1c3182c734ea97d321",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "d2fa16fb71eb90bad6741194",
@@ -4720,11 +4720,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_integer_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_integer_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:51Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_integer_control.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 1,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 1,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"2     account_id = int(user_text)\\n3     return cursor.execute(f\\\"SELECT name FROM accounts WHERE id = {account_id}\\\")\\n\",\n      \"col_offset\": 26,\n      \"end_col_offset\": 78,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_integer_control.py\",\n      \"issue_confidence\": \"MEDIUM\",\n      \"issue_cwe\": {\n        \"id\": 89,\n        \"link\": \"https://cwe.mitre.org/data/definitions/89.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Possible SQL injection vector through string-based query construction.\",\n      \"line_number\": 3,\n      \"line_range\": [\n        3\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b608_hardcoded_sql_expressions.html\",\n      \"test_id\": \"B608\",\n      \"test_name\": \"hardcoded_sql_expressions\"\n    }\n  ]\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:51Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_integer_control.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 1,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 1,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"2     account_id = int(user_text)\\n3     return cursor.execute(f\\\"SELECT name FROM accounts WHERE id = {account_id}\\\")\\n\",\n      \"col_offset\": 26,\n      \"end_col_offset\": 78,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_integer_control.py\",\n      \"issue_confidence\": \"MEDIUM\",\n      \"issue_cwe\": {\n        \"id\": 89,\n        \"link\": \"https://cwe.mitre.org/data/definitions/89.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Possible SQL injection vector through string-based query construction.\",\n      \"line_number\": 3,\n      \"line_range\": [\n        3\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b608_hardcoded_sql_expressions.html\",\n      \"test_id\": \"B608\",\n      \"test_name\": \"hardcoded_sql_expressions\"\n    }\n  ]\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.253
           }
@@ -4734,7 +4734,7 @@
           "status": "completed",
           "target": "cases/sql_integer_control.py",
           "source_sha256": "e09e3f7272a91852c52eceafc9d4f1bacf8d4f199be23c1c3182c734ea97d321",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -4745,7 +4745,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -4753,11 +4753,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_integer_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_integer_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_integer_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0019533634185791016,\"profiling_times\":{\"config_time\":0.10709047317504883,\"core_time\":0.10782814025878906,\"ignores_time\":0.0,\"total_time\":0.22379350662231445},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008483409881591797,\"per_file_time\":{\"mean\":0.008483409881591797,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88798528},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_integer_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0019533634185791016,\"profiling_times\":{\"config_time\":0.10709047317504883,\"core_time\":0.10782814025878906,\"ignores_time\":0.0,\"total_time\":0.22379350662231445},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008483409881591797,\"per_file_time\":{\"mean\":0.008483409881591797,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88798528},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.865
           }
@@ -4986,7 +4986,7 @@
           "status": "completed",
           "target": "cases/sql_unexecuted_control.py",
           "source_sha256": "b801a2f1685627c2042b6bbfcadeb90a5553ac315b7f11000004156a062c6de7",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "75e16572dd85906fc32bebe4",
@@ -5013,11 +5013,11 @@
               "--ignore-nosec",
               "-f",
               "json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_unexecuted_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_unexecuted_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:57Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_unexecuted_control.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 1,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 1,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 def describe_query(user_text):\\n2     return f\\\"SELECT name FROM accounts WHERE name = '{user_text}'\\\"\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 66,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_unexecuted_control.py\",\n      \"issue_confidence\": \"LOW\",\n      \"issue_cwe\": {\n        \"id\": 89,\n        \"link\": \"https://cwe.mitre.org/data/definitions/89.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Possible SQL injection vector through string-based query construction.\",\n      \"line_number\": 2,\n      \"line_range\": [\n        2\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b608_hardcoded_sql_expressions.html\",\n      \"test_id\": \"B608\",\n      \"test_name\": \"hardcoded_sql_expressions\"\n    }\n  ]\n}",
+            "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T10:50:57Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_unexecuted_control.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 1,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 1,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 def describe_query(user_text):\\n2     return f\\\"SELECT name FROM accounts WHERE name = '{user_text}'\\\"\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 66,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_unexecuted_control.py\",\n      \"issue_confidence\": \"LOW\",\n      \"issue_cwe\": {\n        \"id\": 89,\n        \"link\": \"https://cwe.mitre.org/data/definitions/89.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Possible SQL injection vector through string-based query construction.\",\n      \"line_number\": 2,\n      \"line_range\": [\n        2\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b608_hardcoded_sql_expressions.html\",\n      \"test_id\": \"B608\",\n      \"test_name\": \"hardcoded_sql_expressions\"\n    }\n  ]\n}",
             "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
             "seconds": 0.259
           }
@@ -5027,7 +5027,7 @@
           "status": "completed",
           "target": "cases/sql_unexecuted_control.py",
           "source_sha256": "b801a2f1685627c2042b6bbfcadeb90a5553ac315b7f11000004156a062c6de7",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -5038,7 +5038,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -5046,11 +5046,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_unexecuted_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_unexecuted_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_unexecuted_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0011081695556640625,\"profiling_times\":{\"config_time\":0.10444927215576172,\"core_time\":0.10151314735412598,\"ignores_time\":0.0,\"total_time\":0.2156364917755127},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.0,\"rules_matched_ratio\":0.0},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":74478592},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_unexecuted_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0011081695556640625,\"profiling_times\":{\"config_time\":0.10444927215576172,\"core_time\":0.10151314735412598,\"ignores_time\":0.0,\"total_time\":0.2156364917755127},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.0,\"rules_matched_ratio\":0.0},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":74478592},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.864
           }
@@ -5274,5 +5274,5 @@
   "complete": true,
   "problems": [],
   "hidden_other_families": 14,
-  "summary": "Elemzett cél: cases (18 fájl). Felismerők: bandit, semgrep, modell.\nSzűrés: csak a(z) CWE-78 hibacsalád (parancsbefecskendezés).\nLehetséges sérülékenységek száma: 4.\n1. Parancsbefecskendezés (CWE-78) – cases/shell_alias_bad.py, 6. sor. Jelezte: bandit, semgrep, modell.\n   Kód: return launch(command, shell=True, check=True)\n   Magyarázat (modell): Az untrusted data (user_text) bejön a show_value függvényben, és az osztályozott shell=True paraméter miatt potenciális OS parancs injekcióra utal. Ez egy biztonsági kockázat, mivel az untrusted data közvetlenül a shell-ben futtatásra kerülhet.\n   Bemenet forrása (modell): user_text\n   Javasolt javítás (modell): A shell=True paramétert távolítsuk el, és használjunk a subprocess.run függvényt a user_text paramétert biztonságosan átadva. Példa: return launch(['echo', user_text], check=True)\n   Elemzői üzenet: bandit B602: subprocess call with shell=True identified, security issue.\n   Elemzői üzenet: semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\n2. Parancsbefecskendezés (CWE-78) – cases/shell_constant_control.py, 5. sor. Jelezte: bandit, modell.\n   Kód: return subprocess.run(\"echo fixed\", shell=True, check=True)\n   Magyarázat (modell): A 'subprocess.run' függvényben a 'shell=True' paraméter használatával operációs rendszer parancsot futtatunk, ami potenciálisan káros lehet, ha az untrusted data nem teljesen megbízható.\n   Bemenet forrása (modell): Nincs közvetlenül jelentős untrusted data, de a 'shell=True' paraméter használata káros lehet.\n   Javasolt javítás (modell): A 'shell=True' paraméter használata helyett a parancsot a 'subprocess.run' függvényben közvetlenül kell átadni, és a paramétereket a 'check=True' helyett a 'capture_output=True' paraméterrel kell kezelni. Példa: 'subprocess.run([\"echo\", \"fixed\"], capture_output=True, check=True)'\n   Elemzői üzenet: bandit B602: subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell\n3. Parancsbefecskendezés (CWE-78) – cases/shell_direct_bad.py, 5. sor. Jelezte: bandit, semgrep, modell.\n   Kód: return subprocess.run(f\"echo {user_text}\", shell=True, check=True)\n   Magyarázat (modell): Az untrusted data közvetlenül kerül egy shell parancsba, ami lehetővé teszi az OS parancs injekciót. Ez egy potenciális biztonsági kockázat.\n   Bemenet forrása (modell): user_text\n   Javasolt javítás (modell): A shell=True paramétert távolítsuk el, és használjunk a subprocess.run függvényt a user_text paramétertől függetlenül. Példa: subprocess.run([\"echo\", user_text], check=True)\n   Elemzői üzenet: bandit B602: subprocess call with shell=True identified, security issue.\n   Elemzői üzenet: semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\n4. Parancsbefecskendezés (CWE-78) – cases/shell_text_control.py, 2. sor. Jelezte: modell.\n   Kód: return \"subprocess.run(user_text, shell=True)\"\n   Magyarázat (modell): Az untrusted data (user_text) bejön a subprocess.run függvényben, és a shell=True paraméter használatával a Python kód futtatására szolgál. Ez egy potenciális kockázat, mivel az untrusted data nem korlátozott.\n   Bemenet forrása (modell): user_text\n   Javasolt javítás (modell): A shell=True paraméter használata helyett használjon a subprocess.run függvényt a listában átadott argumentumokkal, hogy elkerülje a shell használatát. Példa: subprocess.run(['python', 'script.py', user_text])\nMás hibacsaládba tartozó, itt nem megjelenített találatok száma: 14.\nA találatok statikus elemzésből származnak; a kihasználhatóságot nem ellenőriztük. A modell szövegei tévedhetnek."
+  "summary": "Elemzett cél: cases (18 fájl). Felismerők: bandit, semgrep, modell.\nSzűrés: csak a(z) CWE-78 hibacsalád (parancsbefecskendezés).\nLehetséges sérülékenységek száma: 4.\n1. Parancsbefecskendezés (CWE-78) – cases/shell_alias_bad.py, 6. sor. Jelezte: bandit, semgrep, modell.\n   Kód: return launch(command, shell=True, check=True)\n   Magyarázat (modell): Az untrusted data (user_text) bejön a show_value függvényben, és az osztályozott shell=True paraméter miatt potenciális OS parancs injekcióra utal. Ez egy biztonsági kockázat, mivel az untrusted data közvetlenül a shell-ben futtatásra kerülhet.\n   Bemenet forrása (modell): user_text\n   Javasolt javítás (modell): A shell=True paramétert távolítsuk el, és használjunk a subprocess.run függvényt a user_text paramétert biztonságosan átadva. Példa: return launch(['echo', user_text], check=True)\n   Elemzői üzenet: bandit B602: subprocess call with shell=True identified, security issue.\n   Elemzői üzenet: semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\n2. Parancsbefecskendezés (CWE-78) – cases/shell_constant_control.py, 5. sor. Jelezte: bandit, modell.\n   Kód: return subprocess.run(\"echo fixed\", shell=True, check=True)\n   Magyarázat (modell): A 'subprocess.run' függvényben a 'shell=True' paraméter használatával operációs rendszer parancsot futtatunk, ami potenciálisan káros lehet, ha az untrusted data nem teljesen megbízható.\n   Bemenet forrása (modell): Nincs közvetlenül jelentős untrusted data, de a 'shell=True' paraméter használata káros lehet.\n   Javasolt javítás (modell): A 'shell=True' paraméter használata helyett a parancsot a 'subprocess.run' függvényben közvetlenül kell átadni, és a paramétereket a 'check=True' helyett a 'capture_output=True' paraméterrel kell kezelni. Példa: 'subprocess.run([\"echo\", \"fixed\"], capture_output=True, check=True)'\n   Elemzői üzenet: bandit B602: subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell\n3. Parancsbefecskendezés (CWE-78) – cases/shell_direct_bad.py, 5. sor. Jelezte: bandit, semgrep, modell.\n   Kód: return subprocess.run(f\"echo {user_text}\", shell=True, check=True)\n   Magyarázat (modell): Az untrusted data közvetlenül kerül egy shell parancsba, ami lehetővé teszi az OS parancs injekciót. Ez egy potenciális biztonsági kockázat.\n   Bemenet forrása (modell): user_text\n   Javasolt javítás (modell): A shell=True paramétert távolítsuk el, és használjunk a subprocess.run függvényt a user_text paramétertől függetlenül. Példa: subprocess.run([\"echo\", user_text], check=True)\n   Elemzői üzenet: bandit B602: subprocess call with shell=True identified, security issue.\n   Elemzői üzenet: semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\n4. Parancsbefecskendezés (CWE-78) – cases/shell_text_control.py, 2. sor. Jelezte: modell.\n   Kód: return \"subprocess.run(user_text, shell=True)\"\n   Magyarázat (modell): Az untrusted data (user_text) bejön a subprocess.run függvényben, és a shell=True paraméter használatával a Python kód futtatására szolgál. Ez egy potenciális kockázat, mivel az untrusted data nem korlátozott.\n   Bemenet forrása (modell): user_text\n   Javasolt javítás (modell): A shell=True paraméter használata helyett használjon a subprocess.run függvényt a listában átadott argumentumokkal, hogy elkerülje a shell használatát. Példa: subprocess.run(['python', 'script.py', user_text])\nMás hibacsaládba tartozó, itt nem megjelenített találatok száma: 14.\nA találatok statikus elemzésből származnak; a kihasználhatóságot nem ellenőriztük. A modell szövegei tévedhetnek."
 }

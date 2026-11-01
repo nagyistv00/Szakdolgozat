@@ -1,6 +1,6 @@
 {
   "conditions": {
-    "m2:bandit": {
+    "basic:bandit": {
       "overall": {
         "tp": 5,
         "fp": 5,
@@ -43,7 +43,7 @@
       },
       "sklearn_agrees": true
     },
-    "m2:semgrep": {
+    "basic:semgrep": {
       "overall": {
         "tp": 4,
         "fp": 4,
@@ -86,7 +86,7 @@
       },
       "sklearn_agrees": true
     },
-    "m2:scanners": {
+    "basic:scanners": {
       "overall": {
         "tp": 5,
         "fp": 5,
@@ -129,7 +129,7 @@
       },
       "sklearn_agrees": true
     },
-    "m3:bandit": {
+    "full:bandit": {
       "overall": {
         "tp": 5,
         "fp": 5,
@@ -172,7 +172,7 @@
       },
       "sklearn_agrees": true
     },
-    "m3:semgrep": {
+    "full:semgrep": {
       "overall": {
         "tp": 5,
         "fp": 1,
@@ -215,7 +215,7 @@
       },
       "sklearn_agrees": true
     },
-    "m3:scanners": {
+    "full:scanners": {
       "overall": {
         "tp": 5,
         "fp": 5,

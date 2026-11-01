@@ -14,7 +14,7 @@
           "status": "completed",
           "target": "cases/eval_alias_bad.py",
           "source_sha256": "07ef4fe68179c786f91983fa0118ab8b14b8ffadc9a0469a424e69ff7be41193",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -25,7 +25,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -33,11 +33,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_alias_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_alias_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_alias_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015940666198730469,\"profiling_times\":{\"config_time\":0.1049051284790039,\"core_time\":0.10703134536743164,\"ignores_time\":0.0,\"total_time\":0.2225337028503418},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008461713790893555,\"per_file_time\":{\"mean\":0.008461713790893555,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88274240},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_alias_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015940666198730469,\"profiling_times\":{\"config_time\":0.1049051284790039,\"core_time\":0.10703134536743164,\"ignores_time\":0.0,\"total_time\":0.2225337028503418},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008461713790893555,\"per_file_time\":{\"mean\":0.008461713790893555,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88274240},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.897
           }
@@ -365,7 +365,7 @@
           "status": "completed",
           "target": "cases/eval_alias_fixed.py",
           "source_sha256": "cb26243268cc9f2d5f9d1f646b09d1821395808a031685471ce355f0fcbce1d1",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -376,7 +376,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -384,11 +384,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_alias_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_alias_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_alias_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.006510496139526367,\"profiling_times\":{\"config_time\":0.10186767578125,\"core_time\":0.10489726066589355,\"ignores_time\":0.0,\"total_time\":0.2163095474243164},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.0,\"rules_matched_ratio\":0.0},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":74478592},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_alias_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.006510496139526367,\"profiling_times\":{\"config_time\":0.10186767578125,\"core_time\":0.10489726066589355,\"ignores_time\":0.0,\"total_time\":0.2163095474243164},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.0,\"rules_matched_ratio\":0.0},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":74478592},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.858
           }
@@ -590,7 +590,7 @@
           "status": "completed",
           "target": "cases/eval_constant_control.py",
           "source_sha256": "51fe500e9cb55c5381204b73b3350c2a59644a483d77a5564f5535f3d1728269",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -601,7 +601,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -609,11 +609,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_constant_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_constant_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_constant_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.001001119613647461,\"profiling_times\":{\"config_time\":0.10347962379455566,\"core_time\":0.10931730270385742,\"ignores_time\":0.0,\"total_time\":0.2213737964630127},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007651090621948242,\"per_file_time\":{\"mean\":0.007651090621948242,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89322816},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_constant_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.001001119613647461,\"profiling_times\":{\"config_time\":0.10347962379455566,\"core_time\":0.10931730270385742,\"ignores_time\":0.0,\"total_time\":0.2213737964630127},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007651090621948242,\"per_file_time\":{\"mean\":0.007651090621948242,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89322816},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.832
           }
@@ -815,12 +815,12 @@
           "status": "completed",
           "target": "cases/eval_direct_bad.py",
           "source_sha256": "8bc8f1aaeb8c2c1632a93a39c66df2d8e0a3fd118ecd0be14e6b6af747fabea3",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "ed5380f185b4fdf2fe9482d6",
               "tool": "semgrep",
-              "rule_id": "m3-python-eval-injection",
+              "rule_id": "python-eval-injection",
               "path": "cases/eval_direct_bad.py",
               "line": 2,
               "severity": "ERROR",
@@ -839,7 +839,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -847,11 +847,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_direct_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_direct_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.rules.m3-python-eval-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_direct_bad.py\",\"start\":{\"line\":2,\"col\":17,\"offset\":44},\"end\":{\"line\":2,\"col\":26,\"offset\":53},\"extra\":{\"message\":\"Untrusted input reaches eval/exec and may be executed as Python code.\",\"metadata\":{\"cwe\":\"CWE-95\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_direct_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.002173185348510742,\"profiling_times\":{\"config_time\":0.10326123237609863,\"core_time\":0.11040639877319336,\"ignores_time\":0.0,\"total_time\":0.22169971466064453},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007808208465576172,\"per_file_time\":{\"mean\":0.007808208465576172,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89060672},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.semgrep.python-eval-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_direct_bad.py\",\"start\":{\"line\":2,\"col\":17,\"offset\":44},\"end\":{\"line\":2,\"col\":26,\"offset\":53},\"extra\":{\"message\":\"Untrusted input reaches eval/exec and may be executed as Python code.\",\"metadata\":{\"cwe\":\"CWE-95\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_direct_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.002173185348510742,\"profiling_times\":{\"config_time\":0.10326123237609863,\"core_time\":0.11040639877319336,\"ignores_time\":0.0,\"total_time\":0.22169971466064453},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007808208465576172,\"per_file_time\":{\"mean\":0.007808208465576172,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89060672},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 1 (1 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 1 finding.\n",
             "seconds": 1.851
           }
@@ -918,7 +918,7 @@
               },
               {
                 "role": "user",
-                "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-95 (eval injection), semgrep m3-python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def parse_value(user_text):\n2|     return eval(user_text)\nSOURCE>>>"
+                "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-95 (eval injection), semgrep python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def parse_value(user_text):\n2|     return eval(user_text)\nSOURCE>>>"
               }
             ],
             "format": {
@@ -1076,7 +1076,7 @@
             "ed5380f185b4fdf2fe9482d6"
           ],
           "scanner_messages": [
-            "semgrep m3-python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code."
+            "semgrep python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code."
           ],
           "explanation_source": "model",
           "explanation": "A nem megbízható adatot közvetlenül adunk át az `eval` függvénynek, ami tetszőleges Python kódot futtathat.",
@@ -1094,7 +1094,7 @@
           "status": "completed",
           "target": "cases/eval_direct_fixed.py",
           "source_sha256": "2105af5d7647595d891a26be1479177c18cb6686ac2e529df1fb18caccab2dc8",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -1105,7 +1105,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -1113,11 +1113,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_direct_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_direct_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_direct_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.002008676528930664,\"profiling_times\":{\"config_time\":0.1067819595336914,\"core_time\":0.10918498039245605,\"ignores_time\":0.0,\"total_time\":0.22408270835876465},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0073316097259521484,\"per_file_time\":{\"mean\":0.0073316097259521484,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89322816},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_direct_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.002008676528930664,\"profiling_times\":{\"config_time\":0.1067819595336914,\"core_time\":0.10918498039245605,\"ignores_time\":0.0,\"total_time\":0.22408270835876465},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0073316097259521484,\"per_file_time\":{\"mean\":0.0073316097259521484,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89322816},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.799
           }
@@ -1319,12 +1319,12 @@
           "status": "completed",
           "target": "cases/eval_shadow_control.py",
           "source_sha256": "5c69edb54f7423139d9571261899b7bf586f936ee189621409bfdea6a6687d41",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "312fa225dbd86d500f4b1c4d",
               "tool": "semgrep",
-              "rule_id": "m3-python-eval-injection",
+              "rule_id": "python-eval-injection",
               "path": "cases/eval_shadow_control.py",
               "line": 6,
               "severity": "ERROR",
@@ -1343,7 +1343,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -1351,11 +1351,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_shadow_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_shadow_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.rules.m3-python-eval-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_shadow_control.py\",\"start\":{\"line\":6,\"col\":17,\"offset\":80},\"end\":{\"line\":6,\"col\":26,\"offset\":89},\"extra\":{\"message\":\"Untrusted input reaches eval/exec and may be executed as Python code.\",\"metadata\":{\"cwe\":\"CWE-95\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_shadow_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.006115913391113281,\"profiling_times\":{\"config_time\":0.10233545303344727,\"core_time\":0.11112785339355469,\"ignores_time\":0.0,\"total_time\":0.22300314903259277},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008403778076171875,\"per_file_time\":{\"mean\":0.008403778076171875,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89322816},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.semgrep.python-eval-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_shadow_control.py\",\"start\":{\"line\":6,\"col\":17,\"offset\":80},\"end\":{\"line\":6,\"col\":26,\"offset\":89},\"extra\":{\"message\":\"Untrusted input reaches eval/exec and may be executed as Python code.\",\"metadata\":{\"cwe\":\"CWE-95\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_shadow_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.006115913391113281,\"profiling_times\":{\"config_time\":0.10233545303344727,\"core_time\":0.11112785339355469,\"ignores_time\":0.0,\"total_time\":0.22300314903259277},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008403778076171875,\"per_file_time\":{\"mean\":0.008403778076171875,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89322816},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 1 (1 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 1 finding.\n",
             "seconds": 1.841
           }
@@ -1422,7 +1422,7 @@
               },
               {
                 "role": "user",
-                "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 6, CWE-95 (eval injection), semgrep m3-python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def eval(value):\n2|     return value\n3| \n4| \n5| def parse_value(user_text):\n6|     return eval(user_text)\nSOURCE>>>"
+                "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 6, CWE-95 (eval injection), semgrep python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def eval(value):\n2|     return value\n3| \n4| \n5| def parse_value(user_text):\n6|     return eval(user_text)\nSOURCE>>>"
               }
             ],
             "format": {
@@ -1580,7 +1580,7 @@
             "312fa225dbd86d500f4b1c4d"
           ],
           "scanner_messages": [
-            "semgrep m3-python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code."
+            "semgrep python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code."
           ],
           "explanation_source": "model",
           "explanation": "A felhasználó által megadott szöveget közvetlenül értékeli ki a `eval` függvénnyel, ami lehetővé teszi az ellenőrzés nélküli Python kód végrehajtását.",
@@ -1598,12 +1598,12 @@
           "status": "completed",
           "target": "cases/shell_alias_bad.py",
           "source_sha256": "bb80a4711ca0f83712a1becedeea6022c5657a606b4c7bcecc38de0d31c66869",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "b3d930b900108d6b1b93560c",
               "tool": "semgrep",
-              "rule_id": "m3-python-command-injection",
+              "rule_id": "python-command-injection",
               "path": "cases/shell_alias_bad.py",
               "line": 6,
               "severity": "ERROR",
@@ -1622,7 +1622,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -1630,11 +1630,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_alias_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_alias_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.rules.m3-python-command-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_alias_bad.py\",\"start\":{\"line\":6,\"col\":19,\"offset\":118},\"end\":{\"line\":6,\"col\":26,\"offset\":125},\"extra\":{\"message\":\"Untrusted input reaches a shell command and may inject additional commands.\",\"metadata\":{\"cwe\":\"CWE-78\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_alias_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.007618904113769531,\"profiling_times\":{\"config_time\":0.10275650024414062,\"core_time\":0.11512374877929688,\"ignores_time\":0.0,\"total_time\":0.22598910331726074},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007503509521484375,\"per_file_time\":{\"mean\":0.007503509521484375,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88012096},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.semgrep.python-command-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_alias_bad.py\",\"start\":{\"line\":6,\"col\":19,\"offset\":118},\"end\":{\"line\":6,\"col\":26,\"offset\":125},\"extra\":{\"message\":\"Untrusted input reaches a shell command and may inject additional commands.\",\"metadata\":{\"cwe\":\"CWE-78\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_alias_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.007618904113769531,\"profiling_times\":{\"config_time\":0.10275650024414062,\"core_time\":0.11512374877929688,\"ignores_time\":0.0,\"total_time\":0.22598910331726074},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007503509521484375,\"per_file_time\":{\"mean\":0.007503509521484375,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88012096},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 1 (1 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 1 finding.\n",
             "seconds": 1.841
           }
@@ -1701,7 +1701,7 @@
               },
               {
                 "role": "user",
-                "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 6, CWE-78 (OS command injection), semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| from subprocess import run as launch\n2| \n3| \n4| def show_value(user_text):\n5|     command = \"echo \" + user_text\n6|     return launch(command, shell=True, check=True)\nSOURCE>>>"
+                "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 6, CWE-78 (OS command injection), semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| from subprocess import run as launch\n2| \n3| \n4| def show_value(user_text):\n5|     command = \"echo \" + user_text\n6|     return launch(command, shell=True, check=True)\nSOURCE>>>"
               }
             ],
             "format": {
@@ -1859,7 +1859,7 @@
             "b3d930b900108d6b1b93560c"
           ],
           "scanner_messages": [
-            "semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands."
+            "semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands."
           ],
           "explanation_source": "model",
           "explanation": "A felhasználó által megadott szöveget közvetlenül hozzáfűzzük a parancshoz, ami lehetővé teszi a parancs injektálását.",
@@ -1877,7 +1877,7 @@
           "status": "completed",
           "target": "cases/shell_alias_fixed.py",
           "source_sha256": "6df8afa0c32c306d293c7564ccb966318bab35293ec7e5fed2a87f67e2bde285",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -1888,7 +1888,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -1896,11 +1896,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_alias_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_alias_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_alias_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0009918212890625,\"profiling_times\":{\"config_time\":0.10834598541259766,\"core_time\":0.10019040107727051,\"ignores_time\":0.0,\"total_time\":0.2178034782409668},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.0,\"rules_matched_ratio\":0.0},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":73954304},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_alias_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0009918212890625,\"profiling_times\":{\"config_time\":0.10834598541259766,\"core_time\":0.10019040107727051,\"ignores_time\":0.0,\"total_time\":0.2178034782409668},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.0,\"rules_matched_ratio\":0.0},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":73954304},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.837
           }
@@ -2102,7 +2102,7 @@
           "status": "completed",
           "target": "cases/shell_constant_control.py",
           "source_sha256": "bc7beff944971f93a747bccdb7c530ba7ec6c0a8ed6f8872a13b0faf439b836d",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -2113,7 +2113,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -2121,11 +2121,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_constant_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_constant_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_constant_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0023119449615478516,\"profiling_times\":{\"config_time\":0.10174274444580078,\"core_time\":0.11060547828674316,\"ignores_time\":0.0,\"total_time\":0.22191238403320313},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008398532867431641,\"per_file_time\":{\"mean\":0.008398532867431641,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89584960},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_constant_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0023119449615478516,\"profiling_times\":{\"config_time\":0.10174274444580078,\"core_time\":0.11060547828674316,\"ignores_time\":0.0,\"total_time\":0.22191238403320313},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008398532867431641,\"per_file_time\":{\"mean\":0.008398532867431641,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89584960},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.822
           }
@@ -2436,12 +2436,12 @@
           "status": "completed",
           "target": "cases/shell_direct_bad.py",
           "source_sha256": "c6f45fa2632f20e90826010075d9f87bc53ffb011eacbec7d6cfc5a5d70a0dfd",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "e56d7a018bbd881364cfd390",
               "tool": "semgrep",
-              "rule_id": "m3-python-command-injection",
+              "rule_id": "python-command-injection",
               "path": "cases/shell_direct_bad.py",
               "line": 5,
               "severity": "ERROR",
@@ -2460,7 +2460,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -2468,11 +2468,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_direct_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_direct_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.rules.m3-python-command-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_direct_bad.py\",\"start\":{\"line\":5,\"col\":27,\"offset\":73},\"end\":{\"line\":5,\"col\":46,\"offset\":92},\"extra\":{\"message\":\"Untrusted input reaches a shell command and may inject additional commands.\",\"metadata\":{\"cwe\":\"CWE-78\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_direct_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.002521038055419922,\"profiling_times\":{\"config_time\":0.10610747337341309,\"core_time\":0.10794281959533691,\"ignores_time\":0.0,\"total_time\":0.22277331352233887},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0069582462310791016,\"per_file_time\":{\"mean\":0.0069582462310791016,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88798528},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.semgrep.python-command-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_direct_bad.py\",\"start\":{\"line\":5,\"col\":27,\"offset\":73},\"end\":{\"line\":5,\"col\":46,\"offset\":92},\"extra\":{\"message\":\"Untrusted input reaches a shell command and may inject additional commands.\",\"metadata\":{\"cwe\":\"CWE-78\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_direct_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.002521038055419922,\"profiling_times\":{\"config_time\":0.10610747337341309,\"core_time\":0.10794281959533691,\"ignores_time\":0.0,\"total_time\":0.22277331352233887},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0069582462310791016,\"per_file_time\":{\"mean\":0.0069582462310791016,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88798528},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 1 (1 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 1 finding.\n",
             "seconds": 1.858
           }
@@ -2539,7 +2539,7 @@
               },
               {
                 "role": "user",
-                "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 5, CWE-78 (OS command injection), semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| import subprocess\n2| \n3| \n4| def show_value(user_text):\n5|     return subprocess.run(f\"echo {user_text}\", shell=True, check=True)\nSOURCE>>>"
+                "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 5, CWE-78 (OS command injection), semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| import subprocess\n2| \n3| \n4| def show_value(user_text):\n5|     return subprocess.run(f\"echo {user_text}\", shell=True, check=True)\nSOURCE>>>"
               }
             ],
             "format": {
@@ -2697,7 +2697,7 @@
             "e56d7a018bbd881364cfd390"
           ],
           "scanner_messages": [
-            "semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands."
+            "semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands."
           ],
           "explanation_source": "model",
           "explanation": "A támadó által vezetett érték közvetlenül bekerül a rendszerhéj parancsba, ami lehetővé teszi a további parancsok injektálását.",
@@ -2715,7 +2715,7 @@
           "status": "completed",
           "target": "cases/shell_direct_fixed.py",
           "source_sha256": "1ab25de09b05a417a99e6d08ca1f318ef780bdef962728c1f5bbf808f626413b",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -2726,7 +2726,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -2734,11 +2734,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_direct_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_direct_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_direct_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0010104179382324219,\"profiling_times\":{\"config_time\":0.10070919990539551,\"core_time\":0.10445284843444824,\"ignores_time\":0.0,\"total_time\":0.21352910995483398},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0065190792083740234,\"per_file_time\":{\"mean\":0.0065190792083740234,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":84686784},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_direct_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0010104179382324219,\"profiling_times\":{\"config_time\":0.10070919990539551,\"core_time\":0.10445284843444824,\"ignores_time\":0.0,\"total_time\":0.21352910995483398},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0065190792083740234,\"per_file_time\":{\"mean\":0.0065190792083740234,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":84686784},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.865
           }
@@ -3066,7 +3066,7 @@
           "status": "completed",
           "target": "cases/shell_text_control.py",
           "source_sha256": "b92bd30fba2188ae405a8ac5df8fa82971493a396f2f7b8eae44b74ec81f800b",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -3077,7 +3077,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -3085,11 +3085,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\shell_text_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\shell_text_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\shell_text_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0025153160095214844,\"profiling_times\":{\"config_time\":0.10028386116027832,\"core_time\":0.10522127151489258,\"ignores_time\":0.0,\"total_time\":0.21554803848266602},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.00725245475769043,\"per_file_time\":{\"mean\":0.00725245475769043,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":85997504},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\shell_text_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0025153160095214844,\"profiling_times\":{\"config_time\":0.10028386116027832,\"core_time\":0.10522127151489258,\"ignores_time\":0.0,\"total_time\":0.21554803848266602},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.00725245475769043,\"per_file_time\":{\"mean\":0.00725245475769043,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.3333333333333333,\"rules_matched_ratio\":0.3333333333333333},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":85997504},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.912
           }
@@ -3306,12 +3306,12 @@
           "status": "completed",
           "target": "cases/sql_concat_bad.py",
           "source_sha256": "3a05e9b9e99a3e8e9beb14f6d9ba50e23cc57d3c72813eca5e852a7930a2a61e",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "b71a0debd043db5d21d271d0",
               "tool": "semgrep",
-              "rule_id": "m3-python-sql-injection",
+              "rule_id": "python-sql-injection",
               "path": "cases/sql_concat_bad.py",
               "line": 3,
               "severity": "ERROR",
@@ -3330,7 +3330,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -3338,11 +3338,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_concat_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_concat_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.rules.m3-python-sql-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_concat_bad.py\",\"start\":{\"line\":3,\"col\":27,\"offset\":136},\"end\":{\"line\":3,\"col\":32,\"offset\":141},\"extra\":{\"message\":\"Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\",\"metadata\":{\"cwe\":\"CWE-89\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_concat_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0020046234130859375,\"profiling_times\":{\"config_time\":0.1008920669555664,\"core_time\":0.11232399940490723,\"ignores_time\":0.0,\"total_time\":0.22344708442687988},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008072137832641602,\"per_file_time\":{\"mean\":0.008072137832641602,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":87749952},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.semgrep.python-sql-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_concat_bad.py\",\"start\":{\"line\":3,\"col\":27,\"offset\":136},\"end\":{\"line\":3,\"col\":32,\"offset\":141},\"extra\":{\"message\":\"Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\",\"metadata\":{\"cwe\":\"CWE-89\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_concat_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0020046234130859375,\"profiling_times\":{\"config_time\":0.1008920669555664,\"core_time\":0.11232399940490723,\"ignores_time\":0.0,\"total_time\":0.22344708442687988},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008072137832641602,\"per_file_time\":{\"mean\":0.008072137832641602,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":87749952},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 1 (1 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 1 finding.\n",
             "seconds": 1.88
           }
@@ -3409,7 +3409,7 @@
               },
               {
                 "role": "user",
-                "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 3, CWE-89 (SQL injection), semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def find_account(cursor, user_text):\n2|     query = \"SELECT name FROM accounts WHERE name = '\" + user_text + \"'\"\n3|     return cursor.execute(query)\nSOURCE>>>"
+                "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 3, CWE-89 (SQL injection), semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def find_account(cursor, user_text):\n2|     query = \"SELECT name FROM accounts WHERE name = '\" + user_text + \"'\"\n3|     return cursor.execute(query)\nSOURCE>>>"
               }
             ],
             "format": {
@@ -3567,7 +3567,7 @@
             "b71a0debd043db5d21d271d0"
           ],
           "scanner_messages": [
-            "semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter."
+            "semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter."
           ],
           "explanation_source": "model",
           "explanation": "Az `user_text` paraméter nem biztonságosan kezelve van, és közvetlenül be van ágyazva az SQL lekérdezésbe, ami SQL injekcióra terjedhet.",
@@ -3585,7 +3585,7 @@
           "status": "completed",
           "target": "cases/sql_concat_fixed.py",
           "source_sha256": "a18aec3eaf894c236edb8668ddf376c31762917529d2aa78d55b3b807d3740d8",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -3596,7 +3596,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -3604,11 +3604,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_concat_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_concat_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_concat_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015292167663574219,\"profiling_times\":{\"config_time\":0.10379195213317871,\"core_time\":0.10925483703613281,\"ignores_time\":0.0010035037994384766,\"total_time\":0.2237107753753662},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008563756942749023,\"per_file_time\":{\"mean\":0.008563756942749023,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88274240},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_concat_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0015292167663574219,\"profiling_times\":{\"config_time\":0.10379195213317871,\"core_time\":0.10925483703613281,\"ignores_time\":0.0010035037994384766,\"total_time\":0.2237107753753662},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008563756942749023,\"per_file_time\":{\"mean\":0.008563756942749023,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":88274240},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.861
           }
@@ -3810,12 +3810,12 @@
           "status": "completed",
           "target": "cases/sql_direct_bad.py",
           "source_sha256": "3ab984cc5e4e903bb08e4bfbe5b1c85b60918fcd3398dfaa9228e7ccea5aaf5c",
-          "profile": "m3",
+          "profile": "full",
           "findings": [
             {
               "id": "887ae10e29f917ea0e876fb1",
               "tool": "semgrep",
-              "rule_id": "m3-python-sql-injection",
+              "rule_id": "python-sql-injection",
               "path": "cases/sql_direct_bad.py",
               "line": 2,
               "severity": "ERROR",
@@ -3834,7 +3834,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -3842,11 +3842,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_direct_bad.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_direct_bad.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 1,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.rules.m3-python-sql-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_direct_bad.py\",\"start\":{\"line\":2,\"col\":27,\"offset\":63},\"end\":{\"line\":2,\"col\":82,\"offset\":118},\"extra\":{\"message\":\"Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\",\"metadata\":{\"cwe\":\"CWE-89\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_direct_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0061168670654296875,\"profiling_times\":{\"config_time\":0.10196924209594727,\"core_time\":0.11163592338562012,\"ignores_time\":0.0,\"total_time\":0.22264480590820313},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008508443832397461,\"per_file_time\":{\"mean\":0.008508443832397461,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89060672},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[{\"check_id\":\"C.Users.istu2.Documents.Szakdoga.semgrep.python-sql-injection\",\"path\":\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_direct_bad.py\",\"start\":{\"line\":2,\"col\":27,\"offset\":63},\"end\":{\"line\":2,\"col\":82,\"offset\":118},\"extra\":{\"message\":\"Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\",\"metadata\":{\"cwe\":\"CWE-89\"},\"severity\":\"ERROR\",\"fingerprint\":\"requires login\",\"lines\":\"requires login\",\"validation_state\":\"NO_VALIDATOR\",\"engine_kind\":\"OSS\"}}],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_direct_bad.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0061168670654296875,\"profiling_times\":{\"config_time\":0.10196924209594727,\"core_time\":0.11163592338562012,\"ignores_time\":0.0,\"total_time\":0.22264480590820313},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.008508443832397461,\"per_file_time\":{\"mean\":0.008508443832397461,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89060672},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 1 (1 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 1 finding.\n",
             "seconds": 1.873
           }
@@ -3913,7 +3913,7 @@
               },
               {
                 "role": "user",
-                "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-89 (SQL injection), semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def find_account(cursor, user_text):\n2|     return cursor.execute(f\"SELECT name FROM accounts WHERE name = '{user_text}'\")\nSOURCE>>>"
+                "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-89 (SQL injection), semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def find_account(cursor, user_text):\n2|     return cursor.execute(f\"SELECT name FROM accounts WHERE name = '{user_text}'\")\nSOURCE>>>"
               }
             ],
             "format": {
@@ -4071,7 +4071,7 @@
             "887ae10e29f917ea0e876fb1"
           ],
           "scanner_messages": [
-            "semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter."
+            "semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter."
           ],
           "explanation_source": "model",
           "explanation": "Az 'user_text' paraméter közvetlenül bekerül az SQL lekérdezésbe, ami az attacker által manipulálható lehet, hogy injektáljon rosszindulatú SQL kódot.",
@@ -4089,7 +4089,7 @@
           "status": "completed",
           "target": "cases/sql_direct_fixed.py",
           "source_sha256": "8e7d81d58dd0e1ae8280adbea30ba365672cead4f5549013c98e1091d9f5a7c2",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -4100,7 +4100,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -4108,11 +4108,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_direct_fixed.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_direct_fixed.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_direct_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0026712417602539063,\"profiling_times\":{\"config_time\":0.10121440887451172,\"core_time\":0.10405349731445312,\"ignores_time\":0.0,\"total_time\":0.21524500846862793},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007357120513916016,\"per_file_time\":{\"mean\":0.007357120513916016,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":85735360},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_direct_fixed.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.0026712417602539063,\"profiling_times\":{\"config_time\":0.10121440887451172,\"core_time\":0.10405349731445312,\"ignores_time\":0.0,\"total_time\":0.21524500846862793},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007357120513916016,\"per_file_time\":{\"mean\":0.007357120513916016,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":85735360},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.898
           }
@@ -4314,7 +4314,7 @@
           "status": "completed",
           "target": "cases/sql_integer_control.py",
           "source_sha256": "e09e3f7272a91852c52eceafc9d4f1bacf8d4f199be23c1c3182c734ea97d321",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -4325,7 +4325,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -4333,11 +4333,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_integer_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_integer_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_integer_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.002536296844482422,\"profiling_times\":{\"config_time\":0.10891294479370117,\"core_time\":0.10640978813171387,\"ignores_time\":0.0,\"total_time\":0.22435688972473145},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007954597473144531,\"per_file_time\":{\"mean\":0.007954597473144531,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89060672},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_integer_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.002536296844482422,\"profiling_times\":{\"config_time\":0.10891294479370117,\"core_time\":0.10640978813171387,\"ignores_time\":0.0,\"total_time\":0.22435688972473145},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.007954597473144531,\"per_file_time\":{\"mean\":0.007954597473144531,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.6666666666666666,\"rules_matched_ratio\":0.6666666666666666},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":89060672},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.849
           }
@@ -4648,7 +4648,7 @@
           "status": "completed",
           "target": "cases/sql_unexecuted_control.py",
           "source_sha256": "b801a2f1685627c2042b6bbfcadeb90a5553ac315b7f11000004156a062c6de7",
-          "profile": "m3",
+          "profile": "full",
           "findings": [],
           "errors": [],
           "scanned_files": [
@@ -4659,7 +4659,7 @@
               "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
               "scan",
               "--config",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\rules\\m3_python_taint.yml",
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\semgrep\\injection.yml",
               "--metrics=off",
               "--disable-version-check",
               "--no-git-ignore",
@@ -4667,11 +4667,11 @@
               "--strict",
               "--error",
               "--json",
-              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_unexecuted_control.py"
+              "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_unexecuted_control.py"
             ],
-            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+            "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
             "exit_code": 0,
-            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_unexecuted_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.005011081695556641,\"profiling_times\":{\"config_time\":0.10342907905578613,\"core_time\":0.10338187217712402,\"ignores_time\":0.0,\"total_time\":0.21535992622375488},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.0,\"rules_matched_ratio\":0.0},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":73954304},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
+            "stdout": "{\"version\":\"1.177.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_unexecuted_control.py\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.005011081695556641,\"profiling_times\":{\"config_time\":0.10342907905578613,\"core_time\":0.10338187217712402,\"ignores_time\":0.0,\"total_time\":0.21535992622375488},\"parsing_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"scanning_time\":{\"total_time\":0.0,\"per_file_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_files\":[]},\"matching_time\":{\"total_time\":0.0,\"per_file_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_files\":[]},\"tainting_time\":{\"total_time\":0.0,\"per_def_and_rule_time\":{\"mean\":0.0,\"std_dev\":0.0},\"very_slow_stats\":{\"time_ratio\":0.0,\"count_ratio\":0.0},\"very_slow_rules_on_defs\":[]},\"fixpoint_timeouts\":[],\"prefiltering\":{\"project_level_time\":0.0,\"file_level_time\":0.0,\"rules_with_project_prefilters_ratio\":0.0,\"rules_with_file_prefilters_ratio\":1.0,\"rules_selected_ratio\":0.0,\"rules_matched_ratio\":0.0},\"targets\":[],\"total_bytes\":0,\"max_memory_bytes\":73954304},\"engine_requested\":\"OSS\",\"skipped_rules\":[],\"profiling_results\":[]}\n",
             "stderr": "               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 1 file with 3 Code rules:\n  Scanning 1 file with 3 python rules.\n                \n                \n┌──────────────┐\n│ Scan Summary │\n└──────────────┘\n✅ Scan completed successfully.\n • Findings: 0 (0 blocking)\n • Rules run: 3\n • Targets scanned: 1\n • Parsed lines: ~100.0%\n • No ignore information available\nRan 3 rules on 1 file: 0 findings.\n",
             "seconds": 1.89
           }
@@ -4883,5 +4883,5 @@
   "complete": true,
   "problems": [],
   "hidden_other_families": 5,
-  "summary": "Elemzett cél: cases (18 fájl). Felismerők: semgrep, modell.\nSzűrés: csak a(z) CWE-78 hibacsalád (parancsbefecskendezés).\nLehetséges sérülékenységek száma: 3.\n1. Parancsbefecskendezés (CWE-78) – cases/shell_alias_bad.py, 6. sor. Jelezte: semgrep, modell.\n   Kód: return launch(command, shell=True, check=True)\n   Magyarázat (modell): A felhasználó által megadott szöveget közvetlenül hozzáfűzzük a parancshoz, ami lehetővé teszi a parancs injektálását.\n   Bemenet forrása (modell): function parameter `user_text`\n   Javasolt javítás (modell): Használjon `shlex.quote` a felhasználói bemenetre, hogy biztonságosan fűzzük hozzá a parancshoz. Példa: `command = 'echo ' + shlex.quote(user_text)`\n   Elemzői üzenet: semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\n2. Parancsbefecskendezés (CWE-78) – cases/shell_direct_bad.py, 5. sor. Jelezte: semgrep, modell.\n   Kód: return subprocess.run(f\"echo {user_text}\", shell=True, check=True)\n   Magyarázat (modell): A támadó által vezetett érték közvetlenül bekerül a rendszerhéj parancsba, ami lehetővé teszi a további parancsok injektálását.\n   Bemenet forrása (modell): function parameter `user_text`\n   Javasolt javítás (modell): Használjon `shlex.quote` a `user_text` paraméter értékének idézésére, hogy megelőzi a parancs injektálást. Példa: `subprocess.run(['echo', shlex.quote(user_text)], check=True)`.\n   Elemzői üzenet: semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\n3. Parancsbefecskendezés (CWE-78) – cases/shell_direct_fixed.py, 6. sor. Jelezte: modell.\n   Kód: return subprocess.run([sys.executable, \"-c\", \"import sys; print(sys.argv[1])\", user_text], shell=False, check=True)\n   Magyarázat (modell): A támadó által vezérelt `user_text` paraméter közvetlenül bekerül a `subprocess.run` hívásba, ami lehetővé teszi tetszőleges parancsok végrehajtását.\n   Bemenet forrása (modell): function parameter `user_text`\n   Javasolt javítás (modell): Használjon `shlex.quote` a `user_text` paraméterrel való formázáshoz, hogy biztonságos legyen a parancs végrehajtása. Példa: `subprocess.run([sys.executable, \"-c\", \"import sys; print(sys.argv[1])\", shlex.quote(user_text)], shell=False, check=True)`\nMás hibacsaládba tartozó, itt nem megjelenített találatok száma: 5.\nA találatok statikus elemzésből származnak; a kihasználhatóságot nem ellenőriztük. A modell szövegei tévedhetnek."
+  "summary": "Elemzett cél: cases (18 fájl). Felismerők: semgrep, modell.\nSzűrés: csak a(z) CWE-78 hibacsalád (parancsbefecskendezés).\nLehetséges sérülékenységek száma: 3.\n1. Parancsbefecskendezés (CWE-78) – cases/shell_alias_bad.py, 6. sor. Jelezte: semgrep, modell.\n   Kód: return launch(command, shell=True, check=True)\n   Magyarázat (modell): A felhasználó által megadott szöveget közvetlenül hozzáfűzzük a parancshoz, ami lehetővé teszi a parancs injektálását.\n   Bemenet forrása (modell): function parameter `user_text`\n   Javasolt javítás (modell): Használjon `shlex.quote` a felhasználói bemenetre, hogy biztonságosan fűzzük hozzá a parancshoz. Példa: `command = 'echo ' + shlex.quote(user_text)`\n   Elemzői üzenet: semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\n2. Parancsbefecskendezés (CWE-78) – cases/shell_direct_bad.py, 5. sor. Jelezte: semgrep, modell.\n   Kód: return subprocess.run(f\"echo {user_text}\", shell=True, check=True)\n   Magyarázat (modell): A támadó által vezetett érték közvetlenül bekerül a rendszerhéj parancsba, ami lehetővé teszi a további parancsok injektálását.\n   Bemenet forrása (modell): function parameter `user_text`\n   Javasolt javítás (modell): Használjon `shlex.quote` a `user_text` paraméter értékének idézésére, hogy megelőzi a parancs injektálást. Példa: `subprocess.run(['echo', shlex.quote(user_text)], check=True)`.\n   Elemzői üzenet: semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.\n3. Parancsbefecskendezés (CWE-78) – cases/shell_direct_fixed.py, 6. sor. Jelezte: modell.\n   Kód: return subprocess.run([sys.executable, \"-c\", \"import sys; print(sys.argv[1])\", user_text], shell=False, check=True)\n   Magyarázat (modell): A támadó által vezérelt `user_text` paraméter közvetlenül bekerül a `subprocess.run` hívásba, ami lehetővé teszi tetszőleges parancsok végrehajtását.\n   Bemenet forrása (modell): function parameter `user_text`\n   Javasolt javítás (modell): Használjon `shlex.quote` a `user_text` paraméterrel való formázáshoz, hogy biztonságos legyen a parancs végrehajtása. Példa: `subprocess.run([sys.executable, \"-c\", \"import sys; print(sys.argv[1])\", shlex.quote(user_text)], shell=False, check=True)`\nMás hibacsaládba tartozó, itt nem megjelenített találatok száma: 5.\nA találatok statikus elemzésből származnak; a kihasználhatóságot nem ellenőriztük. A modell szövegei tévedhetnek."
 }

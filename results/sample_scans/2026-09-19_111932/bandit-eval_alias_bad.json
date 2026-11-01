@@ -18,11 +18,11 @@
       "--ignore-nosec",
       "-f",
       "json",
-      "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\eval_alias_bad.py"
+      "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\eval_alias_bad.py"
     ],
-    "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+    "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
     "exit_code": 0,
-    "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-09-19T11:19:32Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\eval_alias_bad.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+    "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-09-19T11:19:32Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\eval_alias_bad.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
     "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: B307,B602,B608\n[main]\tINFO\tcli exclude tests: None\n",
     "seconds": 0.254
   }

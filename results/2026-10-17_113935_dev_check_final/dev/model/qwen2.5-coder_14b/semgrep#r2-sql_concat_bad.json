@@ -60,7 +60,7 @@
           },
           {
             "role": "user",
-            "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 3, CWE-89 (SQL injection), semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def find_account(cursor, user_text):\n2|     query = \"SELECT name FROM accounts WHERE name = '\" + user_text + \"'\"\n3|     return cursor.execute(query)\nSOURCE>>>"
+            "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 3, CWE-89 (SQL injection), semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def find_account(cursor, user_text):\n2|     query = \"SELECT name FROM accounts WHERE name = '\" + user_text + \"'\"\n3|     return cursor.execute(query)\nSOURCE>>>"
           }
         ],
         "format": {
@@ -218,7 +218,7 @@
         "b71a0debd043db5d21d271d0"
       ],
       "scanner_messages": [
-        "semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter."
+        "semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter."
       ],
       "explanation_source": "model",
       "explanation": "A támadó által vezérelt adat közvetlenül be van építve az SQL lekérdezésbe, ami lehetővé teszi a SQL injekciót.",

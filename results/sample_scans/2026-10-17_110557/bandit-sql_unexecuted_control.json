@@ -3,7 +3,7 @@
   "status": "completed",
   "target": "cases/sql_unexecuted_control.py",
   "source_sha256": "b801a2f1685627c2042b6bbfcadeb90a5553ac315b7f11000004156a062c6de7",
-  "profile": "m2",
+  "profile": "basic",
   "findings": [
     {
       "id": "75e16572dd85906fc32bebe4",
@@ -32,11 +32,11 @@
       "--ignore-nosec",
       "-f",
       "json",
-      "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2\\cases\\sql_unexecuted_control.py"
+      "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples\\cases\\sql_unexecuted_control.py"
     ],
-    "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\m2",
+    "cwd": "C:\\Users\\istu2\\Documents\\Szakdoga\\data\\samples",
     "exit_code": 1,
-    "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T11:06:02Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_unexecuted_control.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 1,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 1,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 def describe_query(user_text):\\n2     return f\\\"SELECT name FROM accounts WHERE name = '{user_text}'\\\"\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 66,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\m2\\\\cases\\\\sql_unexecuted_control.py\",\n      \"issue_confidence\": \"LOW\",\n      \"issue_cwe\": {\n        \"id\": 89,\n        \"link\": \"https://cwe.mitre.org/data/definitions/89.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Possible SQL injection vector through string-based query construction.\",\n      \"line_number\": 2,\n      \"line_range\": [\n        2\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b608_hardcoded_sql_expressions.html\",\n      \"test_id\": \"B608\",\n      \"test_name\": \"hardcoded_sql_expressions\"\n    }\n  ]\n}",
+    "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-17T11:06:02Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_unexecuted_control.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 1,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 1,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 2,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"1 def describe_query(user_text):\\n2     return f\\\"SELECT name FROM accounts WHERE name = '{user_text}'\\\"\\n\",\n      \"col_offset\": 11,\n      \"end_col_offset\": 66,\n      \"filename\": \"C:\\\\Users\\\\istu2\\\\Documents\\\\Szakdoga\\\\data\\\\samples\\\\cases\\\\sql_unexecuted_control.py\",\n      \"issue_confidence\": \"LOW\",\n      \"issue_cwe\": {\n        \"id\": 89,\n        \"link\": \"https://cwe.mitre.org/data/definitions/89.html\"\n      },\n      \"issue_severity\": \"MEDIUM\",\n      \"issue_text\": \"Possible SQL injection vector through string-based query construction.\",\n      \"line_number\": 2,\n      \"line_range\": [\n        2\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.9.4/plugins/b608_hardcoded_sql_expressions.html\",\n      \"test_id\": \"B608\",\n      \"test_name\": \"hardcoded_sql_expressions\"\n    }\n  ]\n}",
     "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: B307,B602,B608\n[main]\tINFO\tcli exclude tests: None\n",
     "seconds": 0.241
   }

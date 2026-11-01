@@ -90,13 +90,13 @@
   "input_sha256": {
     ".python-version": "f7401ec58a777fe2a730f8805ab7f63ff80f064930c616b18efe3a475daf57fd",
     "pyproject.toml": "a750cca7c741e81dfedea33f6405238ae9704cb0109c9ebe6f79d413da783f59",
-    "rules/smoke_eval.yml": "516aeeaaf92661a32b5bbbdb0c814f660887c045be796fd39892904c67649afb",
+    "semgrep/smoke_eval.yml": "516aeeaaf92661a32b5bbbdb0c814f660887c045be796fd39892904c67649afb",
     "tests/conftest.py": "a131bcd1d1d9ba5cc5a700039c706aa52f49ada6172e5c013f244aa46cd65887",
     "tests/fixtures/literal_only.py": "2105af5d7647595d891a26be1479177c18cb6686ac2e529df1fb18caccab2dc8",
     "tests/fixtures/README.md": "018f2805253d12af54837d5c30deca07b65212c1ae717eaa2b211dd46a1994fc",
     "tests/fixtures/text_only.py": "03b44ef8acbc28b3dd0b69231d0cb2a451011660773f9cd6f72d8d086083ff00",
     "tests/fixtures/unsafe_eval.py": "8bc8f1aaeb8c2c1632a93a39c66df2d8e0a3fd118ecd0be14e6b6af747fabea3",
-    "tests/test_scanner_installation.py": "459df6c11edc3ce03835ff1560c0872656bf15a9e26c3ac02055f1d72224efea",
+    "tests/test_install.py": "459df6c11edc3ce03835ff1560c0872656bf15a9e26c3ac02055f1d72224efea",
     "uv.lock": "0b0d0270e421c024bedc51305c5fe7d882820d0ec40006b706162a14149a95e5"
   }
 }

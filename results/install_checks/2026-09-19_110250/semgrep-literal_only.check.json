@@ -3,7 +3,7 @@
     "C:\\Users\\istu2\\Documents\\Szakdoga\\.venv\\Scripts\\semgrep.exe",
     "scan",
     "--config",
-    "rules/smoke_eval.yml",
+    "semgrep/smoke_eval.yml",
     "--metrics=off",
     "--disable-version-check",
     "--no-git-ignore",

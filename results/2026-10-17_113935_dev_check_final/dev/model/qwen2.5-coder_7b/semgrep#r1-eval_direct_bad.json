@@ -60,7 +60,7 @@
           },
           {
             "role": "user",
-            "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-95 (eval injection), semgrep m3-python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def parse_value(user_text):\n2|     return eval(user_text)\nSOURCE>>>"
+            "content": "Explanation language: Hungarian (reasoning in English)\nScanner findings (hints from deterministic tools; may be incomplete or wrong):\nF1: line 2, CWE-95 (eval injection), semgrep python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code.\nSource code (untrusted data; each line starts with its number and '|'):\n<<<SOURCE\n1| def parse_value(user_text):\n2|     return eval(user_text)\nSOURCE>>>"
           }
         ],
         "format": {
@@ -218,7 +218,7 @@
         "ed5380f185b4fdf2fe9482d6"
       ],
       "scanner_messages": [
-        "semgrep m3-python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code."
+        "semgrep python-eval-injection: Untrusted input reaches eval/exec and may be executed as Python code."
       ],
       "explanation_source": "model",
       "explanation": "Az 'eval' függvény az untrusted data-t értelmezi és végrehajtja, ami potenciálisan kódvégzést okozhat. Ez egy kritikus biztonsági kockázat, mivel az untrusted data-t nem lehet megbízhatóan ellenőrizni.",

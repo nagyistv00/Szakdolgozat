@@ -13,7 +13,7 @@ Lehetséges sérülékenységek száma: 2.
    Magyarázat (modell): Az SQL lekérdezés dinamikusan épül az untrusted data alapján, ami lehetővé teszi az SQL injekció támadását.
    Bemenet forrása (modell): user_text
    Javasolt javítás (modell): Használja a paraméteres SQL lekérdezéseket, hogy elkerülje az SQL injekciót. Példa: cursor.execute("SELECT name FROM accounts WHERE name = %s", (user_text,))
-   Elemzői üzenet: semgrep m3-python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.
+   Elemzői üzenet: semgrep python-sql-injection: Untrusted input is built into an SQL statement instead of being passed as a bound parameter.
 A találatok statikus elemzésből származnak; a kihasználhatóságot nem ellenőriztük. A modell szövegei tévedhetnek.
 [exit code 0]
 
@@ -51,7 +51,7 @@ Lehetséges sérülékenységek száma: 4.
    Bemenet forrása (modell): user_text
    Javasolt javítás (modell): A shell=True paramétert távolítsuk el, és használjunk a subprocess.run függvényt a user_text paramétert biztonságosan átadva. Példa: return launch(['echo', user_text], check=True)
    Elemzői üzenet: bandit B602: subprocess call with shell=True identified, security issue.
-   Elemzői üzenet: semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.
+   Elemzői üzenet: semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.
 2. Parancsbefecskendezés (CWE-78) – cases/shell_constant_control.py, 5. sor. Jelezte: bandit, modell.
    Kód: return subprocess.run("echo fixed", shell=True, check=True)
    Magyarázat (modell): A 'subprocess.run' függvényben a 'shell=True' paraméter használatával operációs rendszer parancsot futtatunk, ami potenciálisan káros lehet, ha az untrusted data nem teljesen megbízható.
@@ -64,7 +64,7 @@ Lehetséges sérülékenységek száma: 4.
    Bemenet forrása (modell): user_text
    Javasolt javítás (modell): A shell=True paramétert távolítsuk el, és használjunk a subprocess.run függvényt a user_text paramétertől függetlenül. Példa: subprocess.run(["echo", user_text], check=True)
    Elemzői üzenet: bandit B602: subprocess call with shell=True identified, security issue.
-   Elemzői üzenet: semgrep m3-python-command-injection: Untrusted input reaches a shell command and may inject additional commands.
+   Elemzői üzenet: semgrep python-command-injection: Untrusted input reaches a shell command and may inject additional commands.
 4. Parancsbefecskendezés (CWE-78) – cases/shell_text_control.py, 2. sor. Jelezte: modell.
    Kód: return "subprocess.run(user_text, shell=True)"
    Magyarázat (modell): Az untrusted data (user_text) bejön a subprocess.run függvényben, és a shell=True paraméter használatával a Python kód futtatására szolgál. Ez egy potenciális kockázat, mivel az untrusted data nem korlátozott.

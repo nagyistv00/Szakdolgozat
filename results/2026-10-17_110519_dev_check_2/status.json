@@ -11,26 +11,26 @@
                    "exit_code":  0,
                    "seconds":  37.2
                },
-    "m2_reproduction":  {
+    "scan_samples":  {
                             "exit_code":  0,
                             "seconds":  39
                         },
-    "model_server_start":  {
+    "ollama_start":  {
                                "exit_code":  0
                            },
-    "model_pull_qwen2.5-coder_7b":  {
+    "pull_qwen2.5-coder_7b":  {
                                         "exit_code":  0,
                                         "seconds":  0.5
                                     },
-    "model_pull_qwen2.5-coder_14b":  {
+    "pull_qwen2.5-coder_14b":  {
                                          "exit_code":  0,
                                          "seconds":  169.8
                                      },
-    "dev_eval":  {
+    "eval_dev":  {
                      "exit_code":  0,
                      "seconds":  1048.2
                  },
-    "requests_eval":  {
+    "eval_requests_dev":  {
                           "exit_code":  0,
                           "seconds":  21.7
                       },
@@ -38,7 +38,7 @@
                  "exit_code":  0,
                  "seconds":  160.3
              },
-    "model_server_stop":  {
+    "ollama_stop":  {
                               "exit_code":  0
                           }
 }

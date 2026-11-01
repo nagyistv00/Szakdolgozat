@@ -11,15 +11,15 @@
                    "exit_code":  0,
                    "seconds":  37.6
                },
-    "m2_reproduction":  {
+    "scan_samples":  {
                             "exit_code":  0,
                             "seconds":  39.9
                         },
-    "dev_eval":  {
+    "eval_dev":  {
                      "exit_code":  0,
                      "seconds":  335.7
                  },
-    "requests_eval":  {
+    "eval_requests_dev":  {
                           "exit_code":  0,
                           "seconds":  8.9
                       },
@@ -27,7 +27,7 @@
                  "exit_code":  0,
                  "seconds":  147.5
              },
-    "model_server_stop":  {
+    "ollama_stop":  {
                               "exit_code":  0
                           }
 }
